@@ -1,0 +1,330 @@
+::root
+{
+	--bs-gutter-x: 1.5rem;
+	--bs-gutter-y: 0;
+}
+
+html, body
+{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	letter-spacing: 1.5px;
+	word-spacing: 2px;
+}
+
+*,
+*::before,
+*::after
+{
+	box-sizing: border-box !important;
+	padding: 0;
+	margin:  0;
+	word-wrap: break-word;
+	list-style: none;
+	text-decoration: none;
+	transition: .7s;
+	object-fit: cover;
+}
+
+body
+{
+	color: #060605;
+	background: #FAFAF9;
+	word-wrap:break-word;
+}
+
+a,
+a::before,
+a::after
+{
+	text-decoration: none;
+	color: #060605;
+}
+
+
+/* Used Bootstrap Contaner */
+.container
+{
+	width: 100%;
+	max-width: 100%;
+	margin-right: auto;
+	margin-left: auto;
+	display: flex;
+}
+
+.row 
+{
+	--bs-gutter-x: 1.5rem;
+	--bs-gutter-y: 0;
+	display: flex !important;
+	flex-wrap: wrap;
+	margin-top: calc(var(--bs-gutter-y) * -1);
+	margin-right: calc(var(--bs-gutter-x) * -.5);
+	margin-left: calc(var(--bs-gutter-x) * -.5);
+	max-width: 100%;
+}
+
+.row > * 
+{
+	flex-shrink: 0;
+	width: 100%;
+	max-width: 100%;
+	padding-right: calc(var(--bs-gutter-x) * .5);
+	padding-left: calc(var(--bs-gutter-x) * .5);
+	margin-top: var(--bs-gutter-y);
+}
+
+.col-4 {
+  flex: 0 0 auto;
+  width: 33.33333333% !important;
+}
+
+.col-8 {
+  flex: 0 0 auto;
+  width: 66.66666667% !important;
+}
+
+.col-12 {
+  flex: 0 0 auto;
+  width: 100%;
+}
+
+.col-5 {
+  flex: 0 0 auto;
+  width: 41.66666667%;
+}
+
+.col-6 {
+  flex: 0 0 auto;
+  width: 50%;
+}
+
+.col-7 {
+  flex: 0 0 auto;
+  width: 58.33333333%;
+}
+
+.fade-in-image {
+  animation: fadeIn 5s;
+  -webkit-animation: fadeIn 5s;
+  -moz-animation: fadeIn 5s;
+  -o-animation: fadeIn 5s;
+  -ms-animation: fadeIn 5s;
+}
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+.p-2
+{
+	padding: 2rem;
+}
+
+.text-black
+{
+	color: #060605 !important;
+}
+
+.border 
+{
+	border: solid 2.2px #A3A8A1;
+}
+
+.border-right
+{
+	border-right: solid 2.2px #A3A8A1 !important;
+}
+
+.circle
+{
+	display: flex;
+	justify-content: center;
+	justify-items: center;
+	align-items: center;
+	border-radius:  50%;
+}
+
+.responsive
+{
+	max-width: 100%;
+}
+
+/* Page Contents */
+
+header
+{
+	max-width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 30px 4rem;
+}
+
+.logo 
+{
+	cursor: pointer;
+	text-transform: uppercase;
+}
+
+.nav__links
+{
+	list-style: none;
+}
+
+.nav__links li 
+{
+	display: inline-block;
+	padding: 0px 20px;
+}
+
+.nav__links li a
+{
+	transition: all .3s ease 0s;
+}
+
+.nav__links li a:hover
+{
+	color: #000;
+}
+
+header .right
+header span
+{
+	margin-left: auto;
+}
+
+.btn 
+{
+	padding: 9px 25px;
+	background-color: #060605;
+	color: #FAFAF9;
+	border:  none;
+	border-radius: 50px;
+	cursor: pointer;
+	transition: all .3s ease 0s;
+}
+
+.btn:hover
+{
+	background-color: #000;
+}
+
+
+.flash.border
+{
+	display: flex;
+	flex: row nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	border-left: hidden;
+	border-right: hidden;
+	position: relative;
+	padding: 0px;
+	padding-top: .385em;
+	padding-bottom: .385em;
+	font-size: 0.902rem;
+	font-weight: 300;
+	text-align: center;
+	overflow-x: auto;
+}
+
+.flash.border a,
+.flash.border span.dot
+{
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 12px 0 12px;
+}
+
+.flash.border span.dot
+{
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	font-size: 1.8rem;
+	background: #060605;
+	border-radius: 50%;
+}
+
+main 
+{
+	position: relative;
+	min-height: 95vh;
+}
+
+main .row 
+{
+	position: relative;
+}
+
+main #about
+{
+	padding: 4rem;
+}
+main #about p
+{
+	font-size: 40px;
+	margin-bottom: 25px;
+}
+
+main #about #font-logo
+{
+	position: absolute;
+	bottom: 8rem;
+
+	width: 75px;
+	height: 75px;
+	background: #000;
+}
+
+.list > div
+{
+	margin: auto;
+}
+
+.card
+{
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+	word-wrap: break-word;
+	background-color: #FAFAF9;
+	background-clip: border-box;
+	border: 1px solid rgba(0, 0, 0, 0.125);
+	border-radius: 0.25rem;
+	width: 500px;
+	height: 250px;
+	margin: 15px auto;
+}
+
+/* responsive */
+@media screen and (max-width: 1024px) {
+
+}
+@media screen and (max-width: 480px) {
+
+}
