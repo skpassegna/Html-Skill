@@ -4,6 +4,21 @@
 	--bs-gutter-y: 0;
 }
 
+::-webkit-scrollbar {
+	width: 10px;
+	padding: 2px;
+}
+  
+  /* Track */
+::-webkit-scrollbar-track {
+	background: #fff;
+  }
+  
+  /* Handle */
+::-webkit-scrollbar-thumb {
+	background: #dee2e6;
+  }
+
 html, body
 {
 	width: 100%;
@@ -25,13 +40,6 @@ html, body
 	text-decoration: none;
 	transition: .7s;
 	object-fit: cover;
-}
-
-body
-{
-	color: #060605;
-	background: #FAFAF9;
-	word-wrap:break-word;
 }
 
 a,
@@ -183,7 +191,8 @@ main .row
 
 main #about
 {
-	padding: 4rem;
+	padding: 1.5rem;
+	text-align: justify;
 }
 main #about p
 {
@@ -193,12 +202,21 @@ main #about p
 
 main #about #font-logo
 {
-	position: absolute;
-	bottom: 8rem;
-
 	width: 75px;
 	height: 75px;
 	background: #000;
+}
+
+main #about::after
+{
+	content: '';
+	display: inline-block;
+	width: 1.5px;
+	height: 100vh;
+	position: absolute;
+	top: 0;
+	left: 33%;
+	background: #dee2e6;
 }
 
 .list > div
