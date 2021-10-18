@@ -42,69 +42,6 @@ a::after
 	color: #060605;
 }
 
-
-/* Used Bootstrap Contaner */
-.container
-{
-	width: 100%;
-	max-width: 100%;
-	margin-right: auto;
-	margin-left: auto;
-	display: flex;
-}
-
-.row 
-{
-	--bs-gutter-x: 1.5rem;
-	--bs-gutter-y: 0;
-	display: flex !important;
-	flex-wrap: wrap;
-	margin-top: calc(var(--bs-gutter-y) * -1);
-	margin-right: calc(var(--bs-gutter-x) * -.5);
-	margin-left: calc(var(--bs-gutter-x) * -.5);
-	max-width: 100%;
-}
-
-.row > * 
-{
-	flex-shrink: 0;
-	width: 100%;
-	max-width: 100%;
-	padding-right: calc(var(--bs-gutter-x) * .5);
-	padding-left: calc(var(--bs-gutter-x) * .5);
-	margin-top: var(--bs-gutter-y);
-}
-
-.col-4 {
-  flex: 0 0 auto;
-  width: 33.33333333% !important;
-}
-
-.col-8 {
-  flex: 0 0 auto;
-  width: 66.66666667% !important;
-}
-
-.col-12 {
-  flex: 0 0 auto;
-  width: 100%;
-}
-
-.col-5 {
-  flex: 0 0 auto;
-  width: 41.66666667%;
-}
-
-.col-6 {
-  flex: 0 0 auto;
-  width: 50%;
-}
-
-.col-7 {
-  flex: 0 0 auto;
-  width: 58.33333333%;
-}
-
 .fade-in-image {
   animation: fadeIn 5s;
   -webkit-animation: fadeIn 5s;
@@ -137,34 +74,6 @@ a::after
   100% {opacity:1;}
 }
 
-.p-2
-{
-	padding: 2rem;
-}
-
-.text-black
-{
-	color: #060605 !important;
-}
-
-.border 
-{
-	border: solid 2.2px #A3A8A1;
-}
-
-.border-right
-{
-	border-right: solid 2.2px #A3A8A1 !important;
-}
-
-.circle
-{
-	display: flex;
-	justify-content: center;
-	justify-items: center;
-	align-items: center;
-	border-radius:  50%;
-}
 
 .responsive
 {
@@ -175,11 +84,10 @@ a::after
 
 header
 {
-	max-width: 100%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 30px 4rem;
+	padding: 10px 1rem;
 }
 
 .logo 
@@ -215,51 +123,44 @@ header span
 	margin-left: auto;
 }
 
-.btn 
+.flash .row
 {
-	padding: 9px 25px;
-	background-color: #060605;
-	color: #FAFAF9;
-	border:  none;
-	border-radius: 50px;
-	cursor: pointer;
-	transition: all .3s ease 0s;
-}
-
-.btn:hover
-{
-	background-color: #000;
-}
-
-
-.flash.border
-{
-	display: flex;
-	flex: row nowrap;
-	justify-content: center;
-	align-items: center;
-	align-content: center;
-	border-left: hidden;
-	border-right: hidden;
-	position: relative;
-	padding: 0px;
-	padding-top: .385em;
-	padding-bottom: .385em;
-	font-size: 0.902rem;
-	font-weight: 300;
 	text-align: center;
-	overflow-x: auto;
+	overflow-x: scroll;
+	-ms-word-wrap: nowrap;
+	word-wrap: nowrap;
+	white-space: nowrap;
 }
 
-.flash.border a,
-.flash.border span.dot
+/* width */
+.flash .row::-webkit-scrollbar {
+	width: 0px;
+  }
+  
+  /* Track */
+  .flash .row::-webkit-scrollbar-track {
+	background: transparent;
+  }
+  
+  /* Handle */
+  .flash .row::-webkit-scrollbar-thumb {
+	background: transparent;
+  }
+  
+  /* Handle on hover */
+  .flash::-webkit-scrollbar-thumb:hover {
+	background: transparent;
+  }
+
+.flash a,
+.flash span.dot
 {
 	display: inline-block;
 	vertical-align: middle;
 	margin: 0 12px 0 12px;
 }
 
-.flash.border span.dot
+.flash span.dot
 {
 	display: inline-block;
 	width: 10px;
