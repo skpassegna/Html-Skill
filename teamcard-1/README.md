@@ -6,3 +6,11 @@ In the css file i've used a lot of duplicate line, I'm sorry about that. When i 
 
 ## Responsive?
 No.
+
+# Images sources
+* Claudia Kim : https://www.femalemag.com.sg/
+* Albert Dera & Olga Zabegina : https://unsplash.com/
+* Michael Vick : https://www.blackenterprise.com/
+
+# Other note
+Ma Gimp frozen so i was unable to crop Claudia Kim's pic
