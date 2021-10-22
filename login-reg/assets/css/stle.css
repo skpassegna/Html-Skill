@@ -1,0 +1,118 @@
+*,
+*::before,
+*::after
+{
+    box-sizing: border-box !important;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    transition: all .3s;
+}
+
+body
+{
+    background: #e7e6e6;
+    color: #000000cb;
+}
+
+.container
+{
+    width: 90%;
+    margin: auto;
+}
+
+form
+{
+    width: 850px;
+    height: 550px;
+    background: #fff;
+    margin: 10% auto;
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row nowrap;
+}
+
+.input-group
+{
+    width: 100%;
+    margin: 5px auto;
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    flex-flow: column wrap;
+}
+
+input[type=text],
+input[type=email],
+input[type=password]
+{
+    width: 78%;
+    height: 35px;
+    outline: none;
+    border: none;
+    background: #fff;
+    color: #000;
+    border-bottom: 2px solid #e7e6e6;
+    font-size: 1rem;
+    line-height: 2;
+    padding: 0px 8px;
+}
+
+input[type=text]:hover,
+input[type=email]:hover,
+input[type=password]:hover,
+input[type=text]:active,
+input[type=email]:active,
+input[type=password]:active,
+input:-internal-autofill-selected
+{
+    background: #fff !important;
+    border-bottom: 1px solid #464646 !important;
+}
+
+label
+{
+    text-transform: capitalize;
+    font-size: 1.2rem;
+}
+
+.form-fields,
+.info-fields
+{
+    height: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    
+}
+
+.form-fields
+{
+    width: 60%;
+}
+
+h1
+{
+    text-align: center;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.info-fields
+{
+    width: 40%;
+    background: #6c63ff;
+    color: #fff;
+    padding: 9px;
+    font-size: 1.1rem;
+    font-weight: lighter;
+    text-align: justify;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-fields a
+{
+    color: #313131ce;
+}
+
