@@ -4,8 +4,8 @@ Sorry, this one was moved away. I will create a new repository for it soon after
 ## Todo
 As for Fri 10/22/2021
 
-[X] Clean The code
-[X] Adopt the Boilplate models
-[ ] Allow multi form creation
-[ ] _Git Push_
-[ ] Publish on wordpress.org
+* [x] Clean The code
+* [x] Adopt the Boilplate models
+* [ ] Allow multi form creation
+* [ ] _Git Push_
+* [ ] Publish on wordpress.org
