@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="2955"
+   height="1230"
+   viewBox="0 0 781.84373 325.43751"
+   version="1.1"
+   id="svg50405"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   sodipodi:docname="colors.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <title
+     id="title50597">Color Palette forthis project</title>
+  <sodipodi:namedview
+     id="namedview50407"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="px"
+     showgrid="false"
+     units="px"
+     inkscape:zoom="0.11779657"
+     inkscape:cx="-1455.8998"
+     inkscape:cy="1566.2595"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs50402" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:none;stroke:#00002b;stroke-width:0.302469"
+       id="rect9304"
+       width="780.52802"
+       height="322.53152"
+       x="0.65786844"
+       y="1.4529881"
+       inkscape:export-filename="C:\Users\Samuel\Desktop\html Skill\commune\assets\images\colors.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <g
+       id="g50362"
+       transform="translate(1220.4408,646.94934)"
+       inkscape:export-filename="C:\Users\Samuel\Desktop\html Skill\commune\assets\images\colors.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <g
+         id="g50332">
+        <rect
+           style="fill:#072266;fill-opacity:1;stroke:none;stroke-width:0.342196"
+           id="rect9350"
+           width="110.3212"
+           height="322.56958"
+           x="-1215.6431"
+           y="-645.51538" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:19.7556px;line-height:1.25;font-family:sans-serif;fill:#6f6f6f;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="-1206.6497"
+           y="-345.72952"
+           id="text12873"><tspan
+             sodipodi:role="line"
+             id="tspan12871"
+             style="font-size:19.7556px;fill:#6f6f6f;fill-opacity:1;stroke-width:0.264583"
+             x="-1206.6497"
+             y="-345.72952">#072266</tspan></text>
+      </g>
+      <g
+         id="g50327">
+        <rect
+           style="fill:#f2f2f2;fill-opacity:1;stroke:none;stroke-width:0.342196"
+           id="rect16159"
+           width="110.3212"
+           height="322.56958"
+           x="-1105.3218"
+           y="-645.51538" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:19.7556px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="-1087.801"
+           y="-345.72952"
+           id="text16163"><tspan
+             sodipodi:role="line"
+             id="tspan16161"
+             style="font-size:19.7556px;fill:#000000;fill-opacity:1;stroke-width:0.264583"
+             x="-1087.801"
+             y="-345.72952">#f2f2f2</tspan></text>
+      </g>
+      <g
+         id="g50317">
+        <rect
+           style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.342196"
+           id="rect20507"
+           width="110.3212"
+           height="322.56958"
+           x="-884.67944"
+           y="-645.51538" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:19.7556px;line-height:1.25;font-family:sans-serif;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="-875.57025"
+           y="-345.72952"
+           id="text20511"><tspan
+             sodipodi:role="line"
+             id="tspan20509"
+             style="font-size:19.7556px;fill:#ffffff;fill-opacity:1;stroke-width:0.264583"
+             x="-875.57025"
+             y="-345.72952">#000000</tspan></text>
+      </g>
+      <g
+         id="g50322">
+        <rect
+           style="fill:#6f6f6f;fill-opacity:1;stroke:none;stroke-width:0.342196"
+           id="rect28656"
+           width="110.3212"
+           height="322.56958"
+           x="-995.00061"
+           y="-645.51538" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:19.7556px;line-height:1.25;font-family:sans-serif;fill:#f2f2f2;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="-978.43964"
+           y="-345.72952"
+           id="text28660"><tspan
+             sodipodi:role="line"
+             style="font-size:19.7556px;fill:#f2f2f2;fill-opacity:1;stroke-width:0.264583"
+             x="-978.43964"
+             y="-345.72952"
+             id="tspan31938">#6f6f6f</tspan></text>
+      </g>
+      <g
+         id="g50312">
+        <rect
+           style="fill:#ffa800;fill-opacity:1;stroke:none;stroke-width:0.342196"
+           id="rect35473"
+           width="110.3212"
+           height="322.56958"
+           x="-774.35828"
+           y="-645.51538" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:19.7556px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="-759.28766"
+           y="-345.72952"
+           id="text35477"><tspan
+             sodipodi:role="line"
+             id="tspan35475"
+             style="font-size:19.7556px;fill:#000000;fill-opacity:1;stroke-width:0.264583"
+             x="-759.28766"
+             y="-345.72952">#ffa800</tspan></text>
+      </g>
+      <g
+         id="g50307">
+        <rect
+           style="fill:#6c63ff;fill-opacity:1;stroke:none;stroke-width:0.342196"
+           id="rect41486"
+           width="110.3212"
+           height="322.56958"
+           x="-664.03711"
+           y="-645.51538" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:19.7556px;line-height:1.25;font-family:sans-serif;fill:#f2f2f2;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="-649.14978"
+           y="-345.72952"
+           id="text41490"><tspan
+             sodipodi:role="line"
+             id="tspan41488"
+             style="font-size:19.7556px;fill:#f2f2f2;fill-opacity:1;stroke-width:0.264583"
+             x="-649.14978"
+             y="-345.72952">#6c63ff</tspan></text>
+      </g>
+      <g
+         id="g50302">
+        <rect
+           style="fill:#2a3554;fill-opacity:1;stroke:none;stroke-width:0.342196"
+           id="rect46101"
+           width="110.3212"
+           height="322.56958"
+           x="-553.71594"
+           y="-645.51538" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:19.7556px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="-544.43311"
+           y="-345.72952"
+           id="text46105"><tspan
+             sodipodi:role="line"
+             id="tspan46103"
+             style="font-size:19.7556px;fill:#000000;fill-opacity:1;stroke-width:0.264583"
+             x="-544.43311"
+             y="-345.72952">#2a3554</tspan></text>
+      </g>
+    </g>
+  </g>
+  <metadata
+     id="metadata50595">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>Color Palette forthis project</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>

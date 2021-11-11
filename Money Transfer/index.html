@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Money Transfer</title>
+	<link rel="icon" href="assets/images/internet.svg" />
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/all.min.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+	<header class="container-fluid" id="page_cover">
+		<nav class="navbar navbar-expand-lg navbar-light">
+			<div class="container-fluid">
+				<a class="navbar-brand mr-md-5" href="#">
+					<img src="assets/images/logo.svg" width="30" height="24" alt="logo">
+				</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+					data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+					aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-0 mb-lg-0">
+						<li class="nav-item">
+							<a class="nav-link" href="#">Invite Friends</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Business</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="#">Download App</a>
+						</li>
+					</ul>
+					<ul class="navbar-nav mb-0 mb-lg-0 ml-auto">
+						<li class="nav-item">
+							<a class="nav-link text-light" href="#">Login</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Sign Up</a>
+						</li>
+
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+
+		<div class="container-fluid mt-2">
+			<div class="row">
+				<div class="col-6 p-5" id="left_col">
+					<h1 class="mt-50">
+						Pay anyone, <br> anywhere
+					</h1>
+					<p class="lead">
+						Pay family, friends and bills for <br>
+						less&mdash;at home and abroard.
+					</p>
+					<ul class="list-inline">
+						<li class="list-inline-item"><i class="fab fa-cc-visa"></i></li>
+						<li class="list-inline-item"><i class="fab fa-cc-mastercard"></i></li>
+						<li class="list-inline-item">Klama</li>
+					</ul>
+				</div>
+				<div class="col-6 p-5" id="right_col">
+					<div class="container">
+						<div class="row mb-5">
+							<div class="col text-center">
+								<a href="#" class="text-green">International</a>
+								<a href="#" class="text-light">Local</a>
+							</div>
+						</div>
+						<div class="row mx-auto mb-5">
+							<div class="col-3 mx-auto">
+								<div class="mb-3 text-light">
+									<label for="sending-devise">I'd like to send</label>
+									<select class="form-select" aria-label="form-select">
+										<option class="bg-black text-light" value="1" selected>DE-EUR</option>
+										<option class="bg-black text-light" value="2">US-USD</option>
+										<option class="bg-black text-light" value="3">RU-RUB</option>
+									</select>
+								</div>
+
+								<div class="mb-3 text-light">
+									<label for="sending-devise">And receive in</label>
+									<select class="form-select" aria-label="form-select">
+										<option class="bg-black text-light" value="1" selected>UA-UAH</option>
+										<option class="bg-black text-light" value="2">JP-JPY</option>
+										<option class="bg-black text-light" value="3">TG-XOF</option>
+									</select>
+								</div>
+							</div>
+
+							<div class="col-3 center-content mx-auto">
+								<i class="fas fa-sync fa-3x text-light"></i>
+							</div>
+
+							<div class="col-3 mx-auto">
+								<div class="mb-3 text-light"> 
+									<input type="text" name="out" id="out" class="form-control" value="&euro;200" required>
+								</div>
+
+								<div class="mb-3 text-light">
+									<input type="text" name="out" id="out" class="form-control" value="&Diamond;5,766" required>
+								</div>
+							</div>
+						</div>
+						<div class="row mb-5">
+							<div class="col d-flex" id="convert_card">
+								<div class="card bg-cyan-alt">
+									<div class="card-body">
+										<h5 class="card-title">Tomorrow</h5>
+										<p class="card-text">by 20:30</p>
+									</div>
+									<div class="card-footer d-flex">
+										<h6>Free </h6> <i class="fas fa-check-circle"></i>
+									</div>
+								</div>
+
+								<div class="card bg-green">
+									<div class="card-body">
+										<h5 class="card-title">Today</h5>
+										<p class="card-text">by 21:00</p>
+									</div>
+									<div class="card-footer">
+										<h6>&euro;1.99 </h6></i>
+									</div>
+								</div>
+
+								<div class="card bg-yellow">
+									<div class="card-body">
+										<h5 class="card-title">Instant</h5>
+										<p class="card-text">30 min</p>
+									</div>
+									<div class="card-footer">
+										<h6>&euro;2.99 </h6></i>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="row mt-5">
+							<div class="col pl-3">
+								<button class="btn btn-dark mr-5">Transfer Now</button> 
+								<span class="ml-2"><i class="fas fa-lock"></i> FCA protected</span>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<script src="assets/js/jquery.min.js">  </script>
+	<script src="assets/js/all.min.js">  </script>
+	<script src="assets/js/bootstrap.min.js">  </script>
+</body>
+
+</html>

@@ -1,0 +1,141 @@
+:root
+{
+    --cyan-color: #ccc8c2ff;
+    --cyan-color-alt: #bcbab6ff;
+    --green-color: #45febbff;
+    --yellow-color: #e2fda7ff;
+    --gray-color: #333333ff;
+}
+
+*,
+*::before,
+*::after
+{
+    box-sizing: border-box !important;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+}
+
+body
+{
+    background-color: #ccc8c2;
+    
+    background-image: linear-gradient(to right, #ccc8c2, #ccc8c2, #ccc8c2, #ccc8c2, #ccc8c2, #ccc8c2, #000000, #000000, #000000, #000000, #000000, #000000);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.text-green
+{
+    color: var(--green-color) !important;
+}
+
+.text-cyan
+{
+    color: var(--cyan-color) !important;
+}
+
+.bg-cyan-alt
+{
+    background-color: var(--cyan-color-alt) !important;
+}
+
+.bg-yellow
+{
+    background-color: var(--yellow-color) !important;
+}
+
+.bg-green
+{
+    background-color: var(--green-color) !important;
+}
+
+header
+{
+    height: 100vh;
+}
+
+#left_col
+{
+    text-align: justify;
+}
+
+#left_col h1
+{
+    font-size: 5.2rem;
+    margin-top: 35%;
+}
+
+#left_col ul
+{
+    margin: auto;
+    text-align: left;
+}
+
+
+#right_col
+{
+    padding: 45px;
+}
+
+#convert_card .card
+{
+    margin: auto;
+    width: 200px;
+    height: 250px;
+    border-radius: 1rem;
+}
+
+.card-footer
+{
+    font-weight: bolder;
+    font-size: 1.3rem;
+    border-radius: 0 !important;
+    border-top: 0px none transparent;
+    background-color: transparent;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.center-content
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-control,
+.form-control:active,
+.form-control:focus,
+.form-control:visited,
+.form-control:focus-visible,
+.form-select:active,
+.form-select:focus,
+.form-select:visited,
+.form-select:focus-visible,
+.form-select::selection
+{
+    outline: none;
+    appearance: none;
+    border: none;
+    color: inherit;
+    background-color: transparent;
+    background-image: none;
+    background-repeat: no-repeat;
+    border-bottom: 2px solid #ccc8c2;
+    border-radius: 0px;
+    font-size: 1.6rem;
+}
+
+.form-select-sm::after
+{
+    font-family: "Font Awesome 5 Brands";
+    font-weight: 400;
+    content: '\f107';
+    color: rebeccapurple;
+    display: inline-block;;
+    width: 25px;
+    height: 20px;
+}
