@@ -9,19 +9,19 @@
 
 *,
 *::before,
-*::after
+*::after,
+a
 {
     box-sizing: border-box !important;
     padding: 0;
     margin: 0;
     text-decoration: none;
+    flex: 0 0 auto;
 }
 
 body
 {
-    background-color: #ccc8c2;
-    
-    background-image: linear-gradient(to right, #ccc8c2, #ccc8c2, #ccc8c2, #ccc8c2, #ccc8c2, #ccc8c2, #000000, #000000, #000000, #000000, #000000, #000000);
+    background-color: #fff;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -54,38 +54,45 @@ body
 
 header
 {
-    height: 100vh;
+    min-height: 100vh;
+    width: 100%;
+    background: linear-gradient(to right, #f8f8f8 0%, #f8f8f8 50%, #000000 50%, #000000 100%);
 }
 
 #left_col
 {
-    text-align: justify;
+    display: flex;
+    flex-direction: column;
 }
+
+#right_col
+{
+    padding: 0.5%;
+}
+
 
 #left_col h1
 {
-    font-size: 5.2rem;
-    margin-top: 35%;
+    font-size: 4rem;
+    margin-top: 30%;
 }
 
 #left_col ul
 {
-    margin: auto;
     text-align: left;
 }
 
-
-#right_col
+#convert_card
 {
-    padding: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 #convert_card .card
 {
-    margin: auto;
-    width: 200px;
-    height: 250px;
-    border-radius: 1rem;
+    min-height: 150px;
+    border-radius: 0.6rem;
 }
 
 .card-footer
@@ -115,8 +122,11 @@ header
 .form-select:focus,
 .form-select:visited,
 .form-select:focus-visible,
-.form-select::selection
+.form-select::selection,
+.form-select
 {
+    padding: 0px;
+    text-align: left;
     outline: none;
     appearance: none;
     border: none;
@@ -139,3 +149,5 @@ header
     width: 25px;
     height: 20px;
 }
+
+

@@ -43,7 +43,7 @@
 							<a class="nav-link text-light" href="#">Login</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">Sign Up</a>
+							<a class="nav-link text-primary" href="#">Sign Up</a>
 						</li>
 
 					</ul>
@@ -54,21 +54,24 @@
 
 		<div class="container-fluid mt-2">
 			<div class="row">
-				<div class="col-6 p-5" id="left_col">
+				<div class="col-6" id="left_col">
 					<h1 class="mt-50">
 						Pay anyone, <br> anywhere
 					</h1>
 					<p class="lead">
 						Pay family, friends and bills for <br>
 						less&mdash;at home and abroard.
+						
 					</p>
 					<ul class="list-inline">
 						<li class="list-inline-item"><i class="fab fa-cc-visa"></i></li>
 						<li class="list-inline-item"><i class="fab fa-cc-mastercard"></i></li>
 						<li class="list-inline-item">Klama</li>
 					</ul>
+					
 				</div>
-				<div class="col-6 p-5" id="right_col">
+
+				<div class="col-6" id="right_col">
 					<div class="container">
 						<div class="row mb-5">
 							<div class="col text-center">
@@ -89,7 +92,7 @@
 
 								<div class="mb-3 text-light">
 									<label for="sending-devise">And receive in</label>
-									<select class="form-select" aria-label="form-select">
+									<select class="form-select b-0" aria-label="form-select">
 										<option class="bg-black text-light" value="1" selected>UA-UAH</option>
 										<option class="bg-black text-light" value="2">JP-JPY</option>
 										<option class="bg-black text-light" value="3">TG-XOF</option>
@@ -102,18 +105,18 @@
 							</div>
 
 							<div class="col-3 mx-auto">
-								<div class="mb-3 text-light"> 
+								<div class="mb-5 text-light"> 
 									<input type="text" name="out" id="out" class="form-control" value="&euro;200" required>
 								</div>
 
-								<div class="mb-3 text-light">
+								<div class="mt-3 text-light">
 									<input type="text" name="out" id="out" class="form-control" value="&Diamond;5,766" required>
 								</div>
 							</div>
 						</div>
 						<div class="row mb-5">
-							<div class="col d-flex" id="convert_card">
-								<div class="card bg-cyan-alt">
+							<div class="col-12" id="convert_card">
+								<div class="card col-3 bg-cyan-alt">
 									<div class="card-body">
 										<h5 class="card-title">Tomorrow</h5>
 										<p class="card-text">by 20:30</p>
@@ -123,7 +126,7 @@
 									</div>
 								</div>
 
-								<div class="card bg-green">
+								<div class="card col-3 bg-green">
 									<div class="card-body">
 										<h5 class="card-title">Today</h5>
 										<p class="card-text">by 21:00</p>
@@ -133,7 +136,7 @@
 									</div>
 								</div>
 
-								<div class="card bg-yellow">
+								<div class="card col-3 bg-yellow">
 									<div class="card-body">
 										<h5 class="card-title">Instant</h5>
 										<p class="card-text">30 min</p>
