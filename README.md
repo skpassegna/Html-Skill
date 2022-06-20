@@ -17,10 +17,10 @@
 
 ##### [SmartUV](/smartuv/)
 
-![...](Money Transfer/result.png)
+![...]("Money Transfer/result.png")
 
 ##### [Money Transfer](/Money Transfer/)
 
-![...](Hero section/result.png)
+![...]("Hero section/result.png")
 
 ##### [Hero section](/Hero section/)
