@@ -1,0 +1,172 @@
+html,
+body
+{
+    max-width: 100%;
+    margin: 0;
+    padding: 0px;
+}
+
+*
+{
+    box-sizing: border-box !important;
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    font-weight: normal;
+    color: #000000;
+}
+
+header
+{
+    width: 100%;
+    min-height: 750px;
+    height: 100vh;
+
+    background-image: url("../media/construction.jpg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+header .bar-1
+{
+    width: 100%;
+    
+    display: flex;
+    position: relative;
+    background-color: rgba(240, 248, 255, 0.685);
+    box-shadow: 0 1px 3px rgba(203, 185, 156, 0.12), 0 1px 2px rgba(203, 185, 156, 0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+header .bar-1 ul
+{
+    width: 100%;
+    height: 55px;
+
+    padding: 0.95% 0px;
+
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: space-around;
+    background-color: #ffebcd;
+    align-items: stretch;
+
+    list-style: square inside;
+}
+
+header .bar-1 ul li 
+{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+
+.nav-link
+{
+    color: rgb(22, 22, 22);
+    font-weight: 300;
+    font-size: 2em;
+    text-decoration: none;
+    
+}
+
+.col-3
+{
+    width: calc(100 / 3);
+}
+
+#logo
+{
+    width: 58px;
+    text-align: center;
+}
+
+.img-box
+{
+    width: 100%;
+    height: calc(100% - 55px);
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    flex-flow: row wrap;
+}
+
+.img-box .col-3
+{
+    position: absolute;
+    width: 30% !important;
+    height: 100%;
+    background-color: #f8f8f8;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.img-box .col-3 .details
+{
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    border-radius: 0px;
+    padding:20px;
+    margin: auto;
+    background-color: rgba(250, 235, 215, 0.589);
+    font-size: 1.1em;
+    font-weight: lighter;
+    color: rgb(39, 39, 39);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    box-shadow: 0 1px 3px rgba(255, 255, 255, 0.12), 0 1px 2px rgba(255, 255, 255, 0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.img-box .col-3 .details h3 
+{
+    font-size: 2.5em;
+    font-weight: bolder;
+    color: black;
+}
+
+.img-box .col-left
+{
+    top: 0;
+    left: 0;
+    background-image: url("../media/plan.jpg");
+}
+
+.img-box .col-left .details
+{
+    bottom: 0;
+    left: 0;
+    text-align: left;
+}
+
+.img-box .col-right
+{
+    top: 0;
+    right: 0;
+    background-position: bottom;
+    background-image: url("../media/sky.jpg");
+}
+
+.img-box .col-right .details
+{
+    top: 0;
+    right: 0;
+    text-align: right;
+}
