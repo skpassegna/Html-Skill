@@ -1,0 +1,394 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box !important;
+    border-radius: 0;
+}
+
+.mh-5vh {
+    min-height: 5vh;
+}
+
+.mh-6vh {
+    min-height: 6vh;
+}
+
+.mh-7vh {
+    min-height: 7vh;
+}
+
+.mh-8vh {
+    min-height: 8vh;
+}
+
+.mh-9vh {
+    min-height: 9vh;
+}
+
+.mh-10vh {
+    min-height: 10vh;
+}
+
+.mh-11vh {
+    min-height: 11vh;
+}
+
+.mh-12vh {
+    min-height: 12vh;
+}
+
+.mh-13vh {
+    min-height: 13vh;
+}
+
+.mh-14vh {
+    min-height: 14vh;
+}
+
+.mh-15vh {
+    min-height: 15vh;
+}
+
+.mh-16vh {
+    min-height: 16vh;
+}
+
+.mh-17vh {
+    min-height: 17vh;
+}
+
+.mh-18vh {
+    min-height: 18vh;
+}
+
+.mh-19vh {
+    min-height: 19vh;
+}
+
+.mh-20vh {
+    min-height: 20vh;
+}
+
+.mh-21vh {
+    min-height: 21vh;
+}
+
+.mh-22vh {
+    min-height: 22vh;
+}
+
+.mh-23vh {
+    min-height: 23vh;
+}
+
+.mh-24vh {
+    min-height: 24vh;
+}
+
+.mh-25vh {
+    min-height: 25vh;
+}
+
+.mh-26vh {
+    min-height: 26vh;
+}
+
+.mh-27vh {
+    min-height: 27vh;
+}
+
+.mh-28vh {
+    min-height: 28vh;
+}
+
+.mh-29vh {
+    min-height: 29vh;
+}
+
+.mh-30vh {
+    min-height: 30vh;
+}
+
+.mh-31vh {
+    min-height: 31vh;
+}
+
+.mh-32vh {
+    min-height: 32vh;
+}
+
+.mh-33vh {
+    min-height: 33vh;
+}
+
+.mh-34vh {
+    min-height: 34vh;
+}
+
+.mh-35vh {
+    min-height: 35vh;
+}
+
+.mh-36vh {
+    min-height: 36vh;
+}
+
+.mh-37vh {
+    min-height: 37vh;
+}
+
+.mh-38vh {
+    min-height: 38vh;
+}
+
+.mh-39vh {
+    min-height: 39vh;
+}
+
+.mh-40vh {
+    min-height: 40vh;
+}
+
+.mh-41vh {
+    min-height: 41vh;
+}
+
+.mh-42vh {
+    min-height: 42vh;
+}
+
+.mh-43vh {
+    min-height: 43vh;
+}
+
+.mh-44vh {
+    min-height: 44vh;
+}
+
+.mh-45vh {
+    min-height: 45vh;
+}
+
+.mh-46vh {
+    min-height: 46vh;
+}
+
+.mh-47vh {
+    min-height: 47vh;
+}
+
+.mh-48vh {
+    min-height: 48vh;
+}
+
+.mh-49vh {
+    min-height: 49vh;
+}
+
+.mh-50vh {
+    min-height: 50vh;
+}
+
+.mh-51vh {
+    min-height: 51vh;
+}
+
+.mh-52vh {
+    min-height: 52vh;
+}
+
+.mh-53vh {
+    min-height: 53vh;
+}
+
+.mh-54vh {
+    min-height: 54vh;
+}
+
+.mh-55vh {
+    min-height: 55vh;
+}
+
+.mh-56vh {
+    min-height: 56vh;
+}
+
+.mh-57vh {
+    min-height: 57vh;
+}
+
+.mh-58vh {
+    min-height: 58vh;
+}
+
+.mh-59vh {
+    min-height: 59vh;
+}
+
+.mh-60vh {
+    min-height: 60vh;
+}
+
+.mh-61vh {
+    min-height: 61vh;
+}
+
+.mh-62vh {
+    min-height: 62vh;
+}
+
+.mh-63vh {
+    min-height: 63vh;
+}
+
+.mh-64vh {
+    min-height: 64vh;
+}
+
+.mh-65vh {
+    min-height: 65vh;
+}
+
+.mh-66vh {
+    min-height: 66vh;
+}
+
+.mh-67vh {
+    min-height: 67vh;
+}
+
+.mh-68vh {
+    min-height: 68vh;
+}
+
+.mh-69vh {
+    min-height: 69vh;
+}
+
+.mh-70vh {
+    min-height: 70vh;
+}
+
+.mh-71vh {
+    min-height: 71vh;
+}
+
+.mh-72vh {
+    min-height: 72vh;
+}
+
+.mh-73vh {
+    min-height: 73vh;
+}
+
+.mh-74vh {
+    min-height: 74vh;
+}
+
+.mh-75vh {
+    min-height: 75vh;
+}
+
+.mh-76vh {
+    min-height: 76vh;
+}
+
+.mh-77vh {
+    min-height: 77vh;
+}
+
+.mh-78vh {
+    min-height: 78vh;
+}
+
+.mh-79vh {
+    min-height: 79vh;
+}
+
+.mh-80vh {
+    min-height: 80vh;
+}
+
+.mh-81vh {
+    min-height: 81vh;
+}
+
+.mh-82vh {
+    min-height: 82vh;
+}
+
+.mh-83vh {
+    min-height: 83vh;
+}
+
+.mh-84vh {
+    min-height: 84vh;
+}
+
+.mh-85vh {
+    min-height: 85vh;
+}
+
+.mh-86vh {
+    min-height: 86vh;
+}
+
+.mh-87vh {
+    min-height: 87vh;
+}
+
+.mh-88vh {
+    min-height: 88vh;
+}
+
+.mh-89vh {
+    min-height: 89vh;
+}
+
+.mh-90vh {
+    min-height: 90vh;
+}
+
+.mh-91vh {
+    min-height: 91vh;
+}
+
+.mh-92vh {
+    min-height: 92vh;
+}
+
+.mh-93vh {
+    min-height: 93vh;
+}
+
+.mh-94vh {
+    min-height: 94vh;
+}
+
+.mh-95vh {
+    min-height: 95vh;
+}
+
+.mh-96vh {
+    min-height: 96vh;
+}
+
+.mh-97vh {
+    min-height: 97vh;
+}
+
+.mh-98vh {
+    min-height: 98vh;
+}
+
+.mh-99vh {
+    min-height: 99vh;
+}
+
+.mh-100vh {
+    min-height: 100vh;
+}
+
+.w-90 {
+    width: 90%;
+}

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>KYC &mdash; Finish your validation</title>
+
+        <link rel="stylesheet" href="../assets/css/all.min.css">
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/email.css">
+    </head>
+
+    <body class="mh-100vh m-0 p-0">
+        <!--  Navbar: Bootstrap  -->
+
+
+        <main class="container-fluid m-0 p-0">
+            <div class="row m-0 p-0">
+                <div
+                    class="col-md-4 mh-100vh m-0 p-4 d-flex flex-column flex-nowrap justify-content-center align-items-center text-bg-light">
+                    <div class="hero d-flex flex-column justify-content-center align-items-around w-100 mb-auto">
+                        <span class="text-dark mb-5">
+                            Identity verification
+                        </span>
+                        <ul class="list-unstyled mt-5 fw-bolder">
+                            <h6>The document must confirm</h6>
+                            <li class="my-3">
+                                <span class="text-secondary fw-normal">Full name</span> Davy Jones
+                            </li>
+
+                            <li class="my-3">
+                                <span class="text-secondary fw-normal">Residence</span> United States
+                            </li>
+
+                            <li class="my-3">
+                                <span class="text-secondary fw-normal">Date of birth</span> Jan 12, 1999
+                            </li>
+
+                            <li class="my-3">
+                                <span class="text-secondary fw-normal">Made mistake?</span>  <a href="#" class="text-decoration-none">Edit details</a>
+                            </li>
+                        </ul>
+                        <div class="row mb-3">
+                            <div class="col mb-3">
+                                <h6>Image requirements</h6>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <i class="fa-solid fa-check fa-xs"></i> File size should up to 3Mb
+                                    </li>
+        
+                                    <li>
+                                        <i class="fa-solid fa-check fa-xs"></i> Colorful, clear and readable
+                                    </li>
+        
+                                    <li>
+                                        <i class="fa-solid fa-check fa-xs"></i> BMP, JPG, or PNG format
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <p class="mt-5 w-100">
+                        <i class="fa-solid fa-circle-info text-info"></i> Tips for takin pictures
+                    </p>
+                </div>
+
+                <div
+                    class="col-xs-12 col-md-8 m-0 mh-100vh bg-white text-dark d-flex flex-column justify-content-center align-items-center">
+                    <div class="mb-auto mt-auto w-90">
+                        <h2 class="mb-3">
+                            Identity verification
+                        </h2>
+                        <div class="row mb-3">
+
+                            <div class="col mb-3">
+                                <label for="documenttype" class="form-label">Select document type</label>
+                                <select class="form-select rounded-1" aria-label="Select document type" id="documenttype" required>
+                                    <option value="passport" selected>Local Passport</option>
+                                    <option value="nationalid">National ID</option>
+                                    <option value="driverlicence">Driver licence</option>
+                                </select>
+                            </div>
+
+                            <div class="col mb-3">
+                                <label for="country" class="form-label">Government ID country</label>
+                                <select class="form-select rounded-1" aria-label="Government ID country" id="country" required>
+                                    <option>Government ID country</option>
+                                    <option value="1" selected>USA</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col mb-3">
+                                <label for="documentfront" class="form-label">Front</label>
+                                <input type="file" class="form-control rounded-1" placeholder="Document front"
+                                    aria-label="Document front" id="documentfront" required>
+                            </div>
+
+                            <div class="col mb-3">
+                                <label for="documentback" class="form-label">Back</label>
+                                <input type="file" class="form-control rounded-1" placeholder="Document back"
+                                    aria-label="Document back" id="documentback" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="buttons w-100 mb-4 d-flex flex-row flex-nowrap justify-content-between align-items-center">
+                        <a href="#" class="btn btn-link text-dark text-decoration-none">Go home</a>
+
+                        <button class="btn btn-primary btn-lg rounded-1 lh-lg">Continue <i
+                                class="fa-solid fa-arrow-right fa-xs"></i> </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+
+        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+        <script src="../assets/js/all.min.js"></script>
+    </body>
+
+</html>

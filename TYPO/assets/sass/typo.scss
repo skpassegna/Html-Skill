@@ -1,0 +1,52 @@
+$smoky-black: #16160Dff;
+$white-smoke: #F0F0EEff;
+$cal-poly-green: #2D5434ff;
+$maize: #F6E968ff;
+$black: #0D0D0D;
+
+* {
+
+    &::before,
+    &::after {
+        text-decoration: none;
+        box-sizing: border-box;
+    }
+}
+
+body {
+    color: $black;
+    background-color: $white-smoke;
+}
+
+.navbar {
+
+    .navbar-brand {
+        font-weight: bold;
+        color: $black;
+    }
+}
+
+.border-smoke {
+    border-top: 1px solid $smoky-black;
+    border-bottom: 1px solid $smoky-black;
+}
+
+.text-smoke {
+    color: $smoky-black;
+}
+
+.flash-messages {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-style: italic;
+
+    a {
+        text-decoration: none;
+    }
+
+    .i {
+        font-size: 2em;
+        color: $smoky-black;
+    }
+}

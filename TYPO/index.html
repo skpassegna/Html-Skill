@@ -1,99 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>TYPO &mdash; Design By Lola Kekenadze</title>
 
-	<link rel="stylesheet" href="assets/css/all.min.css">
-	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-	<link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TYPO &mdash; Design By Lola Kekenadze</title>
 
-	<header class="container-fluid">
-		<h1 class="logo">
-			typo
-		</h1>
+        <link rel="stylesheet" href="../assets/css/all.min.css">
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+    </head>
 
-		<nav>
-			<ul class="nav__links">
-				<li>
-					<a href="#">About us</a>
-				</li>
-				<li>
-					<a href="#">Licenses</a>
-				</li>
-				<li>
-					<a href="#">Shop</a>
-				</li>
-				<li>
-					<a href="#">Contact</a>
-				</li>
-			</ul>
-		</nav>
+    <body>
+        <!--  Navbar: Bootstrap  -->
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand text-uppercase" href="#">Typo</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-		<a href="#" class="btn right bg-black text-white">Log In</a>
-	</header>
-	
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-4">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About Us</a>
+                        </li>
 
-	<div class="container-fluid border-top border-bottom flash m-0">
-		<div class="row p-0">
-			<col-12 class="fade-in-image p-0 pt-2">
-				<a href="#" class="text-black">Yes you can download trial versions of all fonts published by Extrasset. Trial fonts offer a limited set of character glyphs and are strictly limited to personnal use.</a> <span class="dot"></span> 
-				<a href="#" class="text-black">Do not offer special licensing for student or schools?</a> <span class="dot"></span> 
-				<a href="#" class="text-black">Desktop</a>
-			</col-12>
-		</div>
-	</div>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Licenses</a>
+                        </li>
 
-	<main class="container-fluid m-0">
-		<div class="row">
-			<div class="col-4" id="about">
-				<p class="fade-in-image">
-					We are working with designers around the world to produce best in-class typeface designsthat are made for the web, and because we are open source, this means that we can release early access trials to our community for testing and feedback.
-				</p>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Shop</a>
+                        </li>
 
-				<div class="fade-in-image mt-5 mb-0" id="font-logo">
-					
-				</div>
-			</div>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Contact</a>
+                        </li>
+                    </ul>
 
-			<div class="col-8 p-2">
-				<div class="container-fluid">
-					<div class="row list">
-						<div class="col-4">
-							<div class="card border fade-in-image">
-								
-							</div>
-						</div>
+                    <a href="#" class="btn btn-dark btn-sm rounded-pill text-center ms-auto pe-4 px-2">Login</a>
+                </div>
+            </div>
+        </nav>
+        <!--  /Navbar: Bootstrap  -->
+        <div class="container-fluid border-smoke mb-3" >
+            <div class="row">
+                <div class="col-12 position-relative p-2 gap-2 d-flex flex-row flex-nowrap align-items-center justify-content-center flash-messages">
+                    <a href="#" class="text-smoke  position-relative"> 
+                        <i class="fa-solid fa-circle-right"> </i> Yes you can download trial versions of all fonts published by
+                        Extrasset.
+                    </a>
 
-						<div class="col-7">
-							<div class="card border fade-in-image">
-								
-							</div>
-						</div>
+                    <a href="#" class="text-smoke  position-relative"> 
+                        <i class="fa-solid fa-circle-right"> </i> Trial fonts offer a limited set of character glyphs and are strictly limited to
+                        personnal use.
+                    </a>
 
-						<div class="col-4">
-							<div class="card border fade-in-image">
-								
-							</div>
-						</div>
+                    <a href="#" class="text-smoke  position-relative"> 
+                        <i class="fa-solid fa-circle-right"> </i> Do not offer special licensing for student or schools?
+                    </a> 
+                </div>
+            </div>
+        </div>
 
-						<div class="col-7">
-							<div class="card border rounded-circle fade-in-image">
-								
-							</div>
-						</div>
-					</div>
-				</div>
-				
-			</div>
-		</div>
-	</main>
+        <main class="container-fluid m-0 mh-90vh">
+            <div class="row h-100">
+                <div class="col-xs-12 col-md-4 h-100" id="about">
+                    <p class="fade-in-image">
+                        We are working with designers around the world to produce best in-class typeface designsthat are
+                        made for the web, and because we are open source, this means that we can release early access
+                        trials to our community for testing and feedback.
+                    </p>
 
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/all.min.js"></script>
-	<script src="assets/js/bootstrap.min.js"></script>
-</body>
+                    <div class="fade-in-image mt-5 mb-0" id="font-logo">
+                        <img src="assets/images/font-size_3.svg" class="object-fit-cover" alt=" ">   
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-md-8 h-100 p-2">
+                    <div class="container-fluid">
+                        <div class="row list">
+                            <div class="col-4">
+                                <div class="card border fade-in-image">
+
+                                </div>
+                            </div>
+
+                            <div class="col-7">
+                                <div class="card border fade-in-image">
+
+                                </div>
+                            </div>
+
+                            <div class="col-4">
+                                <div class="card border fade-in-image">
+
+                                </div>
+                            </div>
+
+                            <div class="col-7">
+                                <div class="card border rounded-circle fade-in-image">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+
+   
+        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+        <script src="../assets/js/all.min.js"></script>
+    </body>
+
 </html>
