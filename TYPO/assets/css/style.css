@@ -1,39 +1,14 @@
-*::before, *::after {
-  text-decoration: none;
-  box-sizing: border-box;
+/* Custom styles to complement Tailwind CSS */
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-body {
-  color: #0D0D0D;
-  background-color: #f0f0ee;
-}
-
-.navbar .navbar-brand {
-  font-weight: bold;
-  color: #0D0D0D;
-}
-
-.border-smoke {
-  border-top: 1px solid #16160d;
-  border-bottom: 1px solid #16160d;
-}
-
-.text-smoke {
-  color: #16160d;
-}
-
-.flash-messages {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-style: italic;
-}
 .flash-messages a {
-  text-decoration: none;
-}
-.flash-messages .i {
-  font-size: 2em;
-  color: #16160d;
+    transition: all 0.3s ease;
 }
 
-/*# sourceMappingURL=style.css.map */
+.flash-messages a:hover {
+    transform: translateX(5px);
+}

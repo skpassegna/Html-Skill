@@ -1,124 +1,306 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>TYPO &mdash; Design By Lola Kekenadze</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TYPO &mdash; Design By Lola Kekenadze</title>
 
-        <link rel="stylesheet" href="../assets/css/all.min.css">
-        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/style.css">
-    </head>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        smoke: '#16160d',
+                        offwhite: '#f0f0ee'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
 
-    <body>
-        <!--  Navbar: Bootstrap  -->
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <a class="navbar-brand text-uppercase" href="#">Typo</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-4">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About Us</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">Licenses</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">Shop</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">Contact</a>
-                        </li>
-                    </ul>
-
-                    <a href="#" class="btn btn-dark btn-sm rounded-pill text-center ms-auto pe-4 px-2">Login</a>
+<body class="bg-offwhite text-smoke min-h-screen">
+    <!-- Navbar: Modern Tailwind -->    
+    <nav class="bg-white backdrop-blur-sm sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <a class="text-2xl font-bold uppercase tracking-wider hover:text-yellow-500 transition-colors duration-300" href="#">Typo</a>
+                
+                <!-- Language Selector - Desktop -->                
+                <div class="hidden md:flex items-center ml-auto mr-8">
+                    <div class="relative group">
+                        <button class="flex items-center text-sm font-medium text-smoke hover:text-black focus:outline-none">
+                            <span>EN</span>
+                            <svg class="ml-1 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="absolute right-0 mt-2 w-24 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-in-out z-50">
+                            <a href="#" class="block px-4 py-2 text-sm text-smoke hover:bg-gray-100">EN</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-smoke hover:bg-gray-100">FR</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-smoke hover:bg-gray-100">DE</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->                
+                <div class="md:hidden">
+                    <button type="button" class="text-smoke hover:text-gray-700 focus:outline-none" id="mobile-menu-button">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Desktop menu -->                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a class="text-smoke hover:text-black border-b-2 border-black font-medium" href="#">Home</a>
+                    <a class="text-smoke hover:text-black hover:border-b-2 hover:border-black transition-all duration-200 font-medium" href="#">About Us</a>
+                    <a class="text-smoke hover:text-black hover:border-b-2 hover:border-black transition-all duration-200 font-medium" href="#">Licenses</a>
+                    <a class="text-smoke hover:text-black hover:border-b-2 hover:border-black transition-all duration-200 font-medium" href="#">Shop</a>
+                    <a class="text-smoke hover:text-black hover:border-b-2 hover:border-black transition-all duration-200 font-medium" href="#">Contact</a>
+                    <a href="#" class="bg-smoke text-white px-5 py-2 rounded-full hover:bg-black transition-all duration-300 ml-4 font-medium">Log In</a>
                 </div>
             </div>
-        </nav>
-        <!--  /Navbar: Bootstrap  -->
-        <div class="container-fluid border-smoke mb-3" >
-            <div class="row">
-                <div class="col-12 position-relative p-2 gap-2 d-flex flex-row flex-nowrap align-items-center justify-content-center flash-messages">
-                    <a href="#" class="text-smoke  position-relative"> 
-                        <i class="fa-solid fa-circle-right"> </i> Yes you can download trial versions of all fonts published by
-                        Extrasset.
-                    </a>
-
-                    <a href="#" class="text-smoke  position-relative"> 
-                        <i class="fa-solid fa-circle-right"> </i> Trial fonts offer a limited set of character glyphs and are strictly limited to
-                        personnal use.
-                    </a>
-
-                    <a href="#" class="text-smoke  position-relative"> 
-                        <i class="fa-solid fa-circle-right"> </i> Do not offer special licensing for student or schools?
-                    </a> 
+            
+            <!-- Mobile menu, show/hide based on menu state -->            
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="pt-4 pb-3 space-y-2">
+                    <a href="#" class="block px-4 py-2 text-smoke font-medium border-l-4 border-black rounded-r-md bg-gray-50">Home</a>
+                    <a href="#" class="block px-4 py-2 text-smoke hover:bg-gray-50 hover:border-l-4 hover:border-gray-300 rounded-r-md transition-all duration-200">About Us</a>
+                    <a href="#" class="block px-4 py-2 text-smoke hover:bg-gray-50 hover:border-l-4 hover:border-gray-300 rounded-r-md transition-all duration-200">Licenses</a>
+                    <a href="#" class="block px-4 py-2 text-smoke hover:bg-gray-50 hover:border-l-4 hover:border-gray-300 rounded-r-md transition-all duration-200">Shop</a>
+                    <a href="#" class="block px-4 py-2 text-smoke hover:bg-gray-50 hover:border-l-4 hover:border-gray-300 rounded-r-md transition-all duration-200">Contact</a>
+                    
+                    <!-- Language Selector - Mobile -->                    
+                    <div class="mt-2 border-t border-gray-200 pt-3">
+                        <div class="flex items-center px-4">
+                            <span class="text-sm font-medium text-gray-500">Language:</span>
+                            <a href="#" class="ml-2 px-2 py-1 text-xs font-medium bg-gray-100 text-smoke rounded-md">EN</a>
+                            <a href="#" class="ml-1 px-2 py-1 text-xs font-medium text-smoke hover:bg-gray-100 rounded-md">FR</a>
+                            <a href="#" class="ml-1 px-2 py-1 text-xs font-medium text-smoke hover:bg-gray-100 rounded-md">DE</a>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="block px-4 py-2 mt-4 bg-smoke text-white rounded-md text-center font-medium hover:bg-black transition-colors duration-300">Log In</a>
                 </div>
             </div>
         </div>
+    </nav>
+    <!-- /Navbar: Modern Tailwind -->
+    
+    <!-- Announcement Bar -->
+    <div class="bg-gradient-to-r from-gray-50 to-gray-100 mb-6 shadow-sm">
+        <div class="container mx-auto">
+            <div class="flex flex-wrap md:flex-nowrap items-center justify-between py-3 px-4 overflow-x-auto text-sm">
+                <a href="#" class="text-smoke inline-flex items-center py-1 px-3 my-1 mx-2 hover:bg-white hover:shadow-sm rounded-full transition-all duration-300"> 
+                    <i class="fa-solid fa-download mr-2 text-yellow-500"></i> Yes, you can download trial versions of all the fonts published by Extraset.
+                </a>
 
-        <main class="container-fluid m-0 mh-90vh">
-            <div class="row h-100">
-                <div class="col-xs-12 col-md-4 h-100" id="about">
-                    <p class="fade-in-image">
-                        We are working with designers around the world to produce best in-class typeface designsthat are
-                        made for the web, and because we are open source, this means that we can release early access
-                        trials to our community for testing and feedback.
-                    </p>
+                <a href="#" class="text-smoke inline-flex items-center py-1 px-3 my-1 mx-2 hover:bg-white hover:shadow-sm rounded-full transition-all duration-300"> 
+                    <i class="fa-solid fa-info-circle mr-2 text-yellow-500"></i> Trial fonts offer a limited set of character glyphs and are strictly limited to personal use.
+                </a>
 
-                    <div class="fade-in-image mt-5 mb-0" id="font-logo">
-                        <img src="assets/images/font-size_3.svg" class="object-fit-cover" alt=" ">   
-                    </div>
+                <a href="#" class="text-smoke inline-flex items-center py-1 px-3 my-1 mx-2 hover:bg-white hover:shadow-sm rounded-full transition-all duration-300"> 
+                    <i class="fa-solid fa-graduation-cap mr-2 text-yellow-500"></i> Do you offer special licensing for students or schools?
+                </a> 
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 min-h-[90vh] py-8">
+        <div class="flex flex-col md:flex-row h-full">
+            <!-- Left Column -->
+            <div class="w-full md:w-1/3 md:pr-8 mb-8 md:mb-0" id="about">
+                <h1 class="text-3xl font-bold mb-6 opacity-0 animate-[fadeIn_1s_ease-in_forwards]">Typeface Design <span class="text-yellow-500">Reimagined</span></h1>
+                <p class="text-lg leading-relaxed opacity-0 animate-[fadeIn_1s_ease-in_0.2s_forwards]">
+                    We are working with designers around the world to produce best-in-class typeface designs that are
+                    made for the web, and because we are open source, this means that we can release early access
+                    trials to our community for testing and feedback.
+                </p>
+                
+                <div class="mt-8 opacity-0 animate-[fadeIn_1s_ease-in_0.4s_forwards]">
+                    <a href="#" class="inline-flex items-center px-5 py-3 bg-smoke text-white rounded-full hover:bg-black transition-all duration-300 transform hover:translate-x-1">
+                        <span>Explore our fonts</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
                 </div>
 
-                <div class="col-xs-12 col-md-8 h-100 p-2">
-                    <div class="container-fluid">
-                        <div class="row list">
-                            <div class="col-4">
-                                <div class="card border fade-in-image">
+                <div class="mt-12 opacity-0 animate-[fadeIn_1s_ease-in_0.6s_forwards]" id="font-logo">
+                    <img src="assets/images/font-size_3.svg" class="object-cover transform hover:scale-105 transition-transform duration-300" alt="Font Size Icon">   
+                </div>
+            </div>
 
-                                </div>
+            <!-- Right Column - Font Showcase -->
+            <div class="w-full md:w-2/3 p-2">
+                <div class="grid grid-cols-12 gap-4">
+                    <!-- Font 1: Sonchez - Elegant serif font -->
+                    <div class="col-span-6">
+                        <div class="bg-black rounded-2xl p-6 opacity-0 animate-[fadeIn_1s_ease-in_0.4s_forwards] hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-white text-sm">Sonchez</span>
+                                <span class="text-white text-xs">Sale on : 50%</span>
                             </div>
-
-                            <div class="col-7">
-                                <div class="card border fade-in-image">
-
-                                </div>
-                            </div>
-
-                            <div class="col-4">
-                                <div class="card border fade-in-image">
-
-                                </div>
-                            </div>
-
-                            <div class="col-7">
-                                <div class="card border rounded-circle fade-in-image">
-
-                                </div>
+                            <div class="flex justify-center items-center h-32">
+                                <h2 class="text-white text-6xl font-bold">δ</h2>
                             </div>
                         </div>
                     </div>
 
+                    <!-- Font 2: Talk! - Modern display font -->
+                    <div class="col-span-6">
+                        <div class="bg-yellow-300 rounded-2xl p-6 opacity-0 animate-[fadeIn_1s_ease-in_0.6s_forwards] hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-black text-sm">Talk!</span>
+                                <span class="text-black text-xs">Sale on : 50%</span>
+                            </div>
+                            <div class="flex justify-center items-center h-32">
+                                <h2 class="text-black text-6xl font-bold">Talk!</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Font 3: Down - Playful icon font -->
+                    <div class="col-span-5">
+                        <div class="bg-gray-200 rounded-full p-6 opacity-0 animate-[fadeIn_1s_ease-in_0.8s_forwards] hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                            <div class="flex flex-col justify-center items-center h-32">
+                                <div class="mb-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M18 15l-6 6-6-6M12 3v18"/>
+                                    </svg>
+                                </div>
+                                <span class="text-black text-sm">Down</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Font 4: Righteous - Modern arrow icon font -->
+                    <div class="col-span-7">
+                        <div class="bg-white border border-gray-200 rounded-2xl p-6 opacity-0 animate-[fadeIn_1s_ease-in_1s_forwards] hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                            <div class="flex justify-start items-center mb-2">
+                                <span class="text-black text-sm">Righteous</span>
+                            </div>
+                            <div class="flex justify-center items-center h-32">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </main>
+            </div>
+        </div>
+    </main>
 
-   
-        <script src="../assets/js/bootstrap.bundle.min.js"></script>
-        <script src="../assets/js/all.min.js"></script>
-    </body>
+    <!-- Footer -->
+    <footer class="bg-white mt-16 border-t border-gray-200">
+        <div class="container mx-auto px-4 py-8">
+            <div class="flex flex-wrap justify-between">
+                <div class="w-full md:w-1/4 mb-6 md:mb-0">
+                    <h3 class="text-xl font-bold mb-4">TYPO</h3>
+                    <p class="text-sm text-gray-600 mb-4">Creating beautiful typefaces for the modern web.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-smoke hover:text-yellow-500 transition-colors duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-smoke hover:text-yellow-500 transition-colors duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-smoke hover:text-yellow-500 transition-colors duration-300">
+                            <i class="fab fa-dribbble"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="w-full md:w-1/4 mb-6 md:mb-0">
+                    <h4 class="font-medium mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-black transition-colors duration-300">Home</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-black transition-colors duration-300">About Us</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-black transition-colors duration-300">Licenses</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-black transition-colors duration-300">Shop</a></li>
+                    </ul>
+                </div>
+                
+                <div class="w-full md:w-1/4 mb-6 md:mb-0">
+                    <h4 class="font-medium mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-black transition-colors duration-300">Documentation</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-black transition-colors duration-300">Tutorials</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-black transition-colors duration-300">Blog</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-black transition-colors duration-300">Support</a></li>
+                    </ul>
+                </div>
+                
+                <div class="w-full md:w-1/4">
+                    <h4 class="font-medium mb-4">Newsletter</h4>
+                    <p class="text-sm text-gray-600 mb-4">Subscribe to get updates on new fonts and features.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 w-full border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent">
+                        <button type="submit" class="bg-smoke text-white px-4 py-2 rounded-r-md hover:bg-black transition-colors duration-300">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-200 mt-8 pt-6 text-sm text-center text-gray-600">
+                <p>&copy; 2023 TYPO. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/all.min.js"></script>
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Enhanced animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Define the animations
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes fadeIn {
+                    from { opacity: 0; transform: translateY(20px); }
+                    to { opacity: 1; transform: translateY(0); }
+                }
+                
+                @keyframes slideInRight {
+                    from { opacity: 0; transform: translateX(30px); }
+                    to { opacity: 1; transform: translateX(0); }
+                }
+                
+                @keyframes pulse {
+                    0% { transform: scale(1); }
+                    50% { transform: scale(1.05); }
+                    100% { transform: scale(1); }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Add hover effects to font cards
+            const fontCards = document.querySelectorAll('.col-span-5 > div, .col-span-6 > div, .col-span-7 > div');
+            fontCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.classList.add('shadow-xl');
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.classList.remove('shadow-xl');
+                });
+            });
+        });
+    </script>
+</body>
 
 </html>
