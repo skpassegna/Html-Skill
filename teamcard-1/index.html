@@ -4,132 +4,223 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Team Profile Cards</title>
 
-
-    <link rel="stylesheet" href="assets/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6c63ff',
+                        secondary: '#4a45b5',
+                        accent: '#f3f4f6',
+                    },
+                    boxShadow: {
+                        'card': '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)',
+                        'card-hover': '0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                    },
+                },
+                fontFamily: {
+                    sans: ['Inter', 'sans-serif'],
+                },
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="assets/images/internet.svg">
-
-
+    
+    <style>
+        .card-image-container {
+            position: relative;
+            overflow: hidden;
+        }
+        .card-image-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(108, 99, 255, 0.2), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .card:hover .card-image-container::before {
+            opacity: 1;
+        }
+        .social-icon {
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+        .card:hover .social-icon {
+            transform: translateY(-5px);
+        }
+    </style>
 </head>
-<body>
-    <div class="container">
-
-        <div class="profile-card">
-            <img src="assets/images/Claudiakim.jpg" alt="Profile Pic" class="profile-image">
-            <div class="profile-info">
-                <h1>Claudia Kim</h1>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet impedit tenetur velit iure distinctio beatae labore consectetur omnis cum
-                </p>
-
-                <ul class="profile-socials">
-                    <li class="tab">
-                        <a href="#">
-                            <i class="fab fa-facebook"> </i>
-                        </a>
-                    </li>
-                    <li class="tab">
-                        <a href="#">
-                            <i class="fab fa-instagram"> </i>
-                        </a>
-                    </li>
-                    <li class="tab">
-                        <a href="#">
-                            <i class="fab fa-linkedin"> </i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+<body class="bg-gradient-to-br from-gray-50 to-gray-200 min-h-screen py-16 px-4 font-sans">
+    <div class="max-w-7xl mx-auto">
+        <!-- Header Section -->
+        <div class="text-center mb-16 animate-fade-in">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Our Amazing Team</h1>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">Meet the talented individuals who make our company thrive with their expertise and passion.</p>
         </div>
+        
+        <!-- Team Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
 
-        <div class="profile-card">
-            <img src="assets/images/albert-dera.jpg" alt="Profile Pic" class="profile-image">
-            <div class="profile-info">
-                <h1>Albert Dera</h1>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet impedit tenetur velit iure distinctio beatae labore consectetur omnis cum
-                </p>
-
-                <ul class="profile-socials">
-                    <li class="tab">
-                        <a href="#">
-                            <i class="fab fa-facebook"> </i>
-                        </a>
-                    </li>
-                    <li class="tab">
-                        <a href="#">
-                            <i class="fab fa-instagram"> </i>
-                        </a>
-                    </li>
-                    <li class="tab">
-                        <a href="#">
-                            <i class="fab fa-linkedin"> </i>
-                        </a>
-                    </li>
-                </ul>
+            <!-- Claudia Kim Card -->
+            <div class="card bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden transform hover:-translate-y-2 animate-slide-up" style="animation-delay: 100ms;">
+                <div class="card-image-container">
+                    <div class="bg-gradient-to-b from-primary/10 to-transparent pt-8 px-6">
+                        <img src="assets/images/Claudiakim.jpg" alt="Claudia Kim" 
+                             class="w-40 h-40 object-cover rounded-full border-4 border-white shadow-lg mx-auto transform transition-transform duration-300 hover:scale-105">
+                    </div>
+                </div>
+                <div class="p-6 flex flex-col items-center">
+                    <h2 class="text-2xl font-bold text-gray-800">Claudia Kim</h2>
+                    <div class="flex items-center mt-1 mb-2">
+                        <span class="h-1 w-10 bg-primary rounded-full mr-2"></span>
+                        <p class="text-primary font-medium">Product Designer</p>
+                        <span class="h-1 w-10 bg-primary rounded-full ml-2"></span>
+                    </div>
+                    <p class="text-gray-600 text-center mt-4 text-sm">
+                        Creative designer with expertise in UI/UX design, focusing on intuitive and engaging user experiences.
+                    </p>
+                </div>
+                <div class="flex border-t border-gray-100">
+                    <a href="#" class="flex-1 text-center py-3 text-gray-500 hover:text-primary hover:bg-gray-50 transition-all duration-300 group">
+                        <i class="fab fa-facebook text-xl social-icon group-hover:text-primary"></i>
+                    </a>
+                    <a href="#" class="flex-1 text-center py-3 text-gray-500 hover:text-primary hover:bg-gray-50 transition-all duration-300 border-l border-r border-gray-100 group">
+                        <i class="fab fa-instagram text-xl social-icon group-hover:text-primary"></i>
+                    </a>
+                    <a href="#" class="flex-1 text-center py-3 text-gray-500 hover:text-primary hover:bg-gray-50 transition-all duration-300 group">
+                        <i class="fab fa-linkedin text-xl social-icon group-hover:text-primary"></i>
+                    </a>
+                </div>
             </div>
-        </div>
 
-        <div class="profile-card">
-            <img src="assets/images/olga-zabegina.jpg" alt="Profile Pic" class="profile-image">
-            <div class="profile-info">
-                <h1>Olga Zabegina</h1>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet impedit tenetur velit iure distinctio beatae labore consectetur omnis cum
-                </p>
-
-                <ul class="profile-socials">
-                    <li class="tab">
-                        <a href="#">
-                            <i class="fab fa-facebook"> </i>
-                        </a>
-                    </li>
-                    <li class="tab">
-                        <a href="#">
-                            <i class="fab fa-instagram"> </i>
-                        </a>
-                    </li>
-                    <li class="tab">
-                        <a href="#">
-                            <i class="fab fa-linkedin"> </i>
-                        </a>
-                    </li>
-                </ul>
+            <!-- Albert Dera Card -->
+            <div class="card bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden transform hover:-translate-y-2 animate-slide-up" style="animation-delay: 200ms;">
+                <div class="card-image-container">
+                    <div class="bg-gradient-to-b from-primary/10 to-transparent pt-8 px-6">
+                        <img src="assets/images/albert-dera.jpg" alt="Albert Dera" 
+                             class="w-40 h-40 object-cover rounded-full border-4 border-white shadow-lg mx-auto transform transition-transform duration-300 hover:scale-105">
+                    </div>
+                </div>
+                <div class="p-6 flex flex-col items-center">
+                    <h2 class="text-2xl font-bold text-gray-800">Albert Dera</h2>
+                    <div class="flex items-center mt-1 mb-2">
+                        <span class="h-1 w-10 bg-primary rounded-full mr-2"></span>
+                        <p class="text-primary font-medium">Frontend Developer</p>
+                        <span class="h-1 w-10 bg-primary rounded-full ml-2"></span>
+                    </div>
+                    <p class="text-gray-600 text-center mt-4 text-sm">
+                        Skilled developer specializing in creating responsive and interactive web applications with modern frameworks.
+                    </p>
+                </div>
+                <div class="flex border-t border-gray-100">
+                    <a href="#" class="flex-1 text-center py-3 text-gray-500 hover:text-primary hover:bg-gray-50 transition-all duration-300 group">
+                        <i class="fab fa-facebook text-xl social-icon group-hover:text-primary"></i>
+                    </a>
+                    <a href="#" class="flex-1 text-center py-3 text-gray-500 hover:text-primary hover:bg-gray-50 transition-all duration-300 border-l border-r border-gray-100 group">
+                        <i class="fab fa-instagram text-xl social-icon group-hover:text-primary"></i>
+                    </a>
+                    <a href="#" class="flex-1 text-center py-3 text-gray-500 hover:text-primary hover:bg-gray-50 transition-all duration-300 group">
+                        <i class="fab fa-linkedin text-xl social-icon group-hover:text-primary"></i>
+                    </a>
+                </div>
             </div>
-        </div>
 
-        <div class="profile-card">
-            <img src="assets/images/Michael-Vick.jpg" alt="Profile Pic" class="profile-image">
-            <div class="profile-info">
-                <h1>Michael Vick</h1>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet impedit tenetur velit iure distinctio beatae labore consectetur omnis cum
-                </p>
-
-                <ul class="profile-socials">
-                    <li class="tab">
-                        <a href="#">
-                            <i class="fab fa-facebook"> </i>
-                        </a>
-                    </li>
-                    <li class="tab">
-                        <a href="#">
-                            <i class="fab fa-instagram"> </i>
-                        </a>
-                    </li>
-                    <li class="tab">
-                        <a href="#">
-                            <i class="fab fa-linkedin"> </i>
-                        </a>
-                    </li>
-                </ul>
+            <!-- Olga Zabegina Card -->
+            <div class="card bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden transform hover:-translate-y-2 animate-slide-up" style="animation-delay: 300ms;">
+                <div class="card-image-container">
+                    <div class="bg-gradient-to-b from-primary/10 to-transparent pt-8 px-6">
+                        <img src="assets/images/olga-zabegina.jpg" alt="Olga Zabegina" 
+                             class="w-40 h-40 object-cover rounded-full border-4 border-white shadow-lg mx-auto transform transition-transform duration-300 hover:scale-105">
+                    </div>
+                </div>
+                <div class="p-6 flex flex-col items-center">
+                    <h2 class="text-2xl font-bold text-gray-800">Olga Zabegina</h2>
+                    <div class="flex items-center mt-1 mb-2">
+                        <span class="h-1 w-10 bg-primary rounded-full mr-2"></span>
+                        <p class="text-primary font-medium">Marketing Specialist</p>
+                        <span class="h-1 w-10 bg-primary rounded-full ml-2"></span>
+                    </div>
+                    <p class="text-gray-600 text-center mt-4 text-sm">
+                        Strategic marketer with a passion for digital campaigns and brand development across multiple platforms.
+                    </p>
+                </div>
+                <div class="flex border-t border-gray-100">
+                    <a href="#" class="flex-1 text-center py-3 text-gray-500 hover:text-primary hover:bg-gray-50 transition-all duration-300 group">
+                        <i class="fab fa-facebook text-xl social-icon group-hover:text-primary"></i>
+                    </a>
+                    <a href="#" class="flex-1 text-center py-3 text-gray-500 hover:text-primary hover:bg-gray-50 transition-all duration-300 border-l border-r border-gray-100 group">
+                        <i class="fab fa-instagram text-xl social-icon group-hover:text-primary"></i>
+                    </a>
+                    <a href="#" class="flex-1 text-center py-3 text-gray-500 hover:text-primary hover:bg-gray-50 transition-all duration-300 group">
+                        <i class="fab fa-linkedin text-xl social-icon group-hover:text-primary"></i>
+                    </a>
+                </div>
             </div>
+
+            <!-- Michael Vick Card -->
+            <div class="card bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden transform hover:-translate-y-2 animate-slide-up" style="animation-delay: 400ms;">
+                <div class="card-image-container">
+                    <div class="bg-gradient-to-b from-primary/10 to-transparent pt-8 px-6">
+                        <img src="assets/images/Michael-Vick.jpg" alt="Michael Vick" 
+                             class="w-40 h-40 object-cover rounded-full border-4 border-white shadow-lg mx-auto transform transition-transform duration-300 hover:scale-105">
+                    </div>
+                </div>
+                <div class="p-6 flex flex-col items-center">
+                    <h2 class="text-2xl font-bold text-gray-800">Michael Vick</h2>
+                    <div class="flex items-center mt-1 mb-2">
+                        <span class="h-1 w-10 bg-primary rounded-full mr-2"></span>
+                        <p class="text-primary font-medium">Project Manager</p>
+                        <span class="h-1 w-10 bg-primary rounded-full ml-2"></span>
+                    </div>
+                    <p class="text-gray-600 text-center mt-4 text-sm">
+                        Experienced manager leading cross-functional teams to deliver high-quality projects on time and within budget.
+                    </p>
+                </div>
+                <div class="flex border-t border-gray-100">
+                    <a href="#" class="flex-1 text-center py-3 text-gray-500 hover:text-primary hover:bg-gray-50 transition-all duration-300 group">
+                        <i class="fab fa-facebook text-xl social-icon group-hover:text-primary"></i>
+                    </a>
+                    <a href="#" class="flex-1 text-center py-3 text-gray-500 hover:text-primary hover:bg-gray-50 transition-all duration-300 border-l border-r border-gray-100 group">
+                        <i class="fab fa-instagram text-xl social-icon group-hover:text-primary"></i>
+                    </a>
+                    <a href="#" class="flex-1 text-center py-3 text-gray-500 hover:text-primary hover:bg-gray-50 transition-all duration-300 group">
+                        <i class="fab fa-linkedin text-xl social-icon group-hover:text-primary"></i>
+                    </a>
+                </div>
+            </div>
+
         </div>
     </div>
-
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/all.min.js"></script>
 </body>
 </html>
