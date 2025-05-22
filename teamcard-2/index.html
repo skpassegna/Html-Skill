@@ -4,33 +4,416 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team Card 2</title>
+    <title>Team Card - Creative Design</title>
     <link rel="icon" href="assets/images/internet.svg" />
-    <link rel="stylesheet" href="assets/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        secondary: '#4f46e5',
+                        accent: '#c084fc',
+                        dark: '#1e293b',
+                    },
+                    boxShadow: {
+                        'card': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+                        'card-hover': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+                        'inner-glow': 'inset 0 2px 4px 0 rgba(255, 255, 255, 0.06)',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'bounce-slow': 'bounce 3s infinite',
+                        'spin-slow': 'spin 8s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'display': ['Montserrat', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome via CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Card Flip Effect */
+        .card-container {
+            perspective: 1000px;
+        }
+        .card-inner {
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+        .card-container:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+        .card-front, .card-back {
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+        .card-back {
+            transform: rotateY(180deg);
+        }
+        
+        /* Custom Animations */
+        .animate-slide-up {
+            animation: slideUp 0.6s ease-out forwards;
+        }
+        @keyframes slideUp {
+            0% { transform: translateY(30px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        
+        /* Staggered Animation Delays */
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        
+        /* Gradient Text */
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(to right, #6366f1, #c084fc);
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #6366f1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4f46e5;
+        }
+        
+        /* Skill Bars */
+        .skill-bar {
+            height: 4px;
+            border-radius: 2px;
+            background: #e5e7eb;
+            overflow: hidden;
+        }
+        .skill-progress {
+            height: 100%;
+            border-radius: 2px;
+            background: linear-gradient(to right, #6366f1, #c084fc);
+        }
+    </style>
 </head>
-<body>
+<body class="bg-gradient-to-br from-slate-100 to-slate-200 min-h-screen py-16 px-4 font-sans">
     
-    <div class="container">
-        <div class="card">
-            <div class="card-image">
-                <img src="assets/images/undraw_dev_productivity_umsq.svg" alt=" ">
+    <div class="max-w-7xl mx-auto">
+        <!-- Header Section with Animated Background -->
+        <div class="relative text-center mb-16 overflow-hidden rounded-2xl bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-8 shadow-lg">
+            <div class="absolute top-0 left-0 w-full h-full opacity-10">
+                <div class="absolute w-40 h-40 bg-white rounded-full -top-10 -left-10 animate-pulse-slow"></div>
+                <div class="absolute w-32 h-32 bg-white rounded-full top-20 right-20 animate-float"></div>
+                <div class="absolute w-24 h-24 bg-white rounded-full bottom-10 left-1/4 animate-spin-slow"></div>
             </div>
-            <div class="card-info">
-                <h1 class="name">John Doe</h1>
-                <h4 class="title">Current Job/title</h4>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br>
-                    Accusamus, voluptate quasi? Laboriosam quaerat iusto ut dolor deleniti facere, repudiandae sed itaque magni in vero, id repellat praesentium magnam neque.
-                </p>
+            <h1 class="text-4xl md:text-6xl font-display font-bold text-white mb-4 relative z-10">Our Creative Team</h1>
+            <p class="text-lg text-white/90 max-w-2xl mx-auto relative z-10">Meet the talented individuals who bring innovation and expertise to every project</p>
+        </div>
+
+        <!-- Team Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <!-- Team Member Card 1 -->
+            <div class="card-container animate-slide-up delay-100 mx-auto w-full max-w-md h-[500px]">
+                <div class="card-inner relative w-full h-full">
+                    <!-- Card Front -->
+                    <div class="card-front absolute w-full h-full bg-white rounded-2xl overflow-hidden shadow-card transition-all duration-300 hover:shadow-card-hover">
+                        <div class="h-1/2 bg-gradient-to-br from-primary to-accent relative overflow-hidden">
+                            <div class="absolute w-32 h-32 bg-white/10 rounded-full -top-10 -right-10 animate-pulse-slow"></div>
+                            <div class="absolute w-20 h-20 bg-white/10 rounded-full bottom-10 left-10 animate-float"></div>
+                            <div class="w-40 h-40 mx-auto mt-8 relative z-10">
+                                <img src="assets/images/undraw_dev_productivity_umsq.svg" alt="John Doe" 
+                                    class="w-full h-full object-contain drop-shadow-lg">
+                            </div>
+                        </div>
+                        <div class="p-6 text-center">
+                            <h2 class="text-3xl font-display font-bold text-dark mb-1">John Doe</h2>
+                            <p class="gradient-text text-lg font-medium mb-4">Senior Developer</p>
+                            
+                            <div class="mb-2">
+                                <h3 class="text-xl font-bold mb-2 text-dark">About Me</h3>
+                                <p class="text-gray-600 text-sm mb-4">
+                                    With over 8 years of experience in full-stack development, I specialize in building scalable web applications and mentoring junior developers.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-4 right-4 bg-white text-primary hover:bg-primary hover:text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 transform hover:scale-110 focus:outline-none">
+                            <i class="fa fa-arrow-right"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Card Back -->
+                    <div class="card-back absolute w-full h-full bg-dark rounded-2xl overflow-hidden shadow-card p-6 text-white">
+                        <h3 class="text-2xl font-display font-bold mb-4 gradient-text">Skills & Expertise</h3>
+                        
+                        <div class="space-y-4 mb-6">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>JavaScript</span>
+                                    <span>95%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>React</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>Node.js</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-center space-x-4 mb-6">
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                                <i class="fab fa-twitter text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                                <i class="fab fa-linkedin text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div>
+                        
+                        <div class="mt-auto">
+                            <h3 class="text-xl font-bold mb-2">Contact</h3>
+                            <p class="text-gray-300"><i class="far fa-envelope mr-2"></i> john.doe@example.com</p>
+                        </div>
+                        
+                        <div class="absolute bottom-4 right-4 bg-white text-primary hover:bg-primary hover:text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 transform hover:scale-110 focus:outline-none">
+                            <i class="fa fa-arrow-left"></i>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <a href="#" class="follow-btn">
-                <i class="fa fa-plus"></i>
-            </a>
+            <!-- Team Member Card 2 -->
+            <div class="card-container animate-slide-up delay-200 mx-auto w-full max-w-md h-[500px]">
+                <div class="card-inner relative w-full h-full">
+                    <!-- Card Front -->
+                    <div class="card-front absolute w-full h-full bg-white rounded-2xl overflow-hidden shadow-card transition-all duration-300 hover:shadow-card-hover">
+                        <div class="h-1/2 bg-gradient-to-br from-secondary to-accent relative overflow-hidden">
+                            <div class="absolute w-32 h-32 bg-white/10 rounded-full -top-10 -right-10 animate-pulse-slow"></div>
+                            <div class="absolute w-20 h-20 bg-white/10 rounded-full bottom-10 left-10 animate-float"></div>
+                            <div class="w-40 h-40 mx-auto mt-8 relative z-10">
+                                <img src="assets/images/undraw_dev_productivity_umsq.svg" alt="Jane Smith" 
+                                    class="w-full h-full object-contain drop-shadow-lg">
+                            </div>
+                        </div>
+                        <div class="p-6 text-center">
+                            <h2 class="text-3xl font-display font-bold text-dark mb-1">Jane Smith</h2>
+                            <p class="gradient-text text-lg font-medium mb-4">UX Designer</p>
+                            
+                            <div class="mb-2">
+                                <h3 class="text-xl font-bold mb-2 text-dark">About Me</h3>
+                                <p class="text-gray-600 text-sm mb-4">
+                                    Award-winning designer with 6+ years of experience creating user-centered designs for web and mobile applications across various industries.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-4 right-4 bg-white text-secondary hover:bg-secondary hover:text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 transform hover:scale-110 focus:outline-none">
+                            <i class="fa fa-arrow-right"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Card Back -->
+                    <div class="card-back absolute w-full h-full bg-dark rounded-2xl overflow-hidden shadow-card p-6 text-white">
+                        <h3 class="text-2xl font-display font-bold mb-4 gradient-text">Skills & Expertise</h3>
+                        
+                        <div class="space-y-4 mb-6">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>UI Design</span>
+                                    <span>98%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 98%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>User Research</span>
+                                    <span>92%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 92%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>Prototyping</span>
+                                    <span>88%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 88%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-center space-x-4 mb-6">
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                                <i class="fab fa-twitter text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                                <i class="fab fa-linkedin text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                                <i class="fab fa-dribbble text-xl"></i>
+                            </a>
+                        </div>
+                        
+                        <div class="mt-auto">
+                            <h3 class="text-xl font-bold mb-2">Contact</h3>
+                            <p class="text-gray-300"><i class="far fa-envelope mr-2"></i> jane.smith@example.com</p>
+                        </div>
+                        
+                        <div class="absolute bottom-4 right-4 bg-white text-secondary hover:bg-secondary hover:text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 transform hover:scale-110 focus:outline-none">
+                            <i class="fa fa-arrow-left"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Member Card 3 -->
+            <div class="card-container animate-slide-up delay-300 mx-auto w-full max-w-md h-[500px]">
+                <div class="card-inner relative w-full h-full">
+                    <!-- Card Front -->
+                    <div class="card-front absolute w-full h-full bg-white rounded-2xl overflow-hidden shadow-card transition-all duration-300 hover:shadow-card-hover">
+                        <div class="h-1/2 bg-gradient-to-br from-accent to-primary relative overflow-hidden">
+                            <div class="absolute w-32 h-32 bg-white/10 rounded-full -top-10 -right-10 animate-pulse-slow"></div>
+                            <div class="absolute w-20 h-20 bg-white/10 rounded-full bottom-10 left-10 animate-float"></div>
+                            <div class="w-40 h-40 mx-auto mt-8 relative z-10">
+                                <img src="assets/images/undraw_dev_productivity_umsq.svg" alt="Alex Johnson" 
+                                    class="w-full h-full object-contain drop-shadow-lg">
+                            </div>
+                        </div>
+                        <div class="p-6 text-center">
+                            <h2 class="text-3xl font-display font-bold text-dark mb-1">Alex Johnson</h2>
+                            <p class="gradient-text text-lg font-medium mb-4">Product Manager</p>
+                            
+                            <div class="mb-2">
+                                <h3 class="text-xl font-bold mb-2 text-dark">About Me</h3>
+                                <p class="text-gray-600 text-sm mb-4">
+                                    Experienced product manager with a track record of launching successful products that meet user needs and business objectives.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-4 right-4 bg-white text-accent hover:bg-accent hover:text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 transform hover:scale-110 focus:outline-none">
+                            <i class="fa fa-arrow-right"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Card Back -->
+                    <div class="card-back absolute w-full h-full bg-dark rounded-2xl overflow-hidden shadow-card p-6 text-white">
+                        <h3 class="text-2xl font-display font-bold mb-4 gradient-text">Skills & Expertise</h3>
+                        
+                        <div class="space-y-4 mb-6">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>Product Strategy</span>
+                                    <span>96%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 96%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>Agile Methodology</span>
+                                    <span>94%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 94%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>Market Analysis</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-center space-x-4 mb-6">
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                                <i class="fab fa-twitter text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                                <i class="fab fa-linkedin text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                                <i class="fab fa-medium text-xl"></i>
+                            </a>
+                        </div>
+                        
+                        <div class="mt-auto">
+                            <h3 class="text-xl font-bold mb-2">Contact</h3>
+                            <p class="text-gray-300"><i class="far fa-envelope mr-2"></i> alex.johnson@example.com</p>
+                        </div>
+                        
+                        <div class="absolute bottom-4 right-4 bg-white text-accent hover:bg-accent hover:text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 transform hover:scale-110 focus:outline-none">
+                            <i class="fa fa-arrow-left"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/all.min.js"></script>
+
+    <!-- Simple JavaScript for additional effects -->
+    <script>
+        // Add staggered animation to cards on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.card-container');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('opacity-100');
+                }, 100 * index);
+            });
+        });
+    </script>
 </body>
 </html>
