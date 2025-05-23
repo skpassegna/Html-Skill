@@ -2,312 +2,414 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Money Transfer</title>
-	<link rel="icon" href="assets/images/internet.svg" />
-	<!-- Replace Bootstrap with Tailwind CSS CDN -->
-	<script src="https://cdn.tailwindcss.com"></script>
-	<link rel="stylesheet" href="assets/css/all.min.css">
-	<link rel="stylesheet" href="assets/css/tailwind-custom.css">
-	<!-- Configure Tailwind with custom colors -->
-	<script>
-		tailwind.config = {
-			theme: {
-				extend: {
-					colors: {
-						cyan: '#ccc8c2',
-						'cyan-alt': '#bcbab6',
-						green: '#45febb',
-						yellow: '#e2fda7',
-						'dark-gray': '#333333',
-					}
-				}
-			}
-		}
-	</script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoneyFlow - Send Money Anywhere</title>
+    <link rel="icon" href="assets/images/internet.svg" />
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/modern-styles.css">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        },
+                        secondary: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        },
+                        accent: {
+                            purple: '#8b5cf6',
+                            blue: '#3b82f6',
+                            orange: '#f97316',
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-out forwards',
+                        'slide-up': 'slideUp 0.8s ease-out forwards',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-glow': 'pulseGlow 2s ease-in-out infinite alternate',
+                        'bounce-gentle': 'bounceGentle 2s ease-in-out infinite',
+                    },
+                    backdropBlur: {
+                        xs: '2px',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 
-<body class="antialiased">
-	<header class="gradient-bg min-h-screen w-full md:block hidden">
-		<!-- Desktop version -->
-		<!-- Modern Navbar -->
-		<nav class="container mx-auto px-4 py-4">
-			<div class="flex justify-between items-center">
-				<a class="flex items-center" href="#">
-					<img src="assets/images/logo.svg" class="w-8 h-8" alt="logo">
-					<span class="ml-2 text-lg font-semibold">MoneyFlow</span>
-				</a>
-				
-				<!-- Mobile menu button -->
-				<div class="md:hidden">
-					<button type="button" class="text-gray-500 hover:text-gray-700 focus:outline-none">
-						<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-						</svg>
-					</button>
-				</div>
-				
-				<!-- Desktop menu -->
-				<div class="hidden md:flex items-center space-x-8">
-					<a href="#" class="text-gray-700 hover:text-gray-900 transition duration-300">Invite Friends</a>
-					<a href="#" class="text-gray-700 hover:text-gray-900 transition duration-300">Business</a>
-					<a href="#" class="text-gray-700 hover:text-gray-900 transition duration-300">Download App</a>
-					<a href="#" class="text-white bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-lg transition duration-300">Login</a>
-					<a href="#" class="text-gray-800 bg-green hover:bg-opacity-80 px-4 py-2 rounded-lg transition duration-300">Sign Up</a>
-				</div>
-			</div>
-		</nav>
+<body class="font-inter antialiased overflow-x-hidden">
+    <!-- Background Elements -->
+    <div class="fixed inset-0 -z-10">
+        <div class="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-secondary-100"></div>
+        <div class="absolute top-0 left-0 w-96 h-96 bg-primary-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float"></div>
+        <div class="absolute top-0 right-0 w-96 h-96 bg-accent-purple rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float" style="animation-delay: 2s;"></div>
+        <div class="absolute bottom-0 left-1/2 w-96 h-96 bg-accent-blue rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float" style="animation-delay: 4s;"></div>
+    </div>
 
-		<div class="container mx-auto px-4 mt-8">
-			<div class="flex flex-col md:flex-row">
-				<!-- Left Column -->
-				<div class="w-full md:w-1/2 flex flex-col justify-center animate-fade-in">
-					<h1 class="text-5xl md:text-6xl font-bold mb-6">
-						Pay anyone, <br> anywhere
-					</h1>
-					<p class="text-xl mb-8 text-gray-700">
-						Pay family, friends and bills for <br>
-						less&mdash;at home and abroad.
-					</p>
-					<div class="flex space-x-4 items-center mb-8">
-						<i class="fab fa-cc-visa text-2xl"></i>
-						<i class="fab fa-cc-mastercard text-2xl"></i>
-						<span class="font-medium">Klama</span>
-					</div>
-					<div>
-						<a href="#" class="bg-gray-800 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition duration-300 inline-flex items-center">
-							<span>Get Started</span>
-							<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
-								<path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-							</svg>
-						</a>
-					</div>
-				</div>
+    <!-- Navigation -->
+    <nav class="relative z-50 backdrop-blur-md bg-white/80 border-b border-white/20 sticky top-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center shadow-lg">
+                        <i class="fas fa-bolt text-white text-lg"></i>
+                    </div>
+                    <span class="text-xl font-bold bg-gradient-to-r from-primary-600 to-primary-700 bg-clip-text text-transparent">MoneyFlow</span>
+                </div>
 
-				<!-- Right Column -->
-				<div class="w-full md:w-1/2 mt-12 md:mt-0 animate-fade-in" style="animation-delay: 0.2s;">
-					<div class="bg-gray-900 bg-opacity-95 p-8 rounded-2xl shadow-2xl max-w-lg mx-auto">
-						<!-- Transfer Type Selector -->
-						<div class="flex justify-center space-x-8 mb-8">
-							<a href="#" class="text-green font-medium border-b-2 border-green pb-1">International</a>
-							<a href="#" class="text-gray-400 hover:text-white transition duration-300">Local</a>
-						</div>
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-secondary-600 hover:text-primary-600 transition-colors duration-300 font-medium">Features</a>
+                    <a href="#" class="text-secondary-600 hover:text-primary-600 transition-colors duration-300 font-medium">Business</a>
+                    <a href="#" class="text-secondary-600 hover:text-primary-600 transition-colors duration-300 font-medium">Support</a>
+                    <div class="flex items-center space-x-3">
+                        <button class="text-secondary-700 hover:text-secondary-900 font-medium px-4 py-2 rounded-lg hover:bg-secondary-100 transition-all duration-300">Sign In</button>
+                        <button class="bg-gradient-to-r from-primary-500 to-primary-600 text-white px-6 py-2 rounded-lg hover:from-primary-600 hover:to-primary-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium">Get Started</button>
+                    </div>
+                </div>
 
-						<!-- Currency Exchange Form -->
-						<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-							<!-- Left Column - Currency Selection -->
-							<div>
-								<div class="mb-6">
-									<label for="sending-devise" class="block text-gray-400 mb-2">I'd like to send</label>
-									<select class="custom-select w-full text-white">
-										<option value="1" selected>DE-EUR</option>
-										<option value="2">US-USD</option>
-										<option value="3">RU-RUB</option>
-									</select>
-								</div>
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2 rounded-lg hover:bg-secondary-100 transition-colors duration-300">
+                    <i class="fas fa-bars text-secondary-600"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
 
-								<div>
-									<label for="receiving-devise" class="block text-gray-400 mb-2">And receive in</label>
-									<select class="custom-select w-full text-white">
-										<option value="1" selected>UA-UAH</option>
-										<option value="2">JP-JPY</option>
-										<option value="3">TG-XOF</option>
-									</select>
-								</div>
-							</div>
+    <!-- Main Content -->
+    <main class="relative z-10">
+        <!-- Hero Section -->
+        <section class="min-h-screen flex items-center py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <!-- Left Column - Content -->
+                    <div class="space-y-2 animate-fade-in">
+                        <div class="space-y-2">
+                            <div class="inline-flex items-center px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-medium">
+                                <i class="fas fa-shield-alt mr-2"></i>
+                                Bank-level security
+                            </div>
+                            <h1 class="text-5xl lg:text-7xl font-bold text-secondary-900 leading-tight">
+                                Send money
+                                <span class="bg-gradient-to-r from-primary-500 to-accent-purple bg-clip-text text-transparent">anywhere</span>
+                                instantly
+                            </h1>
+                            <p class="text-xl text-secondary-600 leading-relaxed max-w-lg">
+                                Transfer money to family and friends worldwide with the lowest fees and best exchange rates. Fast, secure, and reliable.
+                            </p>
+                        </div>
 
-							<!-- Middle Column - Exchange Icon -->
-							<div class="flex items-center justify-center">
-								<button class="text-white hover:text-green transition-colors duration-300">
-									<i class="fas fa-sync fa-2x"></i>
-								</button>
-							</div>
+                        <!-- Trust Indicators -->
+                        <div class="flex items-center space-x-6">
+                            <div class="flex items-center space-x-2">
+                                <i class="fab fa-cc-visa text-2xl text-secondary-400"></i>
+                                <i class="fab fa-cc-mastercard text-2xl text-secondary-400"></i>
+                                <i class="fab fa-paypal text-2xl text-secondary-400"></i>
+                            </div>
+                            <div class="h-6 w-px bg-secondary-300"></div>
+                            <div class="flex items-center space-x-2 text-secondary-600">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <span class="font-semibold">4.9</span>
+                                <span class="text-sm">Trustpilot</span>
+                            </div>
+                        </div>
 
-							<!-- Right Column - Amount Inputs -->
-							<div>
-								<div class="mb-6">
-									<input type="text" class="custom-input w-full text-white" value="€200">
-								</div>
+                        <!-- CTA Button -->
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button class="group bg-gradient-to-r from-primary-500 to-primary-600 text-white px-8 py-4 rounded-xl hover:from-primary-600 hover:to-primary-700 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 font-semibold text-lg">
+                                Start Transfer
+                                <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
+                            </button>
+                            <button class="flex items-center justify-center px-8 py-4 border-2 border-secondary-200 text-secondary-700 rounded-xl hover:border-primary-300 hover:text-primary-600 transition-all duration-300 font-semibold">
+                                <i class="fas fa-play mr-2"></i>
+                                Watch Demo
+                            </button>
+                        </div>
+                    </div>
 
-								<div>
-									<input type="text" class="custom-input w-full text-white" value="◆5,766">
-								</div>
-							</div>
-						</div>
+                    <!-- Right Column - Transfer Form -->
+                    <div class="animate-slide-up" style="animation-delay: 0.3s;">
+                        <div class="backdrop-blur-xl bg-white/20 border border-white/30 rounded-3xl p-8 shadow-2xl">
+                            <!-- Form Header -->
+                            <div class="text-center mb-8">
+                                <h3 class="text-2xl font-bold text-secondary-900 mb-2">Quick Transfer</h3>
+                                <div class="flex justify-center space-x-6">
+                                    <button class="text-primary-600 font-semibold border-b-2 border-primary-600 pb-2">International</button>
+                                    <button class="text-secondary-500 hover:text-secondary-700 transition-colors duration-300 pb-2">Domestic</button>
+                                </div>
+                            </div>
 
-						<!-- Delivery Options -->
-						<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
-							<!-- Standard Delivery -->
-							<div class="bg-cyan rounded-xl overflow-hidden shadow-lg card-hover">
-								<div class="p-4">
-									<h3 class="font-bold text-lg">Tomorrow</h3>
-									<p class="text-gray-700">by 20:30</p>
-								</div>
-								<div class="bg-cyan-alt px-4 py-3 flex justify-between items-center">
-									<span class="font-bold">Free</span>
-									<i class="fas fa-check-circle text-green"></i>
-								</div>
-							</div>
+                            <!-- Currency Selection -->
+                            <div class="space-y-6 mb-8">
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
+                                    <!-- From Currency -->
+                                    <div class="space-y-2">
+                                        <label class="text-sm font-medium text-secondary-600">You send</label>
+                                        <div class="relative">
+                                            <select class="w-full bg-white/50 border border-white/30 rounded-xl px-4 py-3 text-secondary-900 font-medium focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent backdrop-blur-sm">
+                                                <option value="EUR">🇪🇺 EUR</option>
+                                                <option value="USD">🇺🇸 USD</option>
+                                                <option value="GBP">🇬🇧 GBP</option>
+                                            </select>
+                                        </div>
+                                    </div>
 
-							<!-- Express Delivery -->
-							<div class="bg-green rounded-xl overflow-hidden shadow-lg card-hover">
-								<div class="p-4">
-									<h3 class="font-bold text-lg">Today</h3>
-									<p class="text-gray-700">by 21:00</p>
-								</div>
-								<div class="bg-opacity-80 bg-green px-4 py-3">
-									<span class="font-bold">€1.99</span>
-								</div>
-							</div>
+                                    <!-- Swap Button -->
+                                    <div class="flex justify-center">
+                                        <button class="w-12 h-12 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-full hover:from-primary-600 hover:to-primary-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:rotate-180 hover:scale-110">
+                                            <i class="fas fa-exchange-alt"></i>
+                                        </button>
+                                    </div>
 
-							<!-- Instant Delivery -->
-							<div class="bg-yellow rounded-xl overflow-hidden shadow-lg card-hover">
-								<div class="p-4">
-									<h3 class="font-bold text-lg">Instant</h3>
-									<p class="text-gray-700">30 min</p>
-								</div>
-								<div class="bg-opacity-80 bg-yellow px-4 py-3">
-									<span class="font-bold">€2.99</span>
-								</div>
-							</div>
-						</div>
+                                    <!-- To Currency -->
+                                    <div class="space-y-2">
+                                        <label class="text-sm font-medium text-secondary-600">They receive</label>
+                                        <div class="relative">
+                                            <select class="w-full bg-white/50 border border-white/30 rounded-xl px-4 py-3 text-secondary-900 font-medium focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent backdrop-blur-sm">
+                                                <option value="UAH">🇺🇦 UAH</option>
+                                                <option value="JPY">🇯🇵 JPY</option>
+                                                <option value="XOF">🇹🇬 XOF</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
 
-						<!-- Action Button -->
-						<div class="flex items-center space-x-4">
-							<button class="bg-green hover:bg-opacity-90 text-gray-900 font-bold py-3 px-6 rounded-lg transition duration-300 shadow-lg">
-								Transfer Now
-							</button>
-							<div class="flex items-center text-gray-400">
-								<i class="fas fa-lock mr-2"></i>
-								<span>FCA protected</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
+                                <!-- Amount Inputs -->
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="relative">
+                                        <input type="text" value="500" class="w-full bg-white/50 border border-white/30 rounded-xl px-4 py-4 text-2xl font-bold text-secondary-900 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent backdrop-blur-sm">
+                                        <span class="absolute right-4 top-1/2 transform -translate-y-1/2 text-secondary-500 font-medium">EUR</span>
+                                    </div>
+                                    <div class="relative">
+                                        <input type="text" value="13,450" class="w-full bg-white/50 border border-white/30 rounded-xl px-4 py-4 text-2xl font-bold text-secondary-900 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent backdrop-blur-sm">
+                                        <span class="absolute right-4 top-1/2 transform -translate-y-1/2 text-secondary-500 font-medium">UAH</span>
+                                    </div>
+                                </div>
 
-	<div class="md:hidden block bg-gray-100 min-h-screen">
-		<!-- Mobile version -->
-		<nav class="bg-white shadow-md px-4 py-3 flex justify-between items-center">
-			<a class="flex items-center" href="#">
-				<img src="assets/images/logo.svg" class="w-8 h-8" alt="logo">
-				<span class="ml-2 text-lg font-semibold">MoneyFlow</span>
-			</a>
-			<button type="button" class="text-gray-500 hover:text-gray-700 focus:outline-none">
-				<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-				</svg>
-			</button>
-		</nav>
+                                <!-- Exchange Rate Info -->
+                                <div class="bg-primary-50 border border-primary-200 rounded-xl p-4">
+                                    <div class="flex justify-between items-center text-sm">
+                                        <span class="text-secondary-600">Exchange rate</span>
+                                        <span class="font-semibold text-secondary-900">1 EUR = 26.90 UAH</span>
+                                    </div>
+                                    <div class="flex justify-between items-center text-sm mt-1">
+                                        <span class="text-secondary-600">Fee</span>
+                                        <span class="font-semibold text-primary-600">Free</span>
+                                    </div>
+                                </div>
+                            </div>
 
-		<div class="px-4 py-6">
-			<div class="animate-fade-in">
-				<h1 class="text-4xl font-bold mb-4">Pay anyone, anywhere</h1>
-				<p class="text-lg mb-6 text-gray-700">Pay family, friends and bills for less&mdash;at home and abroad.</p>
-				<div class="flex space-x-4 items-center mb-6">
-					<i class="fab fa-cc-visa text-xl"></i>
-					<i class="fab fa-cc-mastercard text-xl"></i>
-					<span class="font-medium">Klama</span>
-				</div>
-			</div>
+                            <!-- Delivery Options -->
+                            <div class="space-y-4 mb-8">
+                                <h4 class="font-semibold text-secondary-900">Delivery speed</h4>
+                                <div class="grid grid-cols-1 gap-3">
+                                    <!-- Standard -->
+                                    <div class="bg-gradient-to-r from-primary-50 to-primary-100 border-2 border-primary-200 rounded-xl p-4 cursor-pointer hover:from-primary-100 hover:to-primary-200 transition-all duration-300">
+                                        <div class="flex justify-between items-center">
+                                            <div>
+                                                <h5 class="font-semibold text-secondary-900">Standard</h5>
+                                                <p class="text-sm text-secondary-600">1-2 business days</p>
+                                            </div>
+                                            <div class="text-right">
+                                                <span class="font-bold text-primary-600">Free</span>
+                                                <i class="fas fa-check-circle text-primary-500 ml-2"></i>
+                                            </div>
+                                        </div>
+                                    </div>
 
-			<div class="bg-gray-900 p-6 rounded-xl shadow-xl animate-fade-in" style="animation-delay: 0.2s;">
-				<!-- Transfer Type Selector -->
-				<div class="flex justify-center space-x-8 mb-6">
-					<a href="#" class="text-green font-medium border-b-2 border-green pb-1">International</a>
-					<a href="#" class="text-gray-400 hover:text-white transition duration-300">Local</a>
-				</div>
+                                    <!-- Express -->
+                                    <div class="bg-white/50 border border-white/30 rounded-xl p-4 cursor-pointer hover:bg-white/70 transition-all duration-300">
+                                        <div class="flex justify-between items-center">
+                                            <div>
+                                                <h5 class="font-semibold text-secondary-900">Express</h5>
+                                                <p class="text-sm text-secondary-600">Within hours</p>
+                                            </div>
+                                            <div class="text-right">
+                                                <span class="font-bold text-secondary-900">€2.99</span>
+                                            </div>
+                                        </div>
+                                    </div>
 
-				<!-- Currency Exchange Form -->
-				<div class="space-y-6 mb-6">
-					<div>
-						<label class="block text-gray-400 mb-2">I'd like to send</label>
-						<select class="custom-select w-full text-white">
-							<option value="1" selected>DE-EUR</option>
-							<option value="2">US-USD</option>
-							<option value="3">RU-RUB</option>
-						</select>
-					</div>
+                                    <!-- Instant -->
+                                    <div class="bg-white/50 border border-white/30 rounded-xl p-4 cursor-pointer hover:bg-white/70 transition-all duration-300">
+                                        <div class="flex justify-between items-center">
+                                            <div>
+                                                <h5 class="font-semibold text-secondary-900">Instant</h5>
+                                                <p class="text-sm text-secondary-600">Within minutes</p>
+                                            </div>
+                                            <div class="text-right">
+                                                <span class="font-bold text-secondary-900">€4.99</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-					<div class="flex justify-center py-2">
-						<button class="text-white hover:text-green transition-colors duration-300">
-							<i class="fas fa-sync fa-2x"></i>
-						</button>
-					</div>
+                            <!-- Submit Button -->
+                            <button class="w-full bg-gradient-to-r from-primary-500 to-primary-600 text-white py-4 rounded-xl hover:from-primary-600 hover:to-primary-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-semibold text-lg">
+                                Continue Transfer
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </button>
 
-					<div>
-						<label class="block text-gray-400 mb-2">And receive in</label>
-						<select class="custom-select w-full text-white">
-							<option value="1" selected>UA-UAH</option>
-							<option value="2">JP-JPY</option>
-							<option value="3">TG-XOF</option>
-						</select>
-					</div>
+                            <!-- Security Note -->
+                            <div class="flex items-center justify-center mt-6 text-sm text-secondary-600">
+                                <i class="fas fa-shield-alt mr-2 text-primary-500"></i>
+                                <span>Secured by 256-bit SSL encryption</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-					<div class="grid grid-cols-2 gap-4">
-						<div>
-							<input type="text" class="custom-input w-full text-white" value="€200">
-						</div>
-						<div>
-							<input type="text" class="custom-input w-full text-white" value="◆5,766">
-						</div>
-					</div>
-				</div>
+        <!-- Features Section -->
+        <section class="py-20 bg-white/30 backdrop-blur-sm">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-secondary-900 mb-4">Why choose MoneyFlow?</h2>
+                    <p class="text-xl text-secondary-600 max-w-3xl mx-auto">Experience the future of money transfers with our cutting-edge platform</p>
+                </div>
 
-				<!-- Delivery Options -->
-				<div class="space-y-3 mb-6">
-					<div class="bg-cyan rounded-xl overflow-hidden shadow-lg card-hover">
-						<div class="p-4">
-							<h3 class="font-bold text-lg">Tomorrow</h3>
-							<p class="text-gray-700">by 20:30</p>
-						</div>
-						<div class="bg-cyan-alt px-4 py-3 flex justify-between items-center">
-							<span class="font-bold">Free</span>
-							<i class="fas fa-check-circle text-green"></i>
-						</div>
-					</div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="group bg-white/50 backdrop-blur-sm border border-white/30 rounded-2xl p-8 hover:bg-white/70 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                        <div class="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-bolt text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary-900 mb-4">Lightning Fast</h3>
+                        <p class="text-secondary-600">Send money in minutes, not days. Our advanced technology ensures your transfers are processed instantly.</p>
+                    </div>
 
-					<div class="bg-green rounded-xl overflow-hidden shadow-lg card-hover">
-						<div class="p-4">
-							<h3 class="font-bold text-lg">Today</h3>
-							<p class="text-gray-700">by 21:00</p>
-						</div>
-						<div class="bg-opacity-80 bg-green px-4 py-3">
-							<span class="font-bold">€1.99</span>
-						</div>
-					</div>
+                    <!-- Feature 2 -->
+                    <div class="group bg-white/50 backdrop-blur-sm border border-white/30 rounded-2xl p-8 hover:bg-white/70 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                        <div class="w-16 h-16 bg-gradient-to-br from-accent-blue to-accent-purple rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-shield-alt text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary-900 mb-4">Bank-Level Security</h3>
+                        <p class="text-secondary-600">Your money and data are protected with military-grade encryption and advanced fraud detection.</p>
+                    </div>
 
-					<div class="bg-yellow rounded-xl overflow-hidden shadow-lg card-hover">
-						<div class="p-4">
-							<h3 class="font-bold text-lg">Instant</h3>
-							<p class="text-gray-700">30 min</p>
-						</div>
-						<div class="bg-opacity-80 bg-yellow px-4 py-3">
-							<span class="font-bold">€2.99</span>
-						</div>
-					</div>
-				</div>
+                    <!-- Feature 3 -->
+                    <div class="group bg-white/50 backdrop-blur-sm border border-white/30 rounded-2xl p-8 hover:bg-white/70 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                        <div class="w-16 h-16 bg-gradient-to-br from-accent-orange to-primary-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-dollar-sign text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary-900 mb-4">Best Rates</h3>
+                        <p class="text-secondary-600">Get more for your money with our competitive exchange rates and transparent, low fees.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-				<!-- Action Button -->
-				<div class="flex flex-col space-y-4">
-					<button class="bg-green hover:bg-opacity-90 text-gray-900 font-bold py-3 px-6 rounded-lg transition duration-300 shadow-lg w-full">
-						Transfer Now
-					</button>
-					<div class="flex items-center justify-center text-gray-400">
-						<i class="fas fa-lock mr-2"></i>
-						<span>FCA protected</span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+    <!-- Footer -->
+    <footer class="bg-secondary-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-bolt text-white"></i>
+                        </div>
+                        <span class="text-xl font-bold">MoneyFlow</span>
+                    </div>
+                    <p class="text-secondary-400 mb-6">The fastest and most secure way to send money worldwide.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-secondary-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-secondary-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors duration-300">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-secondary-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors duration-300">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Product</h4>
+                    <ul class="space-y-2 text-secondary-400">
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">Send Money</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">Receive Money</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">Business</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">API</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Support</h4>
+                    <ul class="space-y-2 text-secondary-400">
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">Help Center</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">Security</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">Status</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-secondary-400">
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">About</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">Careers</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">Press</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">Legal</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-secondary-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-secondary-400">© 2025 MoneyFlow. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-secondary-400 hover:text-white transition-colors duration-300">Privacy</a>
+                    <a href="#" class="text-secondary-400 hover:text-white transition-colors duration-300">Terms</a>
+                    <a href="#" class="text-secondary-400 hover:text-white transition-colors duration-300">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/all.min.js"></script>
+    <!-- Scripts -->
+    <script src="assets/js/modern-interactions.js"></script>
 </body>
 
 </html>
