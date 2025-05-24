@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelPay - Digital Banking Reimagined</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%2300ff88' d='M0 0h4v4H0zm4 0h4v4H4zm4 0h4v4H8zm4 0h4v4h-4zM0 4h4v4H0zm8 0h4v4H8zM0 8h4v4H0zm4 0h4v4H4zm8 0h4v4h-4zM0 12h4v4H0zm8 0h4v4H8z'/%3E%3C/svg%3E">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'pixel': ['Press Start 2P', 'monospace'],
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'pixel-green': '#00ff88',
+                        'pixel-blue': '#0088ff',
+                        'pixel-purple': '#8800ff',
+                        'pixel-pink': '#ff0088',
+                        'pixel-yellow': '#ffff00',
+                        'pixel-dark': '#1a1a2e',
+                        'pixel-darker': '#16213e',
+                        'pixel-light': '#eee',
+                    },
+                    animation: {
+                        'pixel-pulse': 'pixelPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        pixelPulse: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '.5' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 5px #00ff88, 0 0 10px #00ff88, 0 0 15px #00ff88' },
+                            '100%': { boxShadow: '0 0 10px #00ff88, 0 0 20px #00ff88, 0 0 30px #00ff88' },
+                        },
+                    },
+                    boxShadow: {
+                        'pixel': '4px 4px 0px 0px rgba(0,0,0,0.3)',
+                        'pixel-hover': '6px 6px 0px 0px rgba(0,0,0,0.4)',
+                        'neon': '0 0 20px rgba(0, 255, 136, 0.5)',
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .pixel-border {
+            border: 3px solid;
+            border-image: url("data:image/svg+xml,%3csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m0 0h8v8h-8zm8 0h8v8h-8zm16 0h8v8h-8zm24 0h8v8h-8zm32 0h8v8h-8zm40 0h8v8h-8zm48 0h8v8h-8zm56 0h8v8h-8zm64 0h8v8h-8zm72 0h8v8h-8zm80 0h8v8h-8zm88 0h8v8h-8z' fill='%2300ff88'/%3e%3c/svg%3e") 8;
+        }
+        
+        .pixel-card {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border: 2px solid #00ff88;
+            position: relative;
+        }
+        
+        .pixel-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #00ff88, #0088ff, #8800ff, #ff0088);
+            z-index: -1;
+            border-radius: inherit;
+        }
+        
+        .retro-grid {
+            background-image: 
+                linear-gradient(rgba(0, 255, 136, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 136, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        
+        .pixel-button {
+            background: #00ff88;
+            border: none;
+            color: #1a1a2e;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+            box-shadow: 4px 4px 0px 0px rgba(0,0,0,0.3);
+        }
+        
+        .pixel-button:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.4);
+        }
+        
+        .pixel-button:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px 0px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+
+<body class="bg-pixel-dark text-pixel-light font-inter overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-pixel-darker/90 backdrop-blur-sm border-b-2 border-pixel-green">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-pixel-green" style="clip-path: polygon(0 0, 100% 0, 100% 75%, 75% 100%, 0 100%)"></div>
+                    <span class="font-pixel text-pixel-green text-lg">PixelPay</span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#features" class="hover:text-pixel-green transition-colors duration-300">Features</a>
+                    <a href="#services" class="hover:text-pixel-green transition-colors duration-300">Services</a>
+                    <a href="#about" class="hover:text-pixel-green transition-colors duration-300">About</a>
+                    <a href="#contact" class="hover:text-pixel-green transition-colors duration-300">Contact</a>
+                </div>
+                
+                <button class="pixel-button px-6 py-2 font-pixel text-sm">
+                    Get Started
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center relative retro-grid pt-20">
+        <div class="container mx-auto px-6 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="font-pixel text-4xl md:text-6xl lg:text-7xl text-pixel-green mb-8 animate-glow">
+                    Digital Banking
+                    <br>
+                    <span class="text-pixel-blue">Reimagined</span>
+                </h1>
+                
+                <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed">
+                    Experience the future of finance with our pixel-perfect digital banking platform. 
+                    Fast, secure, and beautifully retro.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+                    <button class="pixel-button px-8 py-4 font-pixel text-lg">
+                        Start Banking
+                    </button>
+                    <button class="border-2 border-pixel-blue text-pixel-blue px-8 py-4 font-pixel text-lg hover:bg-pixel-blue hover:text-pixel-dark transition-all duration-300">
+                        Watch Demo
+                    </button>
+                </div>
+                
+                <!-- Pixel Art Illustration -->
+                <div class="relative mx-auto w-80 h-80 animate-float">
+                    <svg viewBox="0 0 320 320" class="w-full h-full">
+                        <!-- Phone Frame -->
+                        <rect x="80" y="40" width="160" height="240" fill="#1a1a2e" stroke="#00ff88" stroke-width="4"/>
+                        <!-- Screen -->
+                        <rect x="90" y="60" width="140" height="200" fill="#16213e"/>
+                        <!-- App Icons -->
+                        <rect x="100" y="80" width="30" height="30" fill="#00ff88"/>
+                        <rect x="140" y="80" width="30" height="30" fill="#0088ff"/>
+                        <rect x="180" y="80" width="30" height="30" fill="#8800ff"/>
+                        <!-- Balance Display -->
+                        <rect x="100" y="130" width="110" height="40" fill="#00ff88" opacity="0.8"/>
+                        <text x="155" y="155" text-anchor="middle" fill="#1a1a2e" font-family="Press Start 2P" font-size="8">$12,345</text>
+                        <!-- Transaction List -->
+                        <rect x="100" y="180" width="110" height="8" fill="#0088ff" opacity="0.6"/>
+                        <rect x="100" y="195" width="110" height="8" fill="#8800ff" opacity="0.6"/>
+                        <rect x="100" y="210" width="110" height="8" fill="#ff0088" opacity="0.6"/>
+                        <!-- Floating Coins -->
+                        <circle cx="50" cy="100" r="15" fill="#ffff00" opacity="0.8" class="animate-pixel-pulse"/>
+                        <circle cx="270" cy="150" r="12" fill="#00ff88" opacity="0.8" class="animate-pixel-pulse"/>
+                        <circle cx="60" cy="200" r="10" fill="#0088ff" opacity="0.8" class="animate-pixel-pulse"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-24 bg-pixel-darker">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-pixel text-3xl md:text-4xl text-pixel-green mb-6">Core Features</h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                    Built with cutting-edge technology and retro aesthetics
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature Card 1 -->
+                <div class="pixel-card p-8 rounded-lg hover:transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="w-16 h-16 bg-pixel-green mb-6 flex items-center justify-center">
+                        <i class="fas fa-shield-alt text-2xl text-pixel-dark"></i>
+                    </div>
+                    <h3 class="font-pixel text-xl text-pixel-green mb-4">Bank-Level Security</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        256-bit encryption and multi-factor authentication keep your money safer than a pixel fortress.
+                    </p>
+                </div>
+                
+                <!-- Feature Card 2 -->
+                <div class="pixel-card p-8 rounded-lg hover:transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="w-16 h-16 bg-pixel-blue mb-6 flex items-center justify-center">
+                        <i class="fas fa-bolt text-2xl text-pixel-dark"></i>
+                    </div>
+                    <h3 class="font-pixel text-xl text-pixel-blue mb-4">Lightning Fast</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Instant transfers and real-time notifications. Your money moves at the speed of pixels.
+                    </p>
+                </div>
+                
+                <!-- Feature Card 3 -->
+                <div class="pixel-card p-8 rounded-lg hover:transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="w-16 h-16 bg-pixel-purple mb-6 flex items-center justify-center">
+                        <i class="fas fa-mobile-alt text-2xl text-pixel-dark"></i>
+                    </div>
+                    <h3 class="font-pixel text-xl text-pixel-purple mb-4">Mobile First</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Designed for your smartphone with a retro twist. Banking has never looked this cool.
+                    </p>
+                </div>
+                
+                <!-- Feature Card 4 -->
+                <div class="pixel-card p-8 rounded-lg hover:transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="w-16 h-16 bg-pixel-pink mb-6 flex items-center justify-center">
+                        <i class="fas fa-chart-line text-2xl text-pixel-dark"></i>
+                    </div>
+                    <h3 class="font-pixel text-xl text-pixel-pink mb-4">Smart Analytics</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        AI-powered insights help you understand your spending patterns and save more money.
+                    </p>
+                </div>
+                
+                <!-- Feature Card 5 -->
+                <div class="pixel-card p-8 rounded-lg hover:transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="w-16 h-16 bg-pixel-yellow mb-6 flex items-center justify-center">
+                        <i class="fas fa-globe text-2xl text-pixel-dark"></i>
+                    </div>
+                    <h3 class="font-pixel text-xl text-pixel-yellow mb-4">Global Access</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Send money anywhere in the world with minimal fees and maximum style.
+                    </p>
+                </div>
+                
+                <!-- Feature Card 6 -->
+                <div class="pixel-card p-8 rounded-lg hover:transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="w-16 h-16 bg-pixel-green mb-6 flex items-center justify-center">
+                        <i class="fas fa-headset text-2xl text-pixel-dark"></i>
+                    </div>
+                    <h3 class="font-pixel text-xl text-pixel-green mb-4">24/7 Support</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Our pixel-perfect support team is always ready to help you level up your banking game.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 retro-grid">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-pixel text-3xl md:text-4xl text-pixel-blue mb-6">Our Services</h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                    Everything you need for modern digital banking
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-pixel-green flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-credit-card text-pixel-dark"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-pixel text-lg text-pixel-green mb-2">Digital Wallet</h3>
+                            <p class="text-gray-300">Store, send, and receive money with our secure digital wallet.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-pixel-blue flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-exchange-alt text-pixel-dark"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-pixel text-lg text-pixel-blue mb-2">Instant Transfers</h3>
+                            <p class="text-gray-300">Send money to friends and family instantly, anywhere in the world.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-pixel-purple flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-piggy-bank text-pixel-dark"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-pixel text-lg text-pixel-purple mb-2">Smart Savings</h3>
+                            <p class="text-gray-300">Automated savings plans that help you reach your financial goals.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-pixel-pink flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-chart-pie text-pixel-dark"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-pixel text-lg text-pixel-pink mb-2">Expense Tracking</h3>
+                            <p class="text-gray-300">Detailed analytics and insights into your spending habits.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="w-full max-w-md mx-auto">
+                        <svg viewBox="0 0 400 500" class="w-full h-full">
+                            <!-- ATM Machine -->
+                            <rect x="50" y="50" width="300" height="400" fill="#1a1a2e" stroke="#00ff88" stroke-width="4"/>
+                            <!-- Screen -->
+                            <rect x="80" y="100" width="240" height="150" fill="#16213e" stroke="#0088ff" stroke-width="2"/>
+                            <!-- Screen Content -->
+                            <rect x="100" y="120" width="200" height="20" fill="#00ff88" opacity="0.8"/>
+                            <rect x="100" y="150" width="150" height="15" fill="#0088ff" opacity="0.6"/>
+                            <rect x="100" y="175" width="180" height="15" fill="#8800ff" opacity="0.6"/>
+                            <rect x="100" y="200" width="120" height="15" fill="#ff0088" opacity="0.6"/>
+                            <!-- Keypad -->
+                            <rect x="100" y="280" width="40" height="30" fill="#00ff88" opacity="0.8"/>
+                            <rect x="150" y="280" width="40" height="30" fill="#00ff88" opacity="0.8"/>
+                            <rect x="200" y="280" width="40" height="30" fill="#00ff88" opacity="0.8"/>
+                            <rect x="250" y="280" width="40" height="30" fill="#00ff88" opacity="0.8"/>
+                            <!-- Card Slot -->
+                            <rect x="150" y="350" width="100" height="10" fill="#ffff00"/>
+                            <!-- Cash Slot -->
+                            <rect x="120" y="380" width="160" height="20" fill="#00ff88"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-24 bg-pixel-darker">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+                <div class="pixel-card p-8 rounded-lg">
+                    <div class="font-pixel text-3xl text-pixel-green mb-2">1M+</div>
+                    <p class="text-gray-300">Active Users</p>
+                </div>
+                <div class="pixel-card p-8 rounded-lg">
+                    <div class="font-pixel text-3xl text-pixel-blue mb-2">$50B+</div>
+                    <p class="text-gray-300">Transactions</p>
+                </div>
+                <div class="pixel-card p-8 rounded-lg">
+                    <div class="font-pixel text-3xl text-pixel-purple mb-2">99.9%</div>
+                    <p class="text-gray-300">Uptime</p>
+                </div>
+                <div class="pixel-card p-8 rounded-lg">
+                    <div class="font-pixel text-3xl text-pixel-pink mb-2">24/7</div>
+                    <p class="text-gray-300">Support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 retro-grid">
+        <div class="container mx-auto px-6 text-center">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="font-pixel text-3xl md:text-4xl text-pixel-green mb-6">
+                    Ready to Level Up Your Banking?
+                </h2>
+                <p class="text-xl text-gray-300 mb-12">
+                    Join millions of users who have already discovered the future of digital banking.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                    <button class="pixel-button px-8 py-4 font-pixel text-lg">
+                        Create Account
+                    </button>
+                    <button class="border-2 border-pixel-blue text-pixel-blue px-8 py-4 font-pixel text-lg hover:bg-pixel-blue hover:text-pixel-dark transition-all duration-300">
+                        Learn More
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-pixel-darker border-t-2 border-pixel-green py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 bg-pixel-green" style="clip-path: polygon(0 0, 100% 0, 100% 75%, 75% 100%, 0 100%)"></div>
+                        <span class="font-pixel text-pixel-green text-lg">PixelPay</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        The future of digital banking with a retro twist.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-pixel text-pixel-green mb-4">Products</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-pixel-green transition-colors">Digital Wallet</a></li>
+                        <li><a href="#" class="hover:text-pixel-green transition-colors">Savings Account</a></li>
+                        <li><a href="#" class="hover:text-pixel-green transition-colors">Business Banking</a></li>
+                        <li><a href="#" class="hover:text-pixel-green transition-colors">Investment Tools</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-pixel text-pixel-green mb-4">Company</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-pixel-green transition-colors">About Us</a></li>
+                        <li><a href="#" class="hover:text-pixel-green transition-colors">Careers</a></li>
+                        <li><a href="#" class="hover:text-pixel-green transition-colors">Press</a></li>
+                        <li><a href="#" class="hover:text-pixel-green transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-pixel text-pixel-green mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-pixel-green flex items-center justify-center hover:bg-pixel-blue transition-colors">
+                            <i class="fab fa-twitter text-pixel-dark"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-pixel-green flex items-center justify-center hover:bg-pixel-blue transition-colors">
+                            <i class="fab fa-facebook text-pixel-dark"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-pixel-green flex items-center justify-center hover:bg-pixel-blue transition-colors">
+                            <i class="fab fa-instagram text-pixel-dark"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-pixel-green flex items-center justify-center hover:bg-pixel-blue transition-colors">
+                            <i class="fab fa-linkedin text-pixel-dark"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-400 text-sm">
+                    © 2024 PixelPay. All rights reserved. Made with <span class="text-pixel-pink">♥</span> and pixels.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Smooth Scrolling Script -->
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                navbar.classList.add('bg-pixel-darker');
+            } else {
+                navbar.classList.remove('bg-pixel-darker');
+            }
+        });
+    </script>
+</body>
+</html>
