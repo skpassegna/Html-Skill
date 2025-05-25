@@ -4,267 +4,464 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>SmartUv</title>
+	<title>SmartUV - Clean Air Solutions</title>
+	<!-- Tailwind CSS via CDN -->
+	<script src="https://cdn.tailwindcss.com"></script>
+	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" />
-	<link rel="stylesheet" href="assets/css/style.css">
 	<link rel="icon" href="assets/images/internet.svg">
+	<!-- Custom Tailwind Configuration -->
+	<script>
+		tailwind.config = {
+			theme: {
+				extend: {
+					colors: {
+						primary: '#6f42c1',
+						secondary: '#12035B',
+						light: '#f8f9fa',
+						dark: '#212529',
+						gray: {
+							100: '#f8f9fa',
+							200: '#e9ecef',
+							300: '#dee2e6',
+							400: '#ced4da',
+							500: '#adb5bd',
+							600: '#6c757d',
+							700: '#495057',
+							800: '#343a40',
+							900: '#212529'
+						}
+					},
+					fontFamily: {
+						sans: ['Inter', 'sans-serif'],
+						mono: ['SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace']
+					},
+				}
+			}
+		}
+	</script>
+	<!-- Custom Styles -->
+	<style type="text/tailwindcss">
+		@layer utilities {
+			.fade-in {
+				animation: fadeIn 1.5s ease-in-out;
+			}
+			@keyframes fadeIn {
+				0% { opacity: 0; }
+				100% { opacity: 1; }
+			}
+			.article-img {
+				height: 250px;
+				background-position: center;
+				background-size: cover;
+				background-repeat: no-repeat;
+			}
+		}
+	</style>
 </head>
 
-<body>
-	<nav>
-		<h1 class="brand">
+<body class="bg-gray-50 font-sans text-gray-800">
+	<!-- Navigation Bar -->
+	<nav class="sticky top-0 z-50 bg-white shadow-md px-6 py-4 flex justify-between items-center">
+		<h1 class="text-3xl font-bold text-secondary hover:text-primary transition-colors duration-300 cursor-pointer">
 			SmartUV
 		</h1>
 
-		<div class="nav-menu">
-			<ul>
+		<div class="hidden md:block">
+			<ul class="flex space-x-8 items-center font-medium">
 				<li>
-					<a href="#">Home</a>
-				</li>
-
-				<li>
-					<a href="#">Products</a>
-				</li>
-
-				<li>
-					<a href="#">How It Works?</a>
+					<a href="#" class="text-gray-800 hover:text-primary transition-colors duration-300">Home</a>
 				</li>
 				<li>
-					<a href="#">Blog</a>
+					<a href="#" class="text-gray-800 hover:text-primary transition-colors duration-300">Products</a>
 				</li>
 				<li>
-					<a href="#">
-						<i class="fas fa-shopping-bag"></i>
+					<a href="#" class="text-gray-800 hover:text-primary transition-colors duration-300">How It Works?</a>
+				</li>
+				<li>
+					<a href="#" class="text-gray-800 hover:text-primary transition-colors duration-300">Blog</a>
+				</li>
+				<li>
+					<a href="#" class="text-gray-800 hover:text-primary transition-colors duration-300 relative">
+						<i class="fas fa-shopping-bag text-xl"></i>
+						<span class="absolute -top-2 -right-2 bg-primary text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
 					</a>
 				</li>
 			</ul>
 		</div>
+		
+		<!-- Mobile Menu Button -->
+		<div class="md:hidden">
+			<button id="mobile-menu-button" class="text-gray-800 hover:text-primary transition-colors duration-300">
+				<i class="fas fa-bars text-2xl"></i>
+			</button>
+		</div>
 	</nav>
+	
+	<!-- Mobile Menu (Hidden by default) -->
+	<div id="mobile-menu" class="hidden bg-white shadow-md py-4 px-6 md:hidden">
+		<ul class="space-y-4 font-medium">
+			<li>
+				<a href="#" class="block text-gray-800 hover:text-primary transition-colors duration-300">Home</a>
+			</li>
+			<li>
+				<a href="#" class="block text-gray-800 hover:text-primary transition-colors duration-300">Products</a>
+			</li>
+			<li>
+				<a href="#" class="block text-gray-800 hover:text-primary transition-colors duration-300">How It Works?</a>
+			</li>
+			<li>
+				<a href="#" class="block text-gray-800 hover:text-primary transition-colors duration-300">Blog</a>
+			</li>
+			<li>
+				<a href="#" class="block text-gray-800 hover:text-primary transition-colors duration-300">Cart</a>
+			</li>
+		</ul>
+	</div>
 
-	<header class="container p-4">
-		<div class="hero fade-in-box">
-			<h2>Time to Get Your House <br> Clean and in Order</h2>
-			<p>
-				To have good air quality is not as simple as moving away from the city to a quiet suburb or rural
-				envireonment.
-			</p>
-
-			<a href="#" class="btn">Read Article</a>
+	<!-- Hero Section -->
+	<header class="relative bg-cover bg-center min-h-60vh py-10" style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)), url('assets/images/25926730471_0de159aaac_o.jpg')">
+		<div class="container mx-auto px-6 h-full flex items-end pb-16">
+			<div class="max-w-lg bg-white/90 backdrop-blur-sm p-8 rounded-lg shadow-lg fade-in">
+				<h2 class="text-4xl md:text-5xl font-bold text-secondary mb-4 leading-tight">Time to Get Your House <br> Clean and in Order</h2>
+				<p class="text-gray-700 mb-6 text-lg">
+					To have good air quality is not as simple as moving away from the city to a quiet suburb or rural
+					environment. SmartUV technology makes the difference.
+				</p>
+				<a href="article.html" class="inline-block px-6 py-3 bg-primary text-white font-medium rounded-lg shadow-md hover:bg-white hover:text-primary hover:border-primary border-2 border-transparent transition-all duration-300 ease-in-out">Read Article</a>
+			</div>
 		</div>
 	</header>
 
-	<div class="container p-4">
-		<div class="row">
-			<div class="col-8">
-				<div class="container">
-					<div class="row">
-						<div class="col-5 article-card">
-							<div class="article-img" style="background-image: url('assets/images/product-5.jpg');">
-								
+	<!-- Featured Articles Section -->
+	<section class="container mx-auto px-4 py-16">
+		<div class="flex flex-col md:flex-row gap-8">
+			<!-- Main Featured Articles -->
+			<div class="md:w-2/3">
+				<h2 class="text-3xl font-bold text-secondary mb-8">Featured Articles</h2>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+					<!-- Article Card 1 -->
+					<div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+						<div class="article-img rounded-t-xl" style="background-image: url('assets/images/product-5.jpg');"></div>
+						<div class="p-6">
+							<div class="flex items-center mb-4">
+								<span class="bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full">Air Quality</span>
+								<span class="ml-auto text-gray-500 text-sm">5 min read</span>
 							</div>
-							<div class="article-body">
-								<h3 class="article-title">A very important title for a wonderfull blog article</h3>
-								<p class="article-truncate">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-								</p>
-
-								<a href="#" class="btn outline">Read Article</a>
-							</div>
-						</div>
-
-						<div class="col-5 article-card">
-							<div class="article-img" style="background-image: url('assets/images/product-7.jpg');">
-								
-							</div>
-							<div class="article-body">
-								<h3 class="article-title">A very important title for a wonderfull blog article</h3>
-								<p class="article-truncate">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-								</p>
-
-								<a href="#" class="btn btn outline">Read Article</a>
-							</div>
+							<h3 class="text-xl font-bold text-secondary mb-2">UV Technology: The Future of Air Purification</h3>
+							<p class="text-gray-600 mb-4">
+								Discover how UV technology is revolutionizing the way we clean and purify indoor air.
+							</p>
+							<a href="#" class="inline-flex items-center text-primary font-medium hover:underline">
+								Read Article
+								<svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+							</a>
 						</div>
 					</div>
-				</div>
-			</div>
 
-			<div class="col-4">
-				<div class="article-card left-widget fade-in-box">
-					<div class="article-body">
-						<h3 class="article-title">A very important title for a wonderfull blog article</h3>
-						<p class="article-truncate">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima optio corporis dolorem
-							minus...
-						</p>
-						<a href="#">Read In 3 minutes</a>
-					</div>
-				</div>
-
-				<div class="article-card left-widget fade-in-box">
-					<div class="article-body">
-						<h3 class="article-title">A very important title for a wonderfull blog article</h3>
-						<p class="article-truncate">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima optio corporis dolorem
-							minus...
-						</p>
-						<a href="#">Read In 8 minutes</a>
-					</div>
-				</div>
-
-				<div class="article-card left-widget fade-in-box">
-					<div class="article-body">
-						<h3 class="article-title">A very important title for a wonderfull blog article</h3>
-						<p class="article-truncate">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima optio corporis dolorem
-							minus...
-						</p>
-						<a href="#">Read In 3 minutes</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
-	<section class="container boxed pl-4 pr-4">
-		<div class="row category-header">
-			<h2>The science Behind SmartUV</h2>
-		<a href="#" class="btn outline">See All Articles</a>
-		</div>
-		<div class="row">
-			<div class="col-3">
-				<div class="article-card">
-					<div class="article-img" style="background-image: url('assets/images/afupulpzi9en9n5plem4.jfif');">
-
-					</div>
-					<div class="article-body">
-						<h3 class="article-title">A very important title for a wonderfull blog article</h3>
-						<p class="article-truncate">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima optio corporis dolorem
-							minus iure repellat voluptates dolore possimus odit consectetur natus explicabo repellendus
-							ullam itaque, quod distinctio consequuntur hic. Sit corrupti blanditiis amet illum vero.
-						</p>
-
-						<a href="#" class="btn outline">Read Article</a>
+					<!-- Article Card 2 -->
+					<div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+						<div class="article-img rounded-t-xl" style="background-image: url('assets/images/product-7.jpg');"></div>
+						<div class="p-6">
+							<div class="flex items-center mb-4">
+								<span class="bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full">Health</span>
+								<span class="ml-auto text-gray-500 text-sm">7 min read</span>
+							</div>
+							<h3 class="text-xl font-bold text-secondary mb-2">Improving Indoor Air Quality for Better Health</h3>
+							<p class="text-gray-600 mb-4">
+								Learn how clean air impacts your health and what steps you can take to improve your home environment.
+							</p>
+							<a href="#" class="inline-flex items-center text-primary font-medium hover:underline">
+								Read Article
+								<svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+							</a>
+						</div>
 					</div>
 				</div>
 			</div>
 
-			<div class="col-3">
-				<div class="article-card">
-					<div class="article-img" style="background-image: url('assets/images/25720812110_b0dc058a8f_o.jpg');">
-
-					</div>
-					<div class="article-body">
-						<h3 class="article-title">A very important title for a wonderfull blog article</h3>
-						<p class="article-truncate">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima optio corporis dolorem
-							minus iure repellat voluptates dolore possimus odit consectetur natus explicabo repellendus
-							ullam itaque, quod distinctio consequuntur hic. Sit corrupti blanditiis amet illum vero.
+			<!-- Sidebar Articles -->
+			<div class="md:w-1/3">
+				<div class="bg-secondary/5 rounded-xl p-6 mb-6">
+					<h2 class="text-2xl font-bold text-secondary mb-6">Popular Reads</h2>
+					<!-- Sidebar Article 1 -->
+					<div class="mb-6 pb-6 border-b border-gray-200 last:border-0">
+						<h3 class="text-lg font-bold text-secondary mb-2">The Science Behind UV Air Purification</h3>
+						<p class="text-gray-600 mb-2">
+							Understanding how ultraviolet light effectively eliminates airborne pathogens and pollutants...
 						</p>
-
-						<a href="#" class="btn outline">Read Article</a>
+						<div class="flex items-center">
+							<svg class="w-4 h-4 text-primary mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
+							<span class="text-sm text-gray-500">Read in 3 minutes</span>
+						</div>
 					</div>
-				</div>
-			</div>
 
-			<div class="col-3">
-				<div class="article-card">
-					<div class="article-img" style="background-image: url('assets/images/person-writing-in-notebook-beside-laptop-working-from-bed.jpg');">
-
-					</div>
-					<div class="article-body">
-						<h3 class="article-title">A very important title for a wonderfull blog article</h3>
-						<p class="article-truncate">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima optio corporis dolorem
-							minus iure repellat voluptates dolore possimus odit consectetur natus explicabo repellendus
-							ullam itaque, quod distinctio consequuntur hic. Sit corrupti blanditiis amet illum vero.
+					<!-- Sidebar Article 2 -->
+					<div class="mb-6 pb-6 border-b border-gray-200 last:border-0">
+						<h3 class="text-lg font-bold text-secondary mb-2">5 Ways SmartUV Improves Your Home Environment</h3>
+						<p class="text-gray-600 mb-2">
+							Discover the multiple benefits of integrating SmartUV technology into your daily life...
 						</p>
-
-						<a href="#" class="btn outline">Read Article</a>
+						<div class="flex items-center">
+							<svg class="w-4 h-4 text-primary mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
+							<span class="text-sm text-gray-500">Read in 8 minutes</span>
+						</div>
 					</div>
-				</div>
-			</div>
 
-			<div class="col-3">
-				<div class="article-card">
-					<div class="article-img" style="background-image: url('assets/images/StockSnap_TBGNSSQV6B.jpg');">
-
-					</div>
-					<div class="article-body">
-						<h3 class="article-title">A very important title for a wonderfull blog article</h3>
-						<p class="article-truncate">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima optio corporis dolorem
-							minus iure repellat voluptates dolore possimus odit consectetur natus explicabo repellendus
-							ullam itaque, quod distinctio consequuntur hic. Sit corrupti blanditiis amet illum vero.
+					<!-- Sidebar Article 3 -->
+					<div class="mb-6 pb-6 border-b border-gray-200 last:border-0">
+						<h3 class="text-lg font-bold text-secondary mb-2">Customer Stories: Real Results with SmartUV</h3>
+						<p class="text-gray-600 mb-2">
+							Hear from our customers about how SmartUV has transformed their living spaces...
 						</p>
-
-						<a href="#" class="btn outline">Read Article</a>
+						<div class="flex items-center">
+							<svg class="w-4 h-4 text-primary mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
+							<span class="text-sm text-gray-500">Read in 3 minutes</span>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<section class="container boxed">
-		<div class="row">
-			<div class="col-6 p-4">
-				<article class="article-card left-widget fade-in-box">
-					<div class="article-body">
-						<h3 class="article-title">A very important title for a wonderfull blog article</h3>
-						<p class="article-truncate">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima optio corporis dolorem
-							minus...
-						</p>
-						<a href="#">Read In 3 minutes</a>
-					</div>
-				</article>
 
-				<article class="article-card left-widget fade-in-box">
-					<div class="article-body">
-						<h3 class="article-title">A very important title for a wonderfull blog article</h3>
-						<p class="article-truncate">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima optio corporis dolorem
-							minus...
-						</p>
-						<a href="#">Read In 8 minutes</a>
-					</div>
-				</article>
-
-				<article class="article-card left-widget fade-in-box">
-					<div class="article-body">
-						<h3 class="article-title">A very important title for a wonderfull blog article</h3>
-						<p class="article-truncate">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima optio corporis dolorem
-							minus...
-						</p>
-						<a href="#">Read In 3 minutes</a>
-					</div>
-				</article>
+	<!-- Science Behind SmartUV Section -->
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4">
+			<div class="flex flex-wrap justify-between items-center mb-12">
+				<h2 class="text-3xl font-bold text-secondary relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-16 after:h-1 after:bg-primary after:rounded-full pb-3">The Science Behind SmartUV</h2>
+				<a href="#" class="px-6 py-2 border-2 border-primary text-primary font-medium rounded-lg hover:bg-primary hover:text-white transition-colors duration-300">See All Articles</a>
 			</div>
-
-			<div class="col-6 p-4">
-				<div class="article-card">
-					<div class="article-img" style="background-image: url('assets/images/kaboompics_Workspace in the living room.jpg');">
-
-					</div>
-					<div class="article-body">
-						<h3 class="article-title">A very important title for a wonderfull blog article</h3>
-						<p class="article-truncate">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima optio corporis dolorem
-							minus iure repellat voluptates dolore possimus odit consectetur natus explicabo repellendus
-							ullam itaque, quod distinctio consequuntur hic. Sit corrupti blanditiis amet illum vero.
+			
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+				<!-- Science Article 1 -->
+				<div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
+					<div class="article-img rounded-t-xl" style="background-image: url('assets/images/afupulpzi9en9n5plem4.jfif');"></div>
+					<div class="p-6 flex flex-col flex-grow">
+						<span class="bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full mb-3 inline-block w-fit">Research</span>
+						<h3 class="text-lg font-bold text-secondary mb-3">Understanding UV-C Light Technology</h3>
+						<p class="text-gray-600 mb-4 flex-grow">
+							Explore the scientific principles behind UV-C light and how it effectively eliminates harmful microorganisms without chemicals.
 						</p>
+						<a href="#" class="mt-auto inline-flex items-center text-primary font-medium hover:underline">
+							Read Article
+							<svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+						</a>
+					</div>
+				</div>
 
-						<a href="#" class="btn outline">Read Article</a>
+				<!-- Science Article 2 -->
+				<div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
+					<div class="article-img rounded-t-xl" style="background-image: url('assets/images/25720812110_b0dc058a8f_o.jpg');"></div>
+					<div class="p-6 flex flex-col flex-grow">
+						<span class="bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full mb-3 inline-block w-fit">Efficiency</span>
+						<h3 class="text-lg font-bold text-secondary mb-3">Energy Efficiency of SmartUV Systems</h3>
+						<p class="text-gray-600 mb-4 flex-grow">
+							Learn how SmartUV technology provides powerful air purification while maintaining low energy consumption and environmental impact.
+						</p>
+						<a href="#" class="mt-auto inline-flex items-center text-primary font-medium hover:underline">
+							Read Article
+							<svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+						</a>
+					</div>
+				</div>
+
+				<!-- Science Article 3 -->
+				<div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
+					<div class="article-img rounded-t-xl" style="background-image: url('assets/images/person-writing-in-notebook-beside-laptop-working-from-bed.jpg');"></div>
+					<div class="p-6 flex flex-col flex-grow">
+						<span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-3 py-1 rounded-full mb-3 inline-block w-fit">Safety</span>
+						<h3 class="text-lg font-bold text-secondary mb-3">Safety Standards for UV Technology</h3>
+						<p class="text-gray-600 mb-4 flex-grow">
+							Understand the rigorous safety standards and certifications that ensure SmartUV products are safe for home use.
+						</p>
+						<a href="#" class="mt-auto inline-flex items-center text-primary font-medium hover:underline">
+							Read Article
+							<svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+						</a>
+					</div>
+				</div>
+
+				<!-- Science Article 4 -->
+				<div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
+					<div class="article-img rounded-t-xl" style="background-image: url('assets/images/StockSnap_TBGNSSQV6B.jpg');"></div>
+					<div class="p-6 flex flex-col flex-grow">
+						<span class="bg-red-100 text-red-800 text-xs font-semibold px-3 py-1 rounded-full mb-3 inline-block w-fit">Innovation</span>
+						<h3 class="text-lg font-bold text-secondary mb-3">Future Developments in UV Purification</h3>
+						<p class="text-gray-600 mb-4 flex-grow">
+							Get a glimpse into the future of air purification technology and upcoming innovations from the SmartUV research team.
+						</p>
+						<a href="#" class="mt-auto inline-flex items-center text-primary font-medium hover:underline">
+							Read Article
+							<svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+						</a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/js/all.min.js" ></script>
+	<!-- Latest Articles Section -->
+	<section class="py-16">
+		<div class="container mx-auto px-4">
+			<div class="flex flex-col md:flex-row gap-8">
+				<!-- Latest Articles List -->
+				<div class="md:w-1/2">
+					<h2 class="text-3xl font-bold text-secondary mb-8">Latest Articles</h2>
+					
+					<!-- Latest Article 1 -->
+					<div class="bg-white rounded-lg shadow-sm p-6 mb-6 hover:shadow-md transition-shadow duration-300">
+						<h3 class="text-xl font-bold text-secondary mb-2">Comparing Air Purification Methods</h3>
+						<p class="text-gray-600 mb-3">
+							An in-depth comparison of HEPA filters, activated carbon, ionizers, and UV-based air purification technologies...
+						</p>
+						<div class="flex items-center text-sm text-gray-500">
+							<svg class="w-4 h-4 text-primary mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
+							<span>Read in 3 minutes</span>
+						</div>
+					</div>
+
+					<!-- Latest Article 2 -->
+					<div class="bg-white rounded-lg shadow-sm p-6 mb-6 hover:shadow-md transition-shadow duration-300">
+						<h3 class="text-xl font-bold text-secondary mb-2">Seasonal Air Quality Challenges</h3>
+						<p class="text-gray-600 mb-3">
+							How to adapt your air purification strategy for different seasons and weather conditions...
+						</p>
+						<div class="flex items-center text-sm text-gray-500">
+							<svg class="w-4 h-4 text-primary mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
+							<span>Read in 8 minutes</span>
+						</div>
+					</div>
+
+					<!-- Latest Article 3 -->
+					<div class="bg-white rounded-lg shadow-sm p-6 mb-6 hover:shadow-md transition-shadow duration-300">
+						<h3 class="text-xl font-bold text-secondary mb-2">Smart Home Integration Guide</h3>
+						<p class="text-gray-600 mb-3">
+							How to connect your SmartUV devices with other smart home systems for automated air quality management...
+						</p>
+						<div class="flex items-center text-sm text-gray-500">
+							<svg class="w-4 h-4 text-primary mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
+							<span>Read in 3 minutes</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- Featured Article -->
+				<div class="md:w-1/2">
+					<div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-full">
+						<div class="article-img h-64" style="background-image: url('assets/images/kaboompics_Workspace in the living room.jpg');"></div>
+						<div class="p-8">
+							<div class="flex items-center mb-4">
+								<span class="bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full">Featured</span>
+								<span class="ml-auto text-gray-500 text-sm">10 min read</span>
+							</div>
+							<h3 class="text-2xl font-bold text-secondary mb-4">Creating the Perfect Work Environment with SmartUV</h3>
+							<p class="text-gray-600 mb-6">
+								Discover how proper air quality management can significantly improve productivity, focus, and overall well-being in your home office or workspace. Our comprehensive guide covers everything from placement to maintenance.
+							</p>
+							<a href="#" class="inline-block px-6 py-3 bg-primary text-white font-medium rounded-lg shadow-md hover:bg-white hover:text-primary hover:border-primary border-2 border-transparent transition-all duration-300 ease-in-out">Read Full Article</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Newsletter Section -->
+	<section class="py-16 bg-secondary">
+		<div class="container mx-auto px-4">
+			<div class="max-w-3xl mx-auto text-center">
+				<h2 class="text-3xl font-bold text-white mb-4">Stay Updated with SmartUV</h2>
+				<p class="text-gray-300 mb-8">Subscribe to our newsletter for the latest product updates, air quality tips, and exclusive offers.</p>
+				<form class="flex flex-col sm:flex-row gap-4 justify-center">
+					<input type="email" placeholder="Your email address" class="px-4 py-3 rounded-lg w-full sm:w-auto flex-grow max-w-md">
+					<button type="submit" class="bg-primary hover:bg-primary/90 text-white font-medium px-6 py-3 rounded-lg transition-colors duration-300">Subscribe</button>
+				</form>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="bg-gray-900 text-gray-300 py-12">
+		<div class="container mx-auto px-4">
+			<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+				<!-- Company Info -->
+				<div>
+					<h3 class="text-xl font-bold text-white mb-4">SmartUV</h3>
+					<p class="mb-4">Innovative air purification solutions for healthier living and working environments.</p>
+					<div class="flex space-x-4">
+						<a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">
+							<i class="fab fa-facebook-f"></i>
+						</a>
+						<a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">
+							<i class="fab fa-twitter"></i>
+						</a>
+						<a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">
+							<i class="fab fa-instagram"></i>
+						</a>
+						<a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">
+							<i class="fab fa-linkedin-in"></i>
+						</a>
+					</div>
+				</div>
+
+				<!-- Quick Links -->
+				<div>
+					<h3 class="text-lg font-bold text-white mb-4">Quick Links</h3>
+					<ul class="space-y-2">
+						<li><a href="#" class="hover:text-white transition-colors duration-300">Home</a></li>
+						<li><a href="#" class="hover:text-white transition-colors duration-300">Products</a></li>
+						<li><a href="#" class="hover:text-white transition-colors duration-300">How It Works</a></li>
+						<li><a href="#" class="hover:text-white transition-colors duration-300">Blog</a></li>
+						<li><a href="#" class="hover:text-white transition-colors duration-300">Contact Us</a></li>
+					</ul>
+				</div>
+
+				<!-- Products -->
+				<div>
+					<h3 class="text-lg font-bold text-white mb-4">Products</h3>
+					<ul class="space-y-2">
+						<li><a href="#" class="hover:text-white transition-colors duration-300">SmartUV Home</a></li>
+						<li><a href="#" class="hover:text-white transition-colors duration-300">SmartUV Pro</a></li>
+						<li><a href="#" class="hover:text-white transition-colors duration-300">SmartUV Mini</a></li>
+						<li><a href="#" class="hover:text-white transition-colors duration-300">Accessories</a></li>
+						<li><a href="#" class="hover:text-white transition-colors duration-300">Replacement Parts</a></li>
+					</ul>
+				</div>
+
+				<!-- Contact -->
+				<div>
+					<h3 class="text-lg font-bold text-white mb-4">Contact Us</h3>
+					<ul class="space-y-2">
+						<li class="flex items-start">
+							<i class="fas fa-map-marker-alt mt-1 mr-2"></i>
+							<span>123 Clean Air Street, Pureville, CA 94103</span>
+						</li>
+						<li class="flex items-center">
+							<i class="fas fa-phone-alt mr-2"></i>
+							<span>(800) 123-4567</span>
+						</li>
+						<li class="flex items-center">
+							<i class="fas fa-envelope mr-2"></i>
+							<span>info@smartuv.com</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="border-t border-gray-800 mt-12 pt-8 text-center">
+				<p>&copy; 2025 SmartUV. All rights reserved.</p>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Mobile Menu Toggle Script -->
+	<script>
+		document.getElementById('mobile-menu-button').addEventListener('click', function() {
+			const mobileMenu = document.getElementById('mobile-menu');
+			mobileMenu.classList.toggle('hidden');
+		});
+	</script>
 </body>
 
 </html>

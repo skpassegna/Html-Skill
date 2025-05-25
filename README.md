@@ -40,3 +40,9 @@
 ![...](commune/result.png)
 
 ##### [Commune](/commune/)
+
+---
+
+![...](pixel-art/result.png)
+
+##### [Pixlfolio](/pixel-art/)

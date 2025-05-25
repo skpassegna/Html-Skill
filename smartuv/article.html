@@ -4,89 +4,338 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>SmartUv</title>
+	<title>SmartUV - Article</title>
+	<!-- Tailwind CSS via CDN -->
+	<script src="https://cdn.tailwindcss.com"></script>
+	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" />
-	<link rel="stylesheet" href="assets/css/style.css">
 	<link rel="icon" href="assets/images/internet.svg">
+	<!-- Custom Tailwind Configuration -->
+	<script>
+		tailwind.config = {
+			theme: {
+				extend: {
+					colors: {
+						primary: '#6f42c1',
+						secondary: '#12035B',
+						light: '#f8f9fa',
+						dark: '#212529',
+						gray: {
+							100: '#f8f9fa',
+							200: '#e9ecef',
+							300: '#dee2e6',
+							400: '#ced4da',
+							500: '#adb5bd',
+							600: '#6c757d',
+							700: '#495057',
+							800: '#343a40',
+							900: '#212529'
+						}
+					},
+					fontFamily: {
+						sans: ['Inter', 'sans-serif'],
+						mono: ['SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace']
+					},
+				}
+			}
+		}
+	</script>
 </head>
 
-<body>
-	<nav>
-		<h1 class="brand">
+<body class="bg-gray-50 font-sans text-gray-800">
+	<!-- Navigation Bar -->
+	<nav class="sticky top-0 z-50 bg-white shadow-md px-6 py-4 flex justify-between items-center">
+		<h1 class="text-3xl font-bold text-secondary hover:text-primary transition-colors duration-300 cursor-pointer">
 			SmartUV
 		</h1>
 
-		<div class="nav-menu">
-			<ul>
+		<div class="hidden md:block">
+			<ul class="flex space-x-8 items-center font-medium">
 				<li>
-					<a href="#">Home</a>
-				</li>
-
-				<li>
-					<a href="#">Products</a>
-				</li>
-
-				<li>
-					<a href="#">How It Works?</a>
+					<a href="index.html" class="text-gray-800 hover:text-primary transition-colors duration-300">Home</a>
 				</li>
 				<li>
-					<a href="#">Blog</a>
+					<a href="#" class="text-gray-800 hover:text-primary transition-colors duration-300">Products</a>
 				</li>
 				<li>
-					<a href="#">
-						<i class="fas fa-shopping-bag"></i>
+					<a href="#" class="text-gray-800 hover:text-primary transition-colors duration-300">How It Works?</a>
+				</li>
+				<li>
+					<a href="#" class="text-primary font-semibold transition-colors duration-300">Blog</a>
+				</li>
+				<li>
+					<a href="#" class="text-gray-800 hover:text-primary transition-colors duration-300 relative">
+						<i class="fas fa-shopping-bag text-xl"></i>
+						<span class="absolute -top-2 -right-2 bg-primary text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
 					</a>
 				</li>
 			</ul>
 		</div>
+		
+		<!-- Mobile Menu Button -->
+		<div class="md:hidden">
+			<button id="mobile-menu-button" class="text-gray-800 hover:text-primary transition-colors duration-300">
+				<i class="fas fa-bars text-2xl"></i>
+			</button>
+		</div>
 	</nav>
+	
+	<!-- Mobile Menu (Hidden by default) -->
+	<div id="mobile-menu" class="hidden bg-white shadow-md py-4 px-6 md:hidden">
+		<ul class="space-y-4 font-medium">
+			<li>
+				<a href="index.html" class="block text-gray-800 hover:text-primary transition-colors duration-300">Home</a>
+			</li>
+			<li>
+				<a href="#" class="block text-gray-800 hover:text-primary transition-colors duration-300">Products</a>
+			</li>
+			<li>
+				<a href="#" class="block text-gray-800 hover:text-primary transition-colors duration-300">How It Works?</a>
+			</li>
+			<li>
+				<a href="#" class="block text-primary font-semibold transition-colors duration-300">Blog</a>
+			</li>
+			<li>
+				<a href="#" class="block text-gray-800 hover:text-primary transition-colors duration-300">Cart</a>
+			</li>
+		</ul>
+	</div>
 
-	<main class="container mt-8">
-        <div class="row">
-            <div class="col-5 mx-auto">
-                <h2 class="blog-title mb-2">
-                    A very thoughtfull and accurate blog title that resume the hole content in a simple sentence
-                </h2>
-                <p class="mb-2 mutted">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque aliquam totam aliquid aut accusantium commodi doloribus vel deleniti. 
-                </p>
-                <ul class="inline mx-auto mb-2">
-                    <li>
-                        <a href="#">
-                            <i class="fab fa-facebook"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                    </li>
+	<!-- Article Content -->
+	<main class="max-w-screen-xl mx-auto px-4 py-12">
+		<!-- Article Header -->
+		<div class="max-w-3xl mx-auto mb-12">
+			<div class="flex items-center mb-4">
+				<span class="bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full">Air Quality</span>
+				<span class="mx-2 text-gray-400">•</span>
+				<span class="text-gray-500 text-sm">May 25, 2025</span>
+				<span class="mx-2 text-gray-400">•</span>
+				<span class="text-gray-500 text-sm">10 min read</span>
+			</div>
+			
+			<h1 class="text-4xl md:text-5xl font-bold text-secondary mb-6 leading-tight">
+				Understanding UV Technology: The Future of Clean Air in Your Home
+			</h1>
+			
+			<p class="text-lg text-gray-600 mb-8">
+				Discover how SmartUV's innovative technology is revolutionizing indoor air quality and creating healthier living environments for families worldwide.
+			</p>
+			
+			<!-- Social Sharing -->
+			<div class="flex items-center justify-center md:justify-start space-x-4 mb-8">
+				<span class="text-gray-500">Share:</span>
+				<a href="#" class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center hover:bg-blue-700 transition-colors duration-300">
+					<i class="fab fa-facebook-f"></i>
+				</a>
+				<a href="#" class="w-8 h-8 rounded-full bg-blue-400 text-white flex items-center justify-center hover:bg-blue-500 transition-colors duration-300">
+					<i class="fab fa-twitter"></i>
+				</a>
+				<a href="#" class="w-8 h-8 rounded-full bg-blue-700 text-white flex items-center justify-center hover:bg-blue-800 transition-colors duration-300">
+					<i class="fab fa-linkedin-in"></i>
+				</a>
+			</div>
+		</div>
 
-                    <li>
-                        <a href="#">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+		<!-- Featured Image -->
+		<div class="max-w-4xl mx-auto mb-12">
+			<img src="./assets/images/25720812110_b0dc058a8f_o.jpg" alt="SmartUV Technology" class="w-full h-auto rounded-xl shadow-lg">
+			<p class="text-sm text-gray-500 mt-2 text-center">SmartUV technology in action: purifying indoor air effectively</p>
+		</div>
 
-            
-        </div>
-        <div class="row">
-            <div class="col-8 mx-auto">
-                <img src="./assets/images/25720812110_b0dc058a8f_o.jpg" alt="" class="image-responsive blog-cover">
-            </div>
-            <div class="col-8 mx-auto blog-content p-4">
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur perferendis suscipit illo libero dolores veniam iusto maiores dolor excepturi animi ipsa quo blanditiis, nostrum sapiente numquam reprehenderit adipisci quod beatae.
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus maxime, exercitationem accusantium obcaecati ratione, voluptas at sed animi ducimus illum a facilis amet. Eveniet laborum molestiae fugiat velit, est expedita. Sapiente perspiciatis fugit neque voluptatem id beatae quod alias similique ipsam, harum quidem vero, vitae quisquam provident recusandae, animi sed repellendus! Dolores modi architecto, tempora sit aperiam sequi dolorem molestiae sapiente magnam, deleniti magni amet facere ipsam voluptate? Ut, alias dolores nemo doloremque ab incidunt modi veritatis illo qui quos in ratione voluptatum id inventore architecto non explicabo quaerat ipsum numquam molestiae aut. Earum, natus velit quasi et, asperiores doloremque, temporibus repellendus voluptas voluptatibus rerum aliquid vel. Tenetur officiis atque itaque eum ab recusandae harum dolore vero voluptas voluptate dolorum doloremque a deleniti modi possimus, ullam, magni corporis placeat molestiae praesentium nostrum accusantium reiciendis! Maiores officia laborum necessitatibus quod aliquid, reiciendis fugiat? Ad quibusdam exercitationem placeat consequatur reprehenderit minima accusamus nihil debitis, sit harum, ratione, quia voluptas nobis. Illo sapiente at omnis a porro exercitationem quaerat. Ea beatae, dolores nisi, repellat facilis odit laboriosam praesentium, unde placeat ratione suscipit. Est reiciendis aperiam nam aut dolorum illo rerum saepe numquam voluptas perspiciatis libero, mollitia exercitationem fugit. Reiciendis sed alias similique nulla, ut debitis commodi velit voluptatem fugiat rerum tenetur at tempore dolorem tempora esse aperiam nemo. Quod natus, consequatur nam doloribus error id perspiciatis iure ullam distinctio illum repellat vel, aperiam deserunt temporibus atque laudantium nostrum? Corporis dolorem repellat magni asperiores aliquid similique, quidem repudiandae eaque minus eos deserunt. Quam hic eum, laudantium officiis illum quasi velit nemo maiores, tempora eius nesciunt? Sint enim soluta consectetur harum non dolor voluptas assumenda sit quibusdam, tenetur eius dolore tempore dolorum explicabo quidem facilis. Repellat quia ad sed accusantium fugiat modi aperiam, numquam explicabo minus. Alias repellendus repudiandae doloribus eos excepturi veniam reprehenderit perspiciatis reiciendis ducimus laboriosam hic officia dicta omnis minus error, provident sunt exercitationem voluptatem debitis recusandae enim eaque tenetur autem. Ipsum aliquid error ea fugit quos cumque dolores, quaerat iusto, vero deserunt voluptates. Quod magni recusandae repellendus eveniet quas velit fuga accusantium nulla iusto enim ullam nam delectus in officiis placeat, quia adipisci perspiciatis, earum facilis nesciunt libero, eligendi ipsum cupiditate amet? Consectetur tenetur possimus voluptatum ratione non fuga, odit velit dicta obcaecati necessitatibus nam at eaque explicabo sapiente exercitationem dolores iusto magnam, quibusdam culpa nostrum nisi tempore ab quod. Esse in doloremque minus necessitatibus nihil, maxime commodi eius enim quos tenetur ab expedita officiis aliquam qui aut! Iure enim nemo corrupti earum voluptatem voluptates laboriosam eum provident adipisci a ea eos saepe sequi sunt natus itaque est doloribus eligendi, quibusdam architecto, nulla autem magni. Possimus sequi cum, consequuntur soluta quia dolores est quos amet similique cupiditate iste officia qui harum debitis deserunt numquam. Voluptate delectus blanditiis eum debitis, dolores quidem tempora aspernatur cupiditate? Inventore modi numquam officia architecto accusantium quisquam molestiae. Unde assumenda laboriosam doloremque rerum fuga obcaecati debitis sequi eveniet sunt quisquam? Est doloribus impedit atque, vero excepturi unde cum omnis reprehenderit esse optio facere voluptate reiciendis ut cumque?
-                </p>
-            </div>
-        </div>
-    </main>
+		<!-- Article Body -->
+		<div class="max-w-3xl mx-auto">
+			<article class="prose prose-lg max-w-none">
+				<p class="text-gray-700 mb-6">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur perferendis suscipit illo libero dolores veniam iusto maiores dolor excepturi animi ipsa quo blanditiis, nostrum sapiente numquam reprehenderit adipisci quod beatae.
+				</p>
+				
+				<h2 class="text-2xl font-bold text-secondary mt-8 mb-4">How UV Technology Works</h2>
+				
+				<p class="text-gray-700 mb-6">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus maxime, exercitationem accusantium obcaecati ratione, voluptas at sed animi ducimus illum a facilis amet. Eveniet laborum molestiae fugiat velit, est expedita. Sapiente perspiciatis fugit neque voluptatem id beatae quod alias similique ipsam, harum quidem vero, vitae quisquam provident recusandae, animi sed repellendus!
+				</p>
+				
+				<p class="text-gray-700 mb-6">
+					Dolores modi architecto, tempora sit aperiam sequi dolorem molestiae sapiente magnam, deleniti magni amet facere ipsam voluptate? Ut, alias dolores nemo doloremque ab incidunt modi veritatis illo qui quos in ratione voluptatum id inventore architecto non explicabo quaerat ipsum numquam molestiae aut.
+				</p>
+				
+				<blockquote class="border-l-4 border-primary pl-4 italic text-gray-700 my-8">
+					"SmartUV technology has transformed how we think about indoor air quality. It's not just about removing particles, but about creating truly healthy environments." - Dr. Sarah Johnson, Environmental Health Specialist
+				</blockquote>
+				
+				<h2 class="text-2xl font-bold text-secondary mt-8 mb-4">Benefits for Your Home</h2>
+				
+				<p class="text-gray-700 mb-6">
+					Earum, natus velit quasi et, asperiores doloremque, temporibus repellendus voluptas voluptatibus rerum aliquid vel. Tenetur officiis atque itaque eum ab recusandae harum dolore vero voluptas voluptate dolorum doloremque a deleniti modi possimus, ullam, magni corporis placeat molestiae praesentium nostrum accusantium reiciendis!
+				</p>
+				
+				<ul class="list-disc pl-6 mb-6 text-gray-700 space-y-2">
+					<li>Eliminates up to 99.9% of airborne viruses and bacteria</li>
+					<li>Reduces allergens and respiratory irritants</li>
+					<li>Operates silently with minimal energy consumption</li>
+					<li>Smart sensors adjust purification based on air quality</li>
+					<li>Integrates with your smart home ecosystem</li>
+				</ul>
+				
+				<p class="text-gray-700 mb-6">
+					Maiores officia laborum necessitatibus quod aliquid, reiciendis fugiat? Ad quibusdam exercitationem placeat consequatur reprehenderit minima accusamus nihil debitis, sit harum, ratione, quia voluptas nobis. Illo sapiente at omnis a porro exercitationem quaerat.
+				</p>
+				
+				<h2 class="text-2xl font-bold text-secondary mt-8 mb-4">The Future of Air Purification</h2>
+				
+				<p class="text-gray-700 mb-6">
+					Ea beatae, dolores nisi, repellat facilis odit laboriosam praesentium, unde placeat ratione suscipit. Est reiciendis aperiam nam aut dolorum illo rerum saepe numquam voluptas perspiciatis libero, mollitia exercitationem fugit. Reiciendis sed alias similique nulla, ut debitis commodi velit voluptatem fugiat rerum tenetur at tempore dolorem tempora esse aperiam nemo.
+				</p>
+			</article>
+			
+			<!-- Author Info -->
+			<div class="flex items-center mt-12 p-6 bg-gray-100 rounded-xl">
+				<div class="w-16 h-16 rounded-full bg-gray-300 flex-shrink-0 overflow-hidden">
+					<img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Author" class="w-full h-full object-cover">
+				</div>
+				<div class="ml-4">
+					<h3 class="font-bold text-secondary">Dr. Michael Chen</h3>
+					<p class="text-sm text-gray-600">Air Quality Specialist at SmartUV</p>
+					<p class="text-sm text-gray-600 mt-1">Dr. Chen has been researching air purification technologies for over 15 years and leads SmartUV's R&D department.</p>
+				</div>
+			</div>
+			
+			<!-- Related Articles -->
+			<div class="mt-16">
+				<h2 class="text-2xl font-bold text-secondary mb-8">You May Also Like</h2>
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+					<!-- Related Article 1 -->
+					<a href="#" class="block group">
+						<div class="bg-white rounded-lg overflow-hidden shadow-md group-hover:shadow-lg transition-shadow duration-300">
+							<div class="h-48 bg-cover bg-center" style="background-image: url('assets/images/afupulpzi9en9n5plem4.jfif');"></div>
+							<div class="p-4">
+								<h3 class="font-bold text-secondary group-hover:text-primary transition-colors duration-300">The Complete Guide to UV Air Purifiers</h3>
+								<p class="text-sm text-gray-500 mt-2">5 min read</p>
+							</div>
+						</div>
+					</a>
+					
+					<!-- Related Article 2 -->
+					<a href="#" class="block group">
+						<div class="bg-white rounded-lg overflow-hidden shadow-md group-hover:shadow-lg transition-shadow duration-300">
+							<div class="h-48 bg-cover bg-center" style="background-image: url('assets/images/person-writing-in-notebook-beside-laptop-working-from-bed.jpg');"></div>
+							<div class="p-4">
+								<h3 class="font-bold text-secondary group-hover:text-primary transition-colors duration-300">Working From Home? Optimize Your Air Quality</h3>
+								<p class="text-sm text-gray-500 mt-2">7 min read</p>
+							</div>
+						</div>
+					</a>
+					
+					<!-- Related Article 3 -->
+					<a href="#" class="block group">
+						<div class="bg-white rounded-lg overflow-hidden shadow-md group-hover:shadow-lg transition-shadow duration-300">
+							<div class="h-48 bg-cover bg-center" style="background-image: url('assets/images/StockSnap_TBGNSSQV6B.jpg');"></div>
+							<div class="p-4">
+								<h3 class="font-bold text-secondary group-hover:text-primary transition-colors duration-300">Seasonal Allergies? SmartUV Has You Covered</h3>
+								<p class="text-sm text-gray-500 mt-2">4 min read</p>
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</main>
 
+	<!-- Newsletter Section -->
+	<section class="py-16 bg-secondary">
+		<div class="container mx-auto px-4">
+			<div class="max-w-3xl mx-auto text-center">
+				<h2 class="text-3xl font-bold text-white mb-4">Stay Updated with SmartUV</h2>
+				<p class="text-gray-300 mb-8">Subscribe to our newsletter for the latest product updates, air quality tips, and exclusive offers.</p>
+				<form class="flex flex-col sm:flex-row gap-4 justify-center">
+					<input type="email" placeholder="Your email address" class="px-4 py-3 rounded-lg w-full sm:w-auto flex-grow max-w-md">
+					<button type="submit" class="bg-primary hover:bg-primary/90 text-white font-medium px-6 py-3 rounded-lg transition-colors duration-300">Subscribe</button>
+				</form>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="bg-gray-900 text-gray-300 py-12">
+		<div class="container mx-auto px-4">
+			<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+				<!-- Company Info -->
+				<div>
+					<h3 class="text-xl font-bold text-white mb-4">SmartUV</h3>
+					<p class="mb-4">Innovative air purification solutions for healthier living and working environments.</p>
+					<div class="flex space-x-4">
+						<a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">
+							<i class="fab fa-facebook-f"></i>
+						</a>
+						<a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">
+							<i class="fab fa-twitter"></i>
+						</a>
+						<a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">
+							<i class="fab fa-instagram"></i>
+						</a>
+						<a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">
+							<i class="fab fa-linkedin-in"></i>
+						</a>
+					</div>
+				</div>
+
+				<!-- Quick Links -->
+				<div>
+					<h3 class="text-lg font-bold text-white mb-4">Quick Links</h3>
+					<ul class="space-y-2">
+						<li><a href="index.html" class="hover:text-white transition-colors duration-300">Home</a></li>
+						<li><a href="#" class="hover:text-white transition-colors duration-300">Products</a></li>
+						<li><a href="#" class="hover:text-white transition-colors duration-300">How It Works</a></li>
+						<li><a href="#" class="hover:text-white transition-colors duration-300">Blog</a></li>
+						<li><a href="#" class="hover:text-white transition-colors duration-300">Contact Us</a></li>
+					</ul>
+				</div>
+
+				<!-- Products -->
+				<div>
+					<h3 class="text-lg font-bold text-white mb-4">Products</h3>
+					<ul class="space-y-2">
+						<li><a href="#" class="hover:text-white transition-colors duration-300">SmartUV Home</a></li>
+						<li><a href="#" class="hover:text-white transition-colors duration-300">SmartUV Pro</a></li>
+						<li><a href="#" class="hover:text-white transition-colors duration-300">SmartUV Mini</a></li>
+						<li><a href="#" class="hover:text-white transition-colors duration-300">Accessories</a></li>
+						<li><a href="#" class="hover:text-white transition-colors duration-300">Replacement Parts</a></li>
+					</ul>
+				</div>
+
+				<!-- Contact -->
+				<div>
+					<h3 class="text-lg font-bold text-white mb-4">Contact Us</h3>
+					<ul class="space-y-2">
+						<li class="flex items-start">
+							<i class="fas fa-map-marker-alt mt-1 mr-2"></i>
+							<span>123 Clean Air Street, Pureville, CA 94103</span>
+						</li>
+						<li class="flex items-center">
+							<i class="fas fa-phone-alt mr-2"></i>
+							<span>(800) 123-4567</span>
+						</li>
+						<li class="flex items-center">
+							<i class="fas fa-envelope mr-2"></i>
+							<span>info@smartuv.com</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="border-t border-gray-800 mt-12 pt-8 text-center">
+				<p>&copy; 2025 SmartUV. All rights reserved.</p>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Mobile Menu Toggle Script -->
+	<script>
+		document.getElementById('mobile-menu-button').addEventListener('click', function() {
+			const mobileMenu = document.getElementById('mobile-menu');
+			mobileMenu.classList.toggle('hidden');
+		});
+	</script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/js/all.min.js" ></script>
 </body>
 

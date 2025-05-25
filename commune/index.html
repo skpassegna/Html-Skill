@@ -7,274 +7,335 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Commune D'Afagnan-2</title>
 
+    <!-- Font Awesome -->    
     <link rel="stylesheet" href="assets/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Google Fonts -->    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#072166',
+                        secondary: '#6c63ff',
+                        accent: '#ffa800',
+                        light: '#f2f2f2',
+                        dark: '#6f6f6f'
+                    },
+                    fontFamily: {
+                        sans: ['Roboto', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                        body: ['Open Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow-sm {
+                text-shadow: 0.1px 0.1px 0.2px #f2f2f2;
+            }
+            .transition-standard {
+                transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+            }
+        }
+    </style>
 </head>
 
-<body>
-    <div class="container-fluid" id="blazon">
-        <img src="assets/images/rt.svg" class="img-fluid" alt="RÉPUBLIQUE TOGOLAISE">
+<body class="font-sans bg-white">
+    <!-- Top banner with national emblem -->
+    <div class="w-full h-24 flex items-center justify-center py-2 bg-white">
+        <img src="assets/images/rt.svg" class="h-20 object-contain" alt="RÉPUBLIQUE TOGOLAISE">
     </div>
+    
     <!-- Navigation bar -->
-    <nav class="navbar">
-
-        <div class="container-fluid" id="nav-container">
-
-            <div class="logo-box">
-                <button class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-                    aria-controls="offcanvasNavbar">
-
-                    <i class="fas fa-bars"></i>
+    <nav class="bg-primary text-light h-20 relative">
+        <div class="container mx-auto px-4 h-full flex justify-between items-center">
+            <!-- Logo and mobile menu button -->
+            <div class="flex items-center space-x-4">
+                <button id="menuToggle" class="text-light focus:outline-none lg:hidden">
+                    <i class="fas fa-bars text-2xl"></i>
                 </button>
-
-                <a class="navbar-brand ml-2" href="#">COMMUNE D'AFAGNAN</a>
+                <a href="#" class="text-xl font-heading font-semibold tracking-wider text-light">COMMUNE D'AFAGNAN</a>
             </div>
-            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar">
-
-                <div class="offcanvas-body">
-
-                    <ul class="navbar-nav  flex-grow-1">
-
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">
-                                <i class="fas fa-user-friends"> </i> Présentation
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">
-                                <i class="fas fa-list-ol"> </i> Strcutres Juridiques
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">
-                                <i class="fas fa-exclamation-circle"> </i> Évènments &amp; Annonces
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">
-                                <i class="fas fa-images"> </i> Vidéothèque &amp; Gallerie
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">
-                                <i class="fas fa-tag"> </i> Infos Utiles &amp; Offres
-                            </a>
-                        </li>
-
-                        <li class="nav-item important-link">
-                            <a class="nav-link" aria-current="page" href="#">
-                                <i class="fas fa-book"> </i> Blog
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">
-                                <i class="fas fa-comments"> </i> Votre avis compte !
-                            </a>
-                        </li>
-
-                    </ul>
-
-                </div>
+            
+            <!-- Social media links -->
+            <div class="flex items-center space-x-6">
+                <a href="#" class="text-2xl hover:text-secondary transition-standard"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-2xl hover:text-secondary transition-standard"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="text-2xl hover:text-secondary transition-standard"><i class="fa fa-envelope"></i></a>
             </div>
-
-            <ul class="list-inline">
-                <li class="list-inline-item">
-                    <a href="#"><i class="fab fa-facebook"> </i></a>
-                </li>
-
-                <li class="list-inline-item">
-                    <a href="#"><i class="fab fa-youtube"> </i></a>
-                </li>
-
-                <li class="list-inline-item">
-                    <a href="#"><i class="fa fa-envelope"> </i></a>
-                </li>
-            </ul>
+        </div>
+        
+        <!-- Mobile menu (hidden by default) -->
+        <div id="mobileMenu" class="fixed inset-0 bg-white z-50 transform -translate-x-full transition-transform duration-300 ease-in-out lg:hidden">
+            <div class="h-6 bg-light"></div>
+            <div class="p-4">
+                <button id="closeMenu" class="absolute top-8 right-4 text-dark hover:text-primary">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+                
+                <ul class="mt-12 space-y-1">
+                    <li class="py-3 px-4 hover:bg-primary hover:text-light transition-standard rounded">
+                        <a href="#" class="flex items-center space-x-3 text-lg">
+                            <i class="fas fa-user-friends"></i>
+                            <span>Présentation</span>
+                        </a>
+                    </li>
+                    <li class="py-3 px-4 hover:bg-primary hover:text-light transition-standard rounded">
+                        <a href="#" class="flex items-center space-x-3 text-lg">
+                            <i class="fas fa-list-ol"></i>
+                            <span>Structures Juridiques</span>
+                        </a>
+                    </li>
+                    <li class="py-3 px-4 hover:bg-primary hover:text-light transition-standard rounded">
+                        <a href="#" class="flex items-center space-x-3 text-lg">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <span>Évènments &amp; Annonces</span>
+                        </a>
+                    </li>
+                    <li class="py-3 px-4 hover:bg-primary hover:text-light transition-standard rounded">
+                        <a href="#" class="flex items-center space-x-3 text-lg">
+                            <i class="fas fa-images"></i>
+                            <span>Vidéothèque &amp; Gallerie</span>
+                        </a>
+                    </li>
+                    <li class="py-3 px-4 hover:bg-primary hover:text-light transition-standard rounded">
+                        <a href="#" class="flex items-center space-x-3 text-lg">
+                            <i class="fas fa-tag"></i>
+                            <span>Infos Utiles &amp; Offres</span>
+                        </a>
+                    </li>
+                    <li class="py-3 px-4 text-primary font-semibold hover:bg-primary hover:text-light transition-standard rounded">
+                        <a href="#" class="flex items-center space-x-3 text-lg">
+                            <i class="fas fa-book"></i>
+                            <span>Blog</span>
+                        </a>
+                    </li>
+                    <li class="py-3 px-4 hover:bg-primary hover:text-light transition-standard rounded">
+                        <a href="#" class="flex items-center space-x-3 text-lg">
+                            <i class="fas fa-comments"></i>
+                            <span>Votre avis compte !</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="h-3 bg-primary absolute bottom-0 w-full"></div>
+        </div>
+        
+        <!-- Desktop menu (hidden on mobile) -->
+        <div class="hidden lg:block absolute left-0 right-0 top-full bg-white shadow-md">
+            <div class="container mx-auto">
+                <ul class="flex justify-around py-1">
+                    <li class="py-3 px-4 hover:text-primary transition-standard">
+                        <a href="#" class="flex items-center space-x-2">
+                            <i class="fas fa-user-friends"></i>
+                            <span>Présentation</span>
+                        </a>
+                    </li>
+                    <li class="py-3 px-4 hover:text-primary transition-standard">
+                        <a href="#" class="flex items-center space-x-2">
+                            <i class="fas fa-list-ol"></i>
+                            <span>Structures Juridiques</span>
+                        </a>
+                    </li>
+                    <li class="py-3 px-4 hover:text-primary transition-standard">
+                        <a href="#" class="flex items-center space-x-2">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <span>Évènments &amp; Annonces</span>
+                        </a>
+                    </li>
+                    <li class="py-3 px-4 hover:text-primary transition-standard">
+                        <a href="#" class="flex items-center space-x-2">
+                            <i class="fas fa-images"></i>
+                            <span>Vidéothèque &amp; Gallerie</span>
+                        </a>
+                    </li>
+                    <li class="py-3 px-4 hover:text-primary transition-standard">
+                        <a href="#" class="flex items-center space-x-2">
+                            <i class="fas fa-tag"></i>
+                            <span>Infos Utiles &amp; Offres</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
-    <header class="container-fluid" id="main-header">
-        <!-- Hero -->
-        <div class="col-md-6 col xs-12 flex-end" id="hero">
-            <h1>COMMUNE D'AFAGNAN</h1>
-
-            <p class="lead">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas similique quo ipsam ad, <br>
-                quaerat placeat repudiandae itaque alias tempora ea beatae minus provident, nisi excepturi <br>
+    <!-- Hero Section -->
+    <header class="relative h-screen bg-cover bg-center" style="background-image: url('assets/images/cover.svg');">
+        <div class="absolute right-0 top-1/3 w-full md:w-1/2 px-6 md:px-16 text-light">
+            <h1 class="text-5xl md:text-6xl font-heading font-light tracking-wide mb-8">COMMUNE D'AFAGNAN</h1>
+            
+            <p class="text-xl leading-relaxed mb-10 max-w-2xl">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas similique quo ipsam ad,
+                quaerat placeat repudiandae itaque alias tempora ea beatae minus provident, nisi excepturi
                 deserunt a id, suscipit maiores!
             </p>
-
-            <form action="#" method="post" class="align-items-center" id="hero-form">
-                <div class="input-group mb-0">
-                    <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp"
-                        placeholder="votre adresse email">
-                    <button type="submit" class="btn btn-primary">S'INSCRIRE</button>
+            
+            <form action="#" method="post" class="max-w-lg">
+                <div class="flex flex-col sm:flex-row">
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="Votre adresse email" 
+                        class="flex-grow py-3 px-4 bg-light text-dark focus:outline-none focus:ring-2 focus:ring-secondary"
+                        required
+                    >
+                    <button 
+                        type="submit" 
+                        class="mt-2 sm:mt-0 py-3 px-6 bg-primary hover:bg-secondary transition-standard text-light uppercase font-semibold tracking-wide flex-shrink-0"
+                    >
+                        S'inscrire
+                    </button>
                 </div>
-                <div id="emailHelp" class="form-text mt-0">Recevez les dernières nouvelles grâce à la
-                    newsletter.</div>
+                <p class="text-sm mt-2 text-light">Recevez les dernières nouvelles grâce à la newsletter.</p>
             </form>
         </div>
-
     </header>
 
 
-    <main>
-        <section class="container mb-0" id="intro1">
-            <div class="row justify-content-space-between">
-                <div class="col-md-6 col-xs-12 intro1-text">
-                    <h2 class="underlined title-blue mb-5">Présentation de la commune</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi, ipsa quos quidem quia iure
-                        aliquam optio sint ducimus vero quam praesentium?
-                    </p>
-                    <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci doloribus fugit inventore
-                        porro necessitatibus laudantium tenetur, facilis dolores, beatae quasi molestias amet quis.
-                        Perspiciatis ducimus totam illo accusamus dolor possimus ipsum eaque! <br>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente autem ad voluptatum eius in
-                        voluptatem fugit quos inventore eum ea.
-                    </p>
+    <main class="overflow-hidden">
+        <!-- Introduction Section -->
+        <section class="py-20 px-4 md:px-0">
+            <div class="container mx-auto">
+                <div class="flex flex-col md:flex-row items-center justify-between">
+                    <div class="w-full md:w-1/2 md:pr-12 mb-10 md:mb-0">
+                        <h2 class="text-3xl font-heading font-semibold text-primary mb-6 relative after:content-[''] after:block after:w-24 after:h-1.5 after:bg-accent after:mt-2">
+                            Présentation de la commune
+                        </h2>
+                        <p class="text-lg mb-6">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi, ipsa quos quidem quia iure
+                            aliquam optio sint ducimus vero quam praesentium?
+                        </p>
+                        <p class="text-lg mb-8">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci doloribus fugit inventore
+                            porro necessitatibus laudantium tenetur, facilis dolores, beatae quasi molestias amet quis.
+                            Perspiciatis ducimus totam illo accusamus dolor possimus ipsum eaque!
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente autem ad voluptatum eius in
+                            voluptatem fugit quos inventore eum ea.
+                        </p>
 
-                    <a href="#" class="btn btn-primary">Lire la suite</a>
+                        <a href="#" class="inline-block py-3 px-8 bg-primary hover:bg-secondary transition-standard text-light font-semibold rounded-sm">
+                            Lire la suite
+                        </a>
+                    </div>
+
+                    <div class="w-full md:w-2/5">
+                        <div class="relative">
+                            <div class="absolute -inset-4 bg-gray-100 rounded-lg -z-10 transform rotate-3"></div>
+                            <img src="assets/images/people.svg" alt="Personnes" class="w-full h-auto rounded shadow-lg">
+                        </div>
+                    </div>
                 </div>
-
-                <div class="col-md-4 col-xs-12 intro1-img">
-                    <img src="assets/images/people.svg" alt="   " class="img-fluid">
+            </div>
+        </section>
+        
+        <!-- Structure Juridique Section -->
+        <section class="py-16 bg-gray-50 px-4">
+            <div class="container mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-heading font-semibold text-primary uppercase relative inline-block after:content-[''] after:block after:w-full after:h-1.5 after:bg-accent after:mt-2 after:mx-auto">
+                        Structure Juridique
+                    </h2>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Card 1 -->
+                    <div class="group bg-white rounded-lg shadow-md hover:shadow-xl transition-standard flex flex-col items-center p-6 text-center">
+                        <div class="w-20 h-20 rounded-full bg-primary text-light flex items-center justify-center mb-6 group-hover:bg-secondary transition-standard">
+                            <i class="fas fa-clipboard-list text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-heading font-semibold uppercase mb-4">Structure 1</h3>
+                        <p class="text-gray-600">
+                            Some quick example text to build on the card title and make up the bulk
+                            of the card's content.
+                        </p>
+                    </div>
+                    
+                    <!-- Card 2 -->
+                    <div class="group bg-white rounded-lg shadow-md hover:shadow-xl transition-standard flex flex-col items-center p-6 text-center">
+                        <div class="w-20 h-20 rounded-full bg-primary text-light flex items-center justify-center mb-6 group-hover:bg-secondary transition-standard">
+                            <i class="fas fa-balance-scale text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-heading font-semibold uppercase mb-4">Structure 2</h3>
+                        <p class="text-gray-600">
+                            Some quick example text to build on the card title and make up the bulk
+                            of the card's content.
+                        </p>
+                    </div>
+                    
+                    <!-- Card 3 -->
+                    <div class="group bg-white rounded-lg shadow-md hover:shadow-xl transition-standard flex flex-col items-center p-6 text-center">
+                        <div class="w-20 h-20 rounded-full bg-primary text-light flex items-center justify-center mb-6 group-hover:bg-secondary transition-standard">
+                            <i class="fas fa-gavel text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-heading font-semibold uppercase mb-4">Structure 3</h3>
+                        <p class="text-gray-600">
+                            Some quick example text to build on the card title and make up the bulk
+                            of the card's content.
+                        </p>
+                    </div>
+                    
+                    <!-- Card 4 -->
+                    <div class="group bg-white rounded-lg shadow-md hover:shadow-xl transition-standard flex flex-col items-center p-6 text-center">
+                        <div class="w-20 h-20 rounded-full bg-primary text-light flex items-center justify-center mb-6 group-hover:bg-secondary transition-standard">
+                            <i class="fas fa-landmark text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-heading font-semibold uppercase mb-4">Structure 4</h3>
+                        <p class="text-gray-600">
+                            Some quick example text to build on the card title and make up the bulk
+                            of the card's content.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="container mt-0" id="structure">
-            <div class="row">
-                <div class="col-md-8 col-xs-12 mx-auto mb-5 ">
-                    <h2 class="underlined full title-blue text-center text-uppercase">Structure Juridique</h2>
-                </div>
-                <div class="col-md-12 card-group mt-2">
-
-                    <div class="card">
-                        <div class="rounded-circle structure-card-head">
-                            <i class="fas fa-clipboard-list fa-3x card-img-top"></i>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">
-                                Some quick example text to build on the card title and make up the bulk
-                                of the card's content.
-                            </p>
-                        </div>
+        <!-- Videotheque Section -->
+        <section class="py-20 bg-primary bg-[url('assets/images/globe.svg')] bg-center bg-cover text-light">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+                    <div class="w-full md:w-1/2 relative">
+                        <video 
+                            src="assets/media/video.mp4" 
+                            poster="assets/images/yt_cove.svg" 
+                            class="w-full shadow-xl rounded" 
+                            controls 
+                            muted
+                        ></video>
                     </div>
-
-                    <div class="card">
-                        <div class="rounded-circle structure-card-head">
-                            <i class="fas fa-clipboard-list fa-3x card-img-top"></i>
+                    
+                    <div class="w-full md:w-1/2 flex flex-col items-start">
+                        <h2 class="text-4xl font-heading font-light mb-10 relative pl-4 border-l-4 border-light">
+                            Découvrez notre commune<br>en images et en vidéos
+                        </h2>
+                        
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="#" class="py-3 px-6 border-2 border-light text-light hover:bg-light hover:text-primary transition-standard font-semibold tracking-wide uppercase">
+                                Vidéothèque
+                            </a>
+                            <a href="#" class="py-3 px-6 bg-light text-primary hover:bg-gray-200 transition-standard font-semibold tracking-wide uppercase">
+                                Aller à la galerie photo
+                            </a>
                         </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">
-                                Some quick example text to build on the card title and make up the bulk
-                                of the card's content.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="rounded-circle structure-card-head">
-                            <i class="fas fa-clipboard-list fa-3x card-img-top"></i>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">
-                                Some quick example text to build on the card title and make up the bulk
-                                of the card's content.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="rounded-circle structure-card-head">
-                            <i class="fas fa-clipboard-list fa-3x card-img-top"></i>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">
-                                Some quick example text to build on the card title and make up the bulk
-                                of the card's content.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="rounded-circle structure-card-head">
-                            <i class="fas fa-clipboard-list fa-3x card-img-top"></i>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">
-                                Some quick example text to build on the card title and make up the bulk
-                                of the card's content.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="rounded-circle structure-card-head">
-                            <i class="fas fa-clipboard-list fa-3x card-img-top"></i>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">
-                                Some quick example text to build on the card title and make up the bulk
-                                of the card's content.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="rounded-circle structure-card-head">
-                            <i class="fas fa-clipboard-list fa-3x card-img-top"></i>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">
-                                Some quick example text to build on the card title and make up the bulk
-                                of the card's content.
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Videotheque-->
-        <section class="container-fluid mt-5" id="medias">
-            <div class="row">
-                <div class="col-md-4 col-xs-12 mx-auto medias-video-container">
-                    <video src="assets/media/video.mp4" poster="assets/images/yt_cove.svg" playsinline preload="auto"
-                        controlsList="nodownload nofullscreen noremoteplayback" controls autopictureinpicture="true"
-                        muted></video>
-                </div>
-
-                <div class="col-md-4 col-xs-12 mx-auto text">
-                    <h2>Decouvrez notre commune <br> en images et en videos</h2>
-
-                    <div class="buttons">
-                        <a href="#" class="btn btn-outline-light">VIDEOTHEQUE</a>
-                        <a href="#" class="btn btn-light">ALLER À LA GALLERIE PHOTO</a>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Blog Articles -->
-        <section class="container mt-5" id="articles-sections">
-            <div class="row">
-                <div class="col-md-7 col-xs-12 mr-auto articles-container">
+        <section class="py-20 px-4">
+            <div class="container mx-auto">
+                <div class="flex flex-col lg:flex-row gap-12">
+                    <div class="w-full lg:w-2/3">
                     <h2 class="title-blue">Les Derniers articles</h2>
                     <div class="card">
                         <div class="card-body">

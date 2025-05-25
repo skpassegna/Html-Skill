@@ -3,487 +3,1084 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PixelPay - Digital Banking Reimagined</title>
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%2300ff88' d='M0 0h4v4H0zm4 0h4v4H4zm4 0h4v4H8zm4 0h4v4h-4zM0 4h4v4H0zm8 0h4v4H8zM0 8h4v4H0zm4 0h4v4H4zm8 0h4v4h-4zM0 12h4v4H0zm8 0h4v4H8z'/%3E%3C/svg%3E">
-    
+    <title>PixelFolio | Digital Pixel Art Portfolio</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind Config -->
+    <!-- Custom Tailwind Config -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        'pixel': ['Press Start 2P', 'monospace'],
-                        'inter': ['Inter', 'sans-serif'],
-                    },
                     colors: {
-                        'pixel-green': '#00ff88',
-                        'pixel-blue': '#0088ff',
-                        'pixel-purple': '#8800ff',
-                        'pixel-pink': '#ff0088',
-                        'pixel-yellow': '#ffff00',
-                        'pixel-dark': '#1a1a2e',
-                        'pixel-darker': '#16213e',
-                        'pixel-light': '#eee',
+                        pixel: {
+                            primary: '#8E44AD',
+                            secondary: '#3498DB',
+                            accent: '#F1C40F',
+                            dark: '#2C3E50',
+                            light: '#ECF0F1'
+                        }
                     },
-                    animation: {
-                        'pixel-pulse': 'pixelPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'float': 'float 6s ease-in-out infinite',
-                        'glow': 'glow 2s ease-in-out infinite alternate',
-                    },
-                    keyframes: {
-                        pixelPulse: {
-                            '0%, 100%': { opacity: '1' },
-                            '50%': { opacity: '.5' },
-                        },
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        },
-                        glow: {
-                            '0%': { boxShadow: '0 0 5px #00ff88, 0 0 10px #00ff88, 0 0 15px #00ff88' },
-                            '100%': { boxShadow: '0 0 10px #00ff88, 0 0 20px #00ff88, 0 0 30px #00ff88' },
-                        },
-                    },
-                    boxShadow: {
-                        'pixel': '4px 4px 0px 0px rgba(0,0,0,0.3)',
-                        'pixel-hover': '6px 6px 0px 0px rgba(0,0,0,0.4)',
-                        'neon': '0 0 20px rgba(0, 255, 136, 0.5)',
-                    },
+                    fontFamily: {
+                        'pixel': ['"Press Start 2P"', 'cursive'],
+                        'body': ['"Roboto Mono"', 'monospace']
+                    }
                 }
             }
         }
     </script>
-    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Styles -->
     <style>
+        /* Pixel Art Cursor */
+        body {
+            cursor: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8IS0tIEN1cnNvciBvdXRsaW5lL3NoYWRvdyAtLT4KICA8cmVjdCB4PSIxIiB5PSIxIiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjMDAwMDAwIi8+CiAgPHJlY3QgeD0iMSIgeT0iMyIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzAwMDAwMCIvPgogIDxyZWN0IHg9IjEiIHk9IjUiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiMwMDAwMDAiLz4KICA8cmVjdCB4PSIxIiB5PSI3IiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjMDAwMDAwIi8+CiAgPHJlY3QgeD0iMSIgeT0iOSIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzAwMDAwMCIvPgogIDxyZWN0IHg9IjEiIHk9IjExIiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjMDAwMDAwIi8+CiAgPHJlY3QgeD0iMSIgeT0iMTMiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiMwMDAwMDAiLz4KICA8cmVjdCB4PSIxIiB5PSIxNSIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzAwMDAwMCIvPgogIDxyZWN0IHg9IjEiIHk9IjE3IiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjMDAwMDAwIi8+CiAgPHJlY3QgeD0iMSIgeT0iMTkiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiMwMDAwMDAiLz4KICA8cmVjdCB4PSIxIiB5PSIyMSIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzAwMDAwMCIvPgogIAogIDxyZWN0IHg9IjMiIHk9IjEiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiMwMDAwMDAiLz4KICA8cmVjdCB4PSI1IiB5PSIxIiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjMDAwMDAwIi8+CiAgPHJlY3QgeD0iNyIgeT0iMSIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzAwMDAwMCIvPgogIDxyZWN0IHg9IjkiIHk9IjEiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiMwMDAwMDAiLz4KICA8cmVjdCB4PSIxMSIgeT0iMSIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzAwMDAwMCIvPgogIDxyZWN0IHg9IjEzIiB5PSIxIiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjMDAwMDAwIi8+CiAgPHJlY3QgeD0iMTUiIHk9IjEiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiMwMDAwMDAiLz4KICA8cmVjdCB4PSIxNyIgeT0iMSIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzAwMDAwMCIvPgogIDxyZWN0IHg9IjE5IiB5PSIxIiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjMDAwMDAwIi8+CiAgCiAgPHJlY3QgeD0iMyIgeT0iMyIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzAwMDAwMCIvPgogIDxyZWN0IHg9IjUiIHk9IjMiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiMwMDAwMDAiLz4KICA8cmVjdCB4PSI3IiB5PSIzIiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjMDAwMDAwIi8+CiAgPHJlY3QgeD0iOSIgeT0iMyIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzAwMDAwMCIvPgogIDxyZWN0IHg9IjExIiB5PSIzIiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjMDAwMDAwIi8+CiAgPHJlY3QgeD0iMTMiIHk9IjMiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiMwMDAwMDAiLz4KICA8cmVjdCB4PSIxNSIgeT0iMyIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzAwMDAwMCIvPgogIDxyZWN0IHg9IjE3IiB5PSIzIiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjMDAwMDAwIi8+CiAgCiAgPHJlY3QgeD0iMyIgeT0iNSIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzAwMDAwMCIvPgogIDxyZWN0IHg9IjUiIHk9IjUiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiMwMDAwMDAiLz4KICA8cmVjdCB4PSI3IiB5PSI1IiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjMDAwMDAwIi8+CiAgPHJlY3QgeD0iOSIgeT0iNSIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzAwMDAwMCIvPgogIDxyZWN0IHg9IjExIiB5PSI1IiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjMDAwMDAwIi8+CiAgPHJlY3QgeD0iMTMiIHk9IjUiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiMwMDAwMDAiLz4KICA8cmVjdCB4PSIxNSIgeT0iNSIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzAwMDAwMCIvPgogIAogIDxyZWN0IHg9IjMiIHk9IjciIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiMwMDAwMDAiLz4KICA8cmVjdCB4PSI1IiB5PSI3IiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjMDAwMDAwIi8+CiAgPHJlY3QgeD0iNyIgeT0iNyIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzAwMDAwMCIvPgogIDxyZWN0IHg9IjkiIHk9IjciIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiMwMDAwMDAiLz4KICA8cmVjdCB4PSIxMSIgeT0iNyIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzAwMDAwMCIvPgogIDxyZWN0IHg9IjEzIiB5PSI3IiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjMDAwMDAwIi8+CiAgCiAgPHJlY3QgeD0iMyIgeT0iOSIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzAwMDAwMCIvPgogIDxyZWN0IHg9IjUiIHk9IjkiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiMwMDAwMDAiLz4KICA8cmVjdCB4PSI3IiB5PSI5IiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjMDAwMDAwIi8+CiAgPHJlY3QgeD0iOSIgeT0iOSIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzAwMDAwMCIvPgogIDxyZWN0IHg9IjExIiB5PSI5IiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjMDAwMDAwIi8+CiAgCiAgPHJlY3QgeD0iMyIgeT0iMTEiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiMwMDAwMDAiLz4KICA8cmVjdCB4PSI1IiB5PSIxMSIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzAwMDAwMCIvPgogIDxyZWN0IHg9IjciIHk9IjExIiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjMDAwMDAwIi8+CiAgPHJlY3QgeD0iOSIgeT0iMTEiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiMwMDAwMDAiLz4KICAKICA8cmVjdCB4PSIzIiB5PSIxMyIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzAwMDAwMCIvPgogIDxyZWN0IHg9IjUiIHk9IjEzIiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjMDAwMDAwIi8+CiAgPHJlY3QgeD0iNyIgeT0iMTMiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiMwMDAwMDAiLz4KICAKICA8cmVjdCB4PSIzIiB5PSIxNSIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzAwMDAwMCIvPgogIDxyZWN0IHg9IjUiIHk9IjE1IiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjMDAwMDAwIi8+CiAgCiAgPHJlY3QgeD0iMyIgeT0iMTciIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiMwMDAwMDAiLz4KICA8cmVjdCB4PSI1IiB5PSIxNyIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzAwMDAwMCIvPgogIDxyZWN0IHg9IjciIHk9IjE3IiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjMDAwMDAwIi8+CiAgPHJlY3QgeD0iOSIgeT0iMTciIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiMwMDAwMDAiLz4KICAKICA8cmVjdCB4PSIzIiB5PSIxOSIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzAwMDAwMCIvPgogIDxyZWN0IHg9IjUiIHk9IjE5IiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjMDAwMDAwIi8+CiAgPHJlY3QgeD0iNyIgeT0iMTkiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiMwMDAwMDAiLz4KICA8cmVjdCB4PSI5IiB5PSIxOSIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzAwMDAwMCIvPgogIDxyZWN0IHg9IjExIiB5PSIxOSIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzAwMDAwMCIvPgogIAogIDxyZWN0IHg9IjMiIHk9IjIxIiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjMDAwMDAwIi8+CiAgPHJlY3QgeD0iNSIgeT0iMjEiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiMwMDAwMDAiLz4KICA8cmVjdCB4PSI3IiB5PSIyMSIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzAwMDAwMCIvPgogIDxyZWN0IHg9IjkiIHk9IjIxIiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjMDAwMDAwIi8+CiAgPHJlY3QgeD0iMTEiIHk9IjIxIiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjMDAwMDAwIi8+CiAgPHJlY3QgeD0iMTMiIHk9IjIxIiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjMDAwMDAwIi8+CiAgPHJlY3QgeD0iMTUiIHk9IjIxIiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjMDAwMDAwIi8+CiAgCiAgPCEtLSBNYWluIGN1cnNvciBib2R5IC0tPgogIDxyZWN0IHg9IjIiIHk9IjIiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiNmZmZmZmYiLz4KICA8cmVjdCB4PSIyIiB5PSI0IiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjZmZmZmZmIi8+CiAgPHJlY3QgeD0iMiIgeT0iNiIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iI2ZmZmZmZiIvPgogIDxyZWN0IHg9IjIiIHk9IjgiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiNmZmZmZmYiLz4KICA8cmVjdCB4PSIyIiB5PSIxMCIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iI2ZmZmZmZiIvPgogIDxyZWN0IHg9IjIiIHk9IjEyIiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjZmZmZmZmIi8+CiAgPHJlY3QgeD0iMiIgeT0iMTQiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiNmZmZmZmYiLz4KICA8cmVjdCB4PSIyIiB5PSIxNiIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iI2ZmZmZmZiIvPgogIDxyZWN0IHg9IjIiIHk9IjE4IiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjZmZmZmZmIi8+CiAgPHJlY3QgeD0iMiIgeT0iMjAiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiNmZmZmZmYiLz4KICAKICA8cmVjdCB4PSI0IiB5PSIyIiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjZmZmZmZmIi8+CiAgPHJlY3QgeD0iNiIgeT0iMiIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iI2ZmZmZmZiIvPgogIDxyZWN0IHg9IjgiIHk9IjIiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiNmZmZmZmYiLz4KICA8cmVjdCB4PSIxMCIgeT0iMiIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iI2ZmZmZmZiIvPgogIDxyZWN0IHg9IjEyIiB5PSIyIiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjZmZmZmZmIi8+CiAgPHJlY3QgeD0iMTQiIHk9IjIiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiNmZmZmZmYiLz4KICA8cmVjdCB4PSIxNiIgeT0iMiIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iI2ZmZmZmZiIvPgogIDxyZWN0IHg9IjE4IiB5PSIyIiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjZmZmZmZmIi8+CiAgCiAgPHJlY3QgeD0iNCIgeT0iNCIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iI2ZmZmZmZiIvPgogIDxyZWN0IHg9IjYiIHk9IjQiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiNmZmZmZmYiLz4KICA8cmVjdCB4PSI4IiB5PSI0IiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjZmZmZmZmIi8+CiAgPHJlY3QgeD0iMTAiIHk9IjQiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiNmZmZmZmYiLz4KICA8cmVjdCB4PSIxMiIgeT0iNCIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iI2ZmZmZmZiIvPgogIDxyZWN0IHg9IjE0IiB5PSI0IiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjZmZmZmZmIi8+CiAgPHJlY3QgeD0iMTYiIHk9IjQiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiNmZmZmZmYiLz4KICAKICA8cmVjdCB4PSI0IiB5PSI2IiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjZmZmZmZmIi8+CiAgPHJlY3QgeD0iNiIgeT0iNiIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iI2ZmZmZmZiIvPgogIDxyZWN0IHg9IjgiIHk9IjYiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiNmZmZmZmYiLz4KICA8cmVjdCB4PSIxMCIgeT0iNiIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iI2ZmZmZmZiIvPgogIDxyZWN0IHg9IjEyIiB5PSI2IiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjZmZmZmZmIi8+CiAgPHJlY3QgeD0iMTQiIHk9IjYiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiNmZmZmZmYiLz4KICAKICA8cmVjdCB4PSI0IiB5PSI4IiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjZmZmZmZmIi8+CiAgPHJlY3QgeD0iNiIgeT0iOCIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iI2ZmZmZmZiIvPgogIDxyZWN0IHg9IjgiIHk9IjgiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiNmZmZmZmYiLz4KICA8cmVjdCB4PSIxMCIgeT0iOCIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iI2ZmZmZmZiIvPgogIDxyZWN0IHg9IjEyIiB5PSI4IiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjZmZmZmZmIi8+CiAgCiAgPHJlY3QgeD0iNCIgeT0iMTAiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiNmZmZmZmYiLz4KICA8cmVjdCB4PSI2IiB5PSIxMCIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iI2ZmZmZmZiIvPgogIDxyZWN0IHg9IjgiIHk9IjEwIiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjZmZmZmZmIi8+CiAgPHJlY3QgeD0iMTAiIHk9IjEwIiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjZmZmZmZmIi8+CiAgCiAgPHJlY3QgeD0iNCIgeT0iMTIiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiNmZmZmZmYiLz4KICA8cmVjdCB4PSI2IiB5PSIxMiIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iI2ZmZmZmZiIvPgogIDxyZWN0IHg9IjgiIHk9IjEyIiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjZmZmZmZmIi8+CiAgCiAgPHJlY3QgeD0iNCIgeT0iMTQiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiNmZmZmZmYiLz4KICA8cmVjdCB4PSI2IiB5PSIxNCIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iI2ZmZmZmZiIvPgogIAogIDxyZWN0IHg9IjQiIHk9IjE2IiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjZmZmZmZmIi8+CiAgPHJlY3QgeD0iNiIgeT0iMTYiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiNmZmZmZmYiLz4KICA8cmVjdCB4PSI4IiB5PSIxNiIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iI2ZmZmZmZiIvPgogIDxyZWN0IHg9IjEwIiB5PSIxNiIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iI2ZmZmZmZiIvPgogIAogIDxyZWN0IHg9IjQiIHk9IjE4IiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjZmZmZmZmIi8+CiAgPHJlY3QgeD0iNiIgeT0iMTgiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiNmZmZmZmYiLz4KICA8cmVjdCB4PSI4IiB5PSIxOCIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iI2ZmZmZmZiIvPgogIDxyZWN0IHg9IjEwIiB5PSIxOCIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iI2ZmZmZmZiIvPgogIDxyZWN0IHg9IjEyIiB5PSIxOCIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iI2ZmZmZmZiIvPgogIAogIDxyZWN0IHg9IjQiIHk9IjIwIiB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSIjZmZmZmZmIi8+CiAgPHJlY3QgeD0iNiIgeT0iMjAiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiNmZmZmZmYiLz4KICA8cmVjdCB4PSI4IiB5PSIyMCIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iI2ZmZmZmZiIvPgogIDxyZWN0IHg9IjEwIiB5PSIyMCIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iI2ZmZmZmZiIvPgogIDxyZWN0IHg9IjEyIiB5PSIyMCIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iI2ZmZmZmZiIvPgogIDxyZWN0IHg9IjE0IiB5PSIyMCIgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iI2ZmZmZmZiIvPgo8L3N2Zz4='), auto;
+        }
+        
+        /* Pixel Border Effect */
         .pixel-border {
-            border: 3px solid;
-            border-image: url("data:image/svg+xml,%3csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m0 0h8v8h-8zm8 0h8v8h-8zm16 0h8v8h-8zm24 0h8v8h-8zm32 0h8v8h-8zm40 0h8v8h-8zm48 0h8v8h-8zm56 0h8v8h-8zm64 0h8v8h-8zm72 0h8v8h-8zm80 0h8v8h-8zm88 0h8v8h-8z' fill='%2300ff88'/%3e%3c/svg%3e") 8;
+            box-shadow: 
+                -3px 0 0 0 #000,
+                3px 0 0 0 #000,
+                0 -3px 0 0 #000,
+                0 3px 0 0 #000;
         }
         
-        .pixel-card {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            border: 2px solid #00ff88;
-            position: relative;
-        }
-        
-        .pixel-card::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, #00ff88, #0088ff, #8800ff, #ff0088);
-            z-index: -1;
-            border-radius: inherit;
-        }
-        
-        .retro-grid {
-            background-image: 
-                linear-gradient(rgba(0, 255, 136, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 255, 136, 0.1) 1px, transparent 1px);
-            background-size: 20px 20px;
-        }
-        
+        /* Pixel Button Effect */
         .pixel-button {
-            background: #00ff88;
-            border: none;
-            color: #1a1a2e;
-            font-weight: bold;
-            text-transform: uppercase;
-            transition: all 0.2s ease;
-            box-shadow: 4px 4px 0px 0px rgba(0,0,0,0.3);
-        }
-        
-        .pixel-button:hover {
-            transform: translate(-2px, -2px);
-            box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.4);
+            transition: all 0.1s ease;
+            transform-style: preserve-3d;
+            transform: translateY(-4px);
+            box-shadow: 0 4px 0 0 #000;
         }
         
         .pixel-button:active {
-            transform: translate(2px, 2px);
-            box-shadow: 2px 2px 0px 0px rgba(0,0,0,0.2);
+            transform: translateY(0);
+            box-shadow: 0 0 0 0 #000;
+        }
+        
+        /* Pixel Animation */
+        @keyframes pixel-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .pixel-float {
+            animation: pixel-float 3s ease-in-out infinite;
         }
     </style>
 </head>
-
-<body class="bg-pixel-dark text-pixel-light font-inter overflow-x-hidden">
+<body class="bg-pixel-light font-body">
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 bg-pixel-darker/90 backdrop-blur-sm border-b-2 border-pixel-green">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-2">
-                    <div class="w-8 h-8 bg-pixel-green" style="clip-path: polygon(0 0, 100% 0, 100% 75%, 75% 100%, 0 100%)"></div>
-                    <span class="font-pixel text-pixel-green text-lg">PixelPay</span>
-                </div>
-                
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#features" class="hover:text-pixel-green transition-colors duration-300">Features</a>
-                    <a href="#services" class="hover:text-pixel-green transition-colors duration-300">Services</a>
-                    <a href="#about" class="hover:text-pixel-green transition-colors duration-300">About</a>
-                    <a href="#contact" class="hover:text-pixel-green transition-colors duration-300">Contact</a>
-                </div>
-                
-                <button class="pixel-button px-6 py-2 font-pixel text-sm">
-                    Get Started
-                </button>
+    <nav class="sticky top-0 z-50 bg-pixel-dark text-white py-4 px-6 border-b-4 border-pixel-primary">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center space-x-2">
+                <div class="w-8 h-8 bg-pixel-primary pixel-border"></div>
+                <span class="font-pixel text-xl tracking-wider">PixelFolio</span>
+            </a>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#portfolio" class="font-pixel text-sm hover:text-pixel-accent transition-colors duration-300">Portfolio</a>
+                <a href="#about" class="font-pixel text-sm hover:text-pixel-accent transition-colors duration-300">About</a>
+                <a href="#services" class="font-pixel text-sm hover:text-pixel-accent transition-colors duration-300">Services</a>
+                <a href="#contact" class="font-pixel text-sm hover:text-pixel-accent transition-colors duration-300">Contact</a>
+                <a href="#" class="pixel-button font-pixel text-sm bg-pixel-primary px-4 py-2 rounded-none">Hire Me</a>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden mt-4 bg-pixel-dark border-t-2 border-pixel-primary">
+            <div class="flex flex-col space-y-4 p-4">
+                <a href="#portfolio" class="font-pixel text-sm hover:text-pixel-accent transition-colors duration-300">Portfolio</a>
+                <a href="#about" class="font-pixel text-sm hover:text-pixel-accent transition-colors duration-300">About</a>
+                <a href="#services" class="font-pixel text-sm hover:text-pixel-accent transition-colors duration-300">Services</a>
+                <a href="#contact" class="font-pixel text-sm hover:text-pixel-accent transition-colors duration-300">Contact</a>
+                <a href="#" class="pixel-button font-pixel text-sm bg-pixel-primary px-4 py-2 rounded-none inline-block text-center">Hire Me</a>
             </div>
         </div>
     </nav>
-
+    
     <!-- Hero Section -->
-    <section class="min-h-screen flex items-center justify-center relative retro-grid pt-20">
-        <div class="container mx-auto px-6 text-center">
-            <div class="max-w-4xl mx-auto">
-                <h1 class="font-pixel text-4xl md:text-6xl lg:text-7xl text-pixel-green mb-8 animate-glow">
-                    Digital Banking
-                    <br>
-                    <span class="text-pixel-blue">Reimagined</span>
-                </h1>
-                
-                <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed">
-                    Experience the future of finance with our pixel-perfect digital banking platform. 
-                    Fast, secure, and beautifully retro.
-                </p>
-                
-                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-                    <button class="pixel-button px-8 py-4 font-pixel text-lg">
-                        Start Banking
-                    </button>
-                    <button class="border-2 border-pixel-blue text-pixel-blue px-8 py-4 font-pixel text-lg hover:bg-pixel-blue hover:text-pixel-dark transition-all duration-300">
-                        Watch Demo
-                    </button>
+    <section class="relative bg-pixel-dark text-white py-20 overflow-hidden">
+        <!-- Pixel Art Background Grid -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="grid grid-cols-16 md:grid-cols-32 lg:grid-cols-64 h-full w-full">
+                <!-- This creates a pixel-like background effect -->
+                <div class="col-span-full h-full w-full grid grid-cols-16 md:grid-cols-32 lg:grid-cols-64 grid-rows-16 md:grid-rows-32 lg:grid-rows-64">
+                    <!-- Dynamically generated pixels via JavaScript -->
                 </div>
-                
-                <!-- Pixel Art Illustration -->
-                <div class="relative mx-auto w-80 h-80 animate-float">
-                    <svg viewBox="0 0 320 320" class="w-full h-full">
-                        <!-- Phone Frame -->
-                        <rect x="80" y="40" width="160" height="240" fill="#1a1a2e" stroke="#00ff88" stroke-width="4"/>
-                        <!-- Screen -->
-                        <rect x="90" y="60" width="140" height="200" fill="#16213e"/>
-                        <!-- App Icons -->
-                        <rect x="100" y="80" width="30" height="30" fill="#00ff88"/>
-                        <rect x="140" y="80" width="30" height="30" fill="#0088ff"/>
-                        <rect x="180" y="80" width="30" height="30" fill="#8800ff"/>
-                        <!-- Balance Display -->
-                        <rect x="100" y="130" width="110" height="40" fill="#00ff88" opacity="0.8"/>
-                        <text x="155" y="155" text-anchor="middle" fill="#1a1a2e" font-family="Press Start 2P" font-size="8">$12,345</text>
-                        <!-- Transaction List -->
-                        <rect x="100" y="180" width="110" height="8" fill="#0088ff" opacity="0.6"/>
-                        <rect x="100" y="195" width="110" height="8" fill="#8800ff" opacity="0.6"/>
-                        <rect x="100" y="210" width="110" height="8" fill="#ff0088" opacity="0.6"/>
-                        <!-- Floating Coins -->
-                        <circle cx="50" cy="100" r="15" fill="#ffff00" opacity="0.8" class="animate-pixel-pulse"/>
-                        <circle cx="270" cy="150" r="12" fill="#00ff88" opacity="0.8" class="animate-pixel-pulse"/>
-                        <circle cx="60" cy="200" r="10" fill="#0088ff" opacity="0.8" class="animate-pixel-pulse"/>
-                    </svg>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="font-pixel text-3xl md:text-4xl lg:text-5xl mb-6 leading-tight">
+                        <span class="text-pixel-primary">Pixel</span> Art
+                        <span class="block">Portfolio</span>
+                    </h1>
+                    <p class="text-lg mb-8 max-w-md">
+                        Crafting digital masterpieces one pixel at a time. Explore my world of pixel art creations, game assets, and digital illustrations.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#portfolio" class="pixel-button bg-pixel-primary font-pixel text-sm px-6 py-3 rounded-none inline-block">
+                            View Work
+                        </a>
+                        <a href="#contact" class="pixel-button bg-transparent border-2 border-pixel-primary font-pixel text-sm px-6 py-3 rounded-none inline-block">
+                            Get In Touch
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 relative">
+                    <!-- Pixel Art Hero Image -->
+                    <div class="w-64 h-64 md:w-80 md:h-80 mx-auto relative pixel-float">
+                        <!-- Main Character Pixel Art -->
+                        <div class="absolute inset-0 pixel-border bg-gradient-to-br from-pixel-primary to-pixel-secondary p-4">
+                            <!-- This will be our pixel art character -->
+                            <div class="w-full h-full bg-pixel-dark p-4">
+                                <div class="grid grid-cols-8 grid-rows-8 gap-1 w-full h-full">
+                                    <!-- Pixel art face - simplified version -->
+                                    <div class="bg-pixel-light"></div>
+                                    <div class="bg-pixel-light"></div>
+                                    <div class="bg-pixel-light"></div>
+                                    <div class="bg-pixel-light"></div>
+                                    <div class="bg-pixel-light"></div>
+                                    <div class="bg-pixel-light"></div>
+                                    <div class="bg-pixel-light"></div>
+                                    <div class="bg-pixel-light"></div>
+                                    <!-- Row 2 -->
+                                    <div class="bg-pixel-light"></div>
+                                    <div class="bg-pixel-accent"></div>
+                                    <div class="bg-pixel-accent"></div>
+                                    <div class="bg-pixel-light"></div>
+                                    <div class="bg-pixel-light"></div>
+                                    <div class="bg-pixel-accent"></div>
+                                    <div class="bg-pixel-accent"></div>
+                                    <div class="bg-pixel-light"></div>
+                                    <!-- Additional rows would continue the pixel art pattern -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Features Section -->
-    <section id="features" class="py-24 bg-pixel-darker">
+    
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="font-pixel text-3xl md:text-4xl text-pixel-green mb-6">Core Features</h2>
-                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
-                    Built with cutting-edge technology and retro aesthetics
-                </p>
+                <h2 class="font-pixel text-3xl md:text-4xl text-pixel-dark mb-4">My <span class="text-pixel-primary">Pixel</span> Creations</h2>
+                <p class="max-w-2xl mx-auto text-gray-600">Browse through my collection of pixel art works, from character designs to landscapes and animations.</p>
+            </div>
+            
+            <!-- Portfolio Filter -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button class="filter-btn active font-pixel text-xs px-4 py-2 bg-pixel-dark text-white pixel-border" data-filter="all">All Works</button>
+                <button class="filter-btn font-pixel text-xs px-4 py-2 bg-white text-pixel-dark border-2 border-pixel-dark" data-filter="characters">Characters</button>
+                <button class="filter-btn font-pixel text-xs px-4 py-2 bg-white text-pixel-dark border-2 border-pixel-dark" data-filter="landscapes">Landscapes</button>
+                <button class="filter-btn font-pixel text-xs px-4 py-2 bg-white text-pixel-dark border-2 border-pixel-dark" data-filter="animations">Animations</button>
+                <button class="filter-btn font-pixel text-xs px-4 py-2 bg-white text-pixel-dark border-2 border-pixel-dark" data-filter="game-assets">Game Assets</button>
+            </div>
+            
+            <!-- Portfolio Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Portfolio Item 1 -->
+                <div class="portfolio-item group" data-category="characters">
+                    <div class="relative overflow-hidden pixel-border bg-pixel-light">
+                        <!-- Pixel Art Image Placeholder -->
+                        <div class="aspect-square bg-gradient-to-br from-pixel-primary to-pixel-secondary p-1">
+                            <div class="w-full h-full bg-pixel-dark p-4 flex items-center justify-center">
+                                <!-- Pixel Art Character -->
+                                <div class="grid grid-cols-8 grid-rows-8 gap-1 w-full h-full">
+                                    <!-- Row 1 -->
+                                    <div class="bg-pixel-light"></div>
+                                    <div class="bg-pixel-light"></div>
+                                    <div class="bg-pixel-light"></div>
+                                    <div class="bg-pixel-accent"></div>
+                                    <div class="bg-pixel-accent"></div>
+                                    <div class="bg-pixel-light"></div>
+                                    <div class="bg-pixel-light"></div>
+                                    <div class="bg-pixel-light"></div>
+                                    <!-- Row 2 -->
+                                    <div class="bg-pixel-light"></div>
+                                    <div class="bg-pixel-light"></div>
+                                    <div class="bg-pixel-accent"></div>
+                                    <div class="bg-pixel-accent"></div>
+                                    <div class="bg-pixel-accent"></div>
+                                    <div class="bg-pixel-accent"></div>
+                                    <div class="bg-pixel-light"></div>
+                                    <div class="bg-pixel-light"></div>
+                                    <!-- Additional rows would continue the pixel art pattern -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Overlay -->
+                        <div class="absolute inset-0 bg-pixel-dark bg-opacity-80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="text-center">
+                                <h3 class="font-pixel text-white text-lg mb-2">Pixel Hero</h3>
+                                <p class="text-pixel-accent text-sm mb-4">Character Design</p>
+                                <a href="#" class="inline-block font-pixel text-xs bg-pixel-primary text-white px-4 py-2 pixel-button">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 2 -->
+                <div class="portfolio-item group" data-category="landscapes">
+                    <div class="relative overflow-hidden pixel-border bg-pixel-light">
+                        <!-- Pixel Art Image Placeholder -->
+                        <div class="aspect-square bg-gradient-to-br from-pixel-secondary to-pixel-accent p-1">
+                            <div class="w-full h-full bg-pixel-dark p-4 flex items-center justify-center">
+                                <!-- Pixel Art Landscape -->
+                                <div class="grid grid-cols-8 grid-rows-8 gap-1 w-full h-full">
+                                    <!-- Simplified landscape pattern -->
+                                    <div class="bg-blue-400"></div>
+                                    <div class="bg-blue-400"></div>
+                                    <div class="bg-blue-400"></div>
+                                    <div class="bg-blue-400"></div>
+                                    <div class="bg-blue-400"></div>
+                                    <div class="bg-blue-400"></div>
+                                    <div class="bg-blue-400"></div>
+                                    <div class="bg-blue-400"></div>
+                                    <!-- Row 2 -->
+                                    <div class="bg-blue-400"></div>
+                                    <div class="bg-blue-400"></div>
+                                    <div class="bg-blue-400"></div>
+                                    <div class="bg-blue-400"></div>
+                                    <div class="bg-blue-400"></div>
+                                    <div class="bg-blue-400"></div>
+                                    <div class="bg-blue-400"></div>
+                                    <div class="bg-blue-400"></div>
+                                    <!-- Bottom rows would be green for land -->
+                                    <div class="bg-green-500"></div>
+                                    <div class="bg-green-500"></div>
+                                    <div class="bg-green-500"></div>
+                                    <div class="bg-green-500"></div>
+                                    <div class="bg-green-500"></div>
+                                    <div class="bg-green-500"></div>
+                                    <div class="bg-green-500"></div>
+                                    <div class="bg-green-500"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Overlay -->
+                        <div class="absolute inset-0 bg-pixel-dark bg-opacity-80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="text-center">
+                                <h3 class="font-pixel text-white text-lg mb-2">Pixel Paradise</h3>
+                                <p class="text-pixel-accent text-sm mb-4">Landscape</p>
+                                <a href="#" class="inline-block font-pixel text-xs bg-pixel-primary text-white px-4 py-2 pixel-button">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 3 -->
+                <div class="portfolio-item group" data-category="game-assets">
+                    <div class="relative overflow-hidden pixel-border bg-pixel-light">
+                        <!-- Pixel Art Image Placeholder -->
+                        <div class="aspect-square bg-gradient-to-br from-pixel-accent to-pixel-primary p-1">
+                            <div class="w-full h-full bg-pixel-dark p-4 flex items-center justify-center">
+                                <!-- Pixel Art Game Item -->
+                                <div class="grid grid-cols-8 grid-rows-8 gap-1 w-full h-full">
+                                    <!-- Simplified item pattern -->
+                                    <div class="bg-pixel-light"></div>
+                                    <div class="bg-pixel-light"></div>
+                                    <div class="bg-pixel-light"></div>
+                                    <div class="bg-pixel-light"></div>
+                                    <div class="bg-pixel-light"></div>
+                                    <div class="bg-pixel-light"></div>
+                                    <div class="bg-pixel-light"></div>
+                                    <div class="bg-pixel-light"></div>
+                                    <!-- Row 2 -->
+                                    <div class="bg-pixel-light"></div>
+                                    <div class="bg-yellow-300"></div>
+                                    <div class="bg-yellow-300"></div>
+                                    <div class="bg-yellow-300"></div>
+                                    <div class="bg-yellow-300"></div>
+                                    <div class="bg-yellow-300"></div>
+                                    <div class="bg-yellow-300"></div>
+                                    <div class="bg-pixel-light"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Overlay -->
+                        <div class="absolute inset-0 bg-pixel-dark bg-opacity-80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="text-center">
+                                <h3 class="font-pixel text-white text-lg mb-2">Power Items</h3>
+                                <p class="text-pixel-accent text-sm mb-4">Game Assets</p>
+                                <a href="#" class="inline-block font-pixel text-xs bg-pixel-primary text-white px-4 py-2 pixel-button">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 4 -->
+                <div class="portfolio-item group" data-category="animations">
+                    <div class="relative overflow-hidden pixel-border bg-pixel-light">
+                        <!-- Pixel Art Image Placeholder -->
+                        <div class="aspect-square bg-gradient-to-br from-green-400 to-blue-500 p-1">
+                            <div class="w-full h-full bg-pixel-dark p-4 flex items-center justify-center">
+                                <!-- Pixel Art Animation Frame -->
+                                <div class="grid grid-cols-8 grid-rows-8 gap-1 w-full h-full">
+                                    <!-- Animation frame pattern -->
+                                    <div class="bg-red-500"></div>
+                                    <div class="bg-red-500"></div>
+                                    <div class="bg-red-500"></div>
+                                    <div class="bg-red-500"></div>
+                                    <div class="bg-red-500"></div>
+                                    <div class="bg-red-500"></div>
+                                    <div class="bg-red-500"></div>
+                                    <div class="bg-red-500"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Overlay -->
+                        <div class="absolute inset-0 bg-pixel-dark bg-opacity-80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="text-center">
+                                <h3 class="font-pixel text-white text-lg mb-2">Walking Cycle</h3>
+                                <p class="text-pixel-accent text-sm mb-4">Animation</p>
+                                <a href="#" class="inline-block font-pixel text-xs bg-pixel-primary text-white px-4 py-2 pixel-button">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 5 -->
+                <div class="portfolio-item group" data-category="characters">
+                    <div class="relative overflow-hidden pixel-border bg-pixel-light">
+                        <!-- Pixel Art Image Placeholder -->
+                        <div class="aspect-square bg-gradient-to-br from-purple-600 to-pink-500 p-1">
+                            <div class="w-full h-full bg-pixel-dark p-4 flex items-center justify-center">
+                                <!-- Pixel Art Character -->
+                                <div class="grid grid-cols-8 grid-rows-8 gap-1 w-full h-full">
+                                    <!-- Character pattern -->
+                                    <div class="bg-purple-300"></div>
+                                    <div class="bg-purple-300"></div>
+                                    <div class="bg-purple-300"></div>
+                                    <div class="bg-purple-300"></div>
+                                    <div class="bg-purple-300"></div>
+                                    <div class="bg-purple-300"></div>
+                                    <div class="bg-purple-300"></div>
+                                    <div class="bg-purple-300"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Overlay -->
+                        <div class="absolute inset-0 bg-pixel-dark bg-opacity-80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="text-center">
+                                <h3 class="font-pixel text-white text-lg mb-2">Pixel Wizard</h3>
+                                <p class="text-pixel-accent text-sm mb-4">Character Design</p>
+                                <a href="#" class="inline-block font-pixel text-xs bg-pixel-primary text-white px-4 py-2 pixel-button">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 6 -->
+                <div class="portfolio-item group" data-category="landscapes">
+                    <div class="relative overflow-hidden pixel-border bg-pixel-light">
+                        <!-- Pixel Art Image Placeholder -->
+                        <div class="aspect-square bg-gradient-to-br from-yellow-400 to-orange-500 p-1">
+                            <div class="w-full h-full bg-pixel-dark p-4 flex items-center justify-center">
+                                <!-- Pixel Art Landscape -->
+                                <div class="grid grid-cols-8 grid-rows-8 gap-1 w-full h-full">
+                                    <!-- Landscape pattern -->
+                                    <div class="bg-yellow-200"></div>
+                                    <div class="bg-yellow-200"></div>
+                                    <div class="bg-yellow-300"></div>
+                                    <div class="bg-yellow-300"></div>
+                                    <div class="bg-yellow-300"></div>
+                                    <div class="bg-yellow-300"></div>
+                                    <div class="bg-yellow-200"></div>
+                                    <div class="bg-yellow-200"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Overlay -->
+                        <div class="absolute inset-0 bg-pixel-dark bg-opacity-80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="text-center">
+                                <h3 class="font-pixel text-white text-lg mb-2">Desert Sunset</h3>
+                                <p class="text-pixel-accent text-sm mb-4">Landscape</p>
+                                <a href="#" class="inline-block font-pixel text-xs bg-pixel-primary text-white px-4 py-2 pixel-button">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Load More Button -->
+            <div class="text-center mt-12">
+                <button class="pixel-button font-pixel text-sm bg-pixel-dark text-white px-8 py-3 rounded-none inline-block">
+                    Load More
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-pixel-light">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <!-- About Image -->
+                <div class="lg:w-1/2">
+                    <div class="relative">
+                        <!-- Pixel Art Frame -->
+                        <div class="pixel-border bg-white p-4 rotate-3 transform hover:rotate-0 transition-transform duration-300">
+                            <!-- Pixel Art Avatar -->
+                            <div class="aspect-square bg-gradient-to-br from-pixel-primary to-pixel-secondary p-2">
+                                <div class="w-full h-full bg-pixel-dark p-6 flex items-center justify-center">
+                                    <!-- Pixel Art Self Portrait -->
+                                    <div class="grid grid-cols-12 grid-rows-12 gap-1 w-full h-full">
+                                        <!-- Simplified avatar pattern -->
+                                        <div class="col-span-12 grid grid-cols-12 gap-1">
+                                            <div class="bg-pixel-light"></div>
+                                            <div class="bg-pixel-light"></div>
+                                            <div class="bg-pixel-light"></div>
+                                            <div class="bg-pixel-light"></div>
+                                            <div class="bg-pixel-light"></div>
+                                            <div class="bg-pixel-light"></div>
+                                            <div class="bg-pixel-light"></div>
+                                            <div class="bg-pixel-light"></div>
+                                            <div class="bg-pixel-light"></div>
+                                            <div class="bg-pixel-light"></div>
+                                            <div class="bg-pixel-light"></div>
+                                            <div class="bg-pixel-light"></div>
+                                        </div>
+                                        <!-- More rows would be added for a complete avatar -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Decorative Pixels -->
+                        <div class="absolute -bottom-6 -left-6 w-12 h-12 bg-pixel-accent pixel-border"></div>
+                        <div class="absolute -top-6 -right-6 w-12 h-12 bg-pixel-primary pixel-border"></div>
+                    </div>
+                </div>
+                
+                <!-- About Content -->
+                <div class="lg:w-1/2">
+                    <h2 class="font-pixel text-3xl md:text-4xl text-pixel-dark mb-6">About <span class="text-pixel-primary">The Artist</span></h2>
+                    
+                    <p class="mb-4 text-gray-700">
+                        Hello! I'm a pixel artist with a passion for creating vibrant, nostalgic digital art that captures the essence of the 8-bit and 16-bit eras while incorporating modern design sensibilities.
+                    </p>
+                    
+                    <p class="mb-6 text-gray-700">
+                        With over 5 years of experience in digital art and game asset creation, I specialize in character design, environment art, and animations that bring pixels to life. My work has been featured in indie games, digital exhibitions, and pixel art communities worldwide.
+                    </p>
+                    
+                    <!-- Skills -->
+                    <div class="mb-8">
+                        <h3 class="font-pixel text-xl text-pixel-dark mb-4">My Skills</h3>
+                        
+                        <div class="space-y-4">
+                            <!-- Skill 1 -->
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-pixel text-sm">Character Design</span>
+                                    <span class="font-pixel text-sm">95%</span>
+                                </div>
+                                <div class="w-full h-4 bg-gray-200 pixel-border">
+                                    <div class="h-full bg-pixel-primary" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Skill 2 -->
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-pixel text-sm">Environment Art</span>
+                                    <span class="font-pixel text-sm">85%</span>
+                                </div>
+                                <div class="w-full h-4 bg-gray-200 pixel-border">
+                                    <div class="h-full bg-pixel-secondary" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Skill 3 -->
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-pixel text-sm">Animation</span>
+                                    <span class="font-pixel text-sm">80%</span>
+                                </div>
+                                <div class="w-full h-4 bg-gray-200 pixel-border">
+                                    <div class="h-full bg-pixel-accent" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Skill 4 -->
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-pixel text-sm">Game Development</span>
+                                    <span class="font-pixel text-sm">70%</span>
+                                </div>
+                                <div class="w-full h-4 bg-gray-200 pixel-border">
+                                    <div class="h-full bg-pixel-dark" style="width: 70%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- CTA Button -->
+                    <a href="#contact" class="pixel-button font-pixel text-sm bg-pixel-primary text-white px-6 py-3 rounded-none inline-block">
+                        Let's Work Together
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-pixel text-3xl md:text-4xl text-pixel-dark mb-4">My <span class="text-pixel-primary">Services</span></h2>
+                <p class="max-w-2xl mx-auto text-gray-600">I offer a range of pixel art services to bring your creative visions to life, one pixel at a time.</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Feature Card 1 -->
-                <div class="pixel-card p-8 rounded-lg hover:transform hover:-translate-y-2 transition-all duration-300">
-                    <div class="w-16 h-16 bg-pixel-green mb-6 flex items-center justify-center">
-                        <i class="fas fa-shield-alt text-2xl text-pixel-dark"></i>
+                <!-- Service 1 -->
+                <div class="bg-pixel-light p-1 pixel-border group hover:bg-pixel-primary transition-colors duration-300">
+                    <div class="bg-white p-8 h-full">
+                        <!-- Service Icon -->
+                        <div class="w-16 h-16 mx-auto mb-6 bg-pixel-primary pixel-border flex items-center justify-center group-hover:bg-white transition-colors duration-300">
+                            <i class="fas fa-user text-white text-2xl group-hover:text-pixel-primary transition-colors duration-300"></i>
+                        </div>
+                        
+                        <h3 class="font-pixel text-xl text-pixel-dark mb-4 text-center">Character Design</h3>
+                        <p class="text-gray-600 mb-6 text-center">
+                            Custom pixel art characters for games, social media, or personal projects. From concept to final sprite sheets.
+                        </p>
+                        
+                        <!-- Service Features -->
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 bg-pixel-primary mr-3"></div>
+                                <span class="text-sm">Character Concepts</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 bg-pixel-primary mr-3"></div>
+                                <span class="text-sm">Multiple Poses</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 bg-pixel-primary mr-3"></div>
+                                <span class="text-sm">Animation Frames</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 bg-pixel-primary mr-3"></div>
+                                <span class="text-sm">Sprite Sheets</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="text-center">
+                            <a href="#contact" class="inline-block font-pixel text-xs bg-pixel-dark text-white px-4 py-2 pixel-button group-hover:bg-white group-hover:text-pixel-primary transition-colors duration-300">
+                                Get Quote
+                            </a>
+                        </div>
                     </div>
-                    <h3 class="font-pixel text-xl text-pixel-green mb-4">Bank-Level Security</h3>
-                    <p class="text-gray-300 leading-relaxed">
-                        256-bit encryption and multi-factor authentication keep your money safer than a pixel fortress.
-                    </p>
                 </div>
                 
-                <!-- Feature Card 2 -->
-                <div class="pixel-card p-8 rounded-lg hover:transform hover:-translate-y-2 transition-all duration-300">
-                    <div class="w-16 h-16 bg-pixel-blue mb-6 flex items-center justify-center">
-                        <i class="fas fa-bolt text-2xl text-pixel-dark"></i>
+                <!-- Service 2 -->
+                <div class="bg-pixel-light p-1 pixel-border group hover:bg-pixel-secondary transition-colors duration-300">
+                    <div class="bg-white p-8 h-full">
+                        <!-- Service Icon -->
+                        <div class="w-16 h-16 mx-auto mb-6 bg-pixel-secondary pixel-border flex items-center justify-center group-hover:bg-white transition-colors duration-300">
+                            <i class="fas fa-mountain text-white text-2xl group-hover:text-pixel-secondary transition-colors duration-300"></i>
+                        </div>
+                        
+                        <h3 class="font-pixel text-xl text-pixel-dark mb-4 text-center">Environment Art</h3>
+                        <p class="text-gray-600 mb-6 text-center">
+                            Detailed pixel landscapes, game backgrounds, and environmental assets that create immersive worlds.
+                        </p>
+                        
+                        <!-- Service Features -->
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 bg-pixel-secondary mr-3"></div>
+                                <span class="text-sm">Background Scenes</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 bg-pixel-secondary mr-3"></div>
+                                <span class="text-sm">Tileable Patterns</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 bg-pixel-secondary mr-3"></div>
+                                <span class="text-sm">Environmental Props</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 bg-pixel-secondary mr-3"></div>
+                                <span class="text-sm">Tile Sets</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="text-center">
+                            <a href="#contact" class="inline-block font-pixel text-xs bg-pixel-dark text-white px-4 py-2 pixel-button group-hover:bg-white group-hover:text-pixel-secondary transition-colors duration-300">
+                                Get Quote
+                            </a>
+                        </div>
                     </div>
-                    <h3 class="font-pixel text-xl text-pixel-blue mb-4">Lightning Fast</h3>
-                    <p class="text-gray-300 leading-relaxed">
-                        Instant transfers and real-time notifications. Your money moves at the speed of pixels.
-                    </p>
                 </div>
                 
-                <!-- Feature Card 3 -->
-                <div class="pixel-card p-8 rounded-lg hover:transform hover:-translate-y-2 transition-all duration-300">
-                    <div class="w-16 h-16 bg-pixel-purple mb-6 flex items-center justify-center">
-                        <i class="fas fa-mobile-alt text-2xl text-pixel-dark"></i>
+                <!-- Service 3 -->
+                <div class="bg-pixel-light p-1 pixel-border group hover:bg-pixel-accent transition-colors duration-300">
+                    <div class="bg-white p-8 h-full">
+                        <!-- Service Icon -->
+                        <div class="w-16 h-16 mx-auto mb-6 bg-pixel-accent pixel-border flex items-center justify-center group-hover:bg-white transition-colors duration-300">
+                            <i class="fas fa-gamepad text-white text-2xl group-hover:text-pixel-accent transition-colors duration-300"></i>
+                        </div>
+                        
+                        <h3 class="font-pixel text-xl text-pixel-dark mb-4 text-center">Game Assets</h3>
+                        <p class="text-gray-600 mb-6 text-center">
+                            Complete game asset packages including UI elements, items, weapons, and more for your game projects.
+                        </p>
+                        
+                        <!-- Service Features -->
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 bg-pixel-accent mr-3"></div>
+                                <span class="text-sm">UI Elements</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 bg-pixel-accent mr-3"></div>
+                                <span class="text-sm">Game Items</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 bg-pixel-accent mr-3"></div>
+                                <span class="text-sm">Weapons & Tools</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 bg-pixel-accent mr-3"></div>
+                                <span class="text-sm">Full Asset Packs</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="text-center">
+                            <a href="#contact" class="inline-block font-pixel text-xs bg-pixel-dark text-white px-4 py-2 pixel-button group-hover:bg-white group-hover:text-pixel-accent transition-colors duration-300">
+                                Get Quote
+                            </a>
+                        </div>
                     </div>
-                    <h3 class="font-pixel text-xl text-pixel-purple mb-4">Mobile First</h3>
-                    <p class="text-gray-300 leading-relaxed">
-                        Designed for your smartphone with a retro twist. Banking has never looked this cool.
-                    </p>
                 </div>
+            </div>
+            
+            <!-- Process Steps -->
+            <div class="mt-20">
+                <h3 class="font-pixel text-2xl text-pixel-dark mb-12 text-center">My <span class="text-pixel-primary">Working</span> Process</h3>
                 
-                <!-- Feature Card 4 -->
-                <div class="pixel-card p-8 rounded-lg hover:transform hover:-translate-y-2 transition-all duration-300">
-                    <div class="w-16 h-16 bg-pixel-pink mb-6 flex items-center justify-center">
-                        <i class="fas fa-chart-line text-2xl text-pixel-dark"></i>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Step 1 -->
+                    <div class="text-center">
+                        <div class="relative mb-6 mx-auto">
+                            <!-- Step Number -->
+                            <div class="w-16 h-16 mx-auto bg-pixel-primary pixel-border flex items-center justify-center">
+                                <span class="font-pixel text-white text-xl">01</span>
+                            </div>
+                            
+                            <!-- Connector (hidden on mobile) -->
+                            <div class="hidden lg:block absolute top-1/2 -right-12 transform -translate-y-1/2 w-10 h-0.5 bg-pixel-primary"></div>
+                        </div>
+                        
+                        <h4 class="font-pixel text-lg text-pixel-dark mb-2">Concept</h4>
+                        <p class="text-gray-600 text-sm">We discuss your ideas and requirements to create the perfect concept.</p>
                     </div>
-                    <h3 class="font-pixel text-xl text-pixel-pink mb-4">Smart Analytics</h3>
-                    <p class="text-gray-300 leading-relaxed">
-                        AI-powered insights help you understand your spending patterns and save more money.
-                    </p>
-                </div>
-                
-                <!-- Feature Card 5 -->
-                <div class="pixel-card p-8 rounded-lg hover:transform hover:-translate-y-2 transition-all duration-300">
-                    <div class="w-16 h-16 bg-pixel-yellow mb-6 flex items-center justify-center">
-                        <i class="fas fa-globe text-2xl text-pixel-dark"></i>
+                    
+                    <!-- Step 2 -->
+                    <div class="text-center">
+                        <div class="relative mb-6 mx-auto">
+                            <!-- Step Number -->
+                            <div class="w-16 h-16 mx-auto bg-pixel-secondary pixel-border flex items-center justify-center">
+                                <span class="font-pixel text-white text-xl">02</span>
+                            </div>
+                            
+                            <!-- Connector (hidden on mobile) -->
+                            <div class="hidden lg:block absolute top-1/2 -right-12 transform -translate-y-1/2 w-10 h-0.5 bg-pixel-secondary"></div>
+                        </div>
+                        
+                        <h4 class="font-pixel text-lg text-pixel-dark mb-2">Sketch</h4>
+                        <p class="text-gray-600 text-sm">I create initial sketches and drafts for your approval.</p>
                     </div>
-                    <h3 class="font-pixel text-xl text-pixel-yellow mb-4">Global Access</h3>
-                    <p class="text-gray-300 leading-relaxed">
-                        Send money anywhere in the world with minimal fees and maximum style.
-                    </p>
-                </div>
-                
-                <!-- Feature Card 6 -->
-                <div class="pixel-card p-8 rounded-lg hover:transform hover:-translate-y-2 transition-all duration-300">
-                    <div class="w-16 h-16 bg-pixel-green mb-6 flex items-center justify-center">
-                        <i class="fas fa-headset text-2xl text-pixel-dark"></i>
+                    
+                    <!-- Step 3 -->
+                    <div class="text-center">
+                        <div class="relative mb-6 mx-auto">
+                            <!-- Step Number -->
+                            <div class="w-16 h-16 mx-auto bg-pixel-accent pixel-border flex items-center justify-center">
+                                <span class="font-pixel text-white text-xl">03</span>
+                            </div>
+                            
+                            <!-- Connector (hidden on mobile) -->
+                            <div class="hidden lg:block absolute top-1/2 -right-12 transform -translate-y-1/2 w-10 h-0.5 bg-pixel-accent"></div>
+                        </div>
+                        
+                        <h4 class="font-pixel text-lg text-pixel-dark mb-2">Pixelate</h4>
+                        <p class="text-gray-600 text-sm">I transform the approved sketches into detailed pixel art.</p>
                     </div>
-                    <h3 class="font-pixel text-xl text-pixel-green mb-4">24/7 Support</h3>
-                    <p class="text-gray-300 leading-relaxed">
-                        Our pixel-perfect support team is always ready to help you level up your banking game.
-                    </p>
+                    
+                    <!-- Step 4 -->
+                    <div class="text-center">
+                        <div class="relative mb-6 mx-auto">
+                            <!-- Step Number -->
+                            <div class="w-16 h-16 mx-auto bg-pixel-dark pixel-border flex items-center justify-center">
+                                <span class="font-pixel text-white text-xl">04</span>
+                            </div>
+                        </div>
+                        
+                        <h4 class="font-pixel text-lg text-pixel-dark mb-2">Deliver</h4>
+                        <p class="text-gray-600 text-sm">Final delivery with any requested revisions until you're satisfied.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Services Section -->
-    <section id="services" class="py-24 retro-grid">
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-pixel-dark text-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="font-pixel text-3xl md:text-4xl text-pixel-blue mb-6">Our Services</h2>
-                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
-                    Everything you need for modern digital banking
-                </p>
+                <h2 class="font-pixel text-3xl md:text-4xl mb-4">Get In <span class="text-pixel-primary">Touch</span></h2>
+                <p class="max-w-2xl mx-auto text-gray-300">Have a project in mind or want to discuss a collaboration? Fill out the form below and I'll get back to you as soon as possible.</p>
             </div>
             
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="space-y-8">
-                    <div class="flex items-start space-x-4">
-                        <div class="w-12 h-12 bg-pixel-green flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-credit-card text-pixel-dark"></i>
+            <div class="flex flex-col lg:flex-row gap-12">
+                <!-- Contact Form -->
+                <div class="lg:w-2/3">
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Name Field -->
+                            <div>
+                                <label for="name" class="block font-pixel text-sm mb-2">Your Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 bg-pixel-light text-pixel-dark border-2 border-pixel-primary focus:outline-none focus:ring-2 focus:ring-pixel-primary" required>
+                            </div>
+                            
+                            <!-- Email Field -->
+                            <div>
+                                <label for="email" class="block font-pixel text-sm mb-2">Your Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 bg-pixel-light text-pixel-dark border-2 border-pixel-primary focus:outline-none focus:ring-2 focus:ring-pixel-primary" required>
+                            </div>
                         </div>
+                        
+                        <!-- Subject Field -->
                         <div>
-                            <h3 class="font-pixel text-lg text-pixel-green mb-2">Digital Wallet</h3>
-                            <p class="text-gray-300">Store, send, and receive money with our secure digital wallet.</p>
+                            <label for="subject" class="block font-pixel text-sm mb-2">Subject</label>
+                            <input type="text" id="subject" class="w-full px-4 py-3 bg-pixel-light text-pixel-dark border-2 border-pixel-primary focus:outline-none focus:ring-2 focus:ring-pixel-primary" required>
                         </div>
-                    </div>
-                    
-                    <div class="flex items-start space-x-4">
-                        <div class="w-12 h-12 bg-pixel-blue flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-exchange-alt text-pixel-dark"></i>
-                        </div>
+                        
+                        <!-- Message Field -->
                         <div>
-                            <h3 class="font-pixel text-lg text-pixel-blue mb-2">Instant Transfers</h3>
-                            <p class="text-gray-300">Send money to friends and family instantly, anywhere in the world.</p>
+                            <label for="message" class="block font-pixel text-sm mb-2">Your Message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 bg-pixel-light text-pixel-dark border-2 border-pixel-primary focus:outline-none focus:ring-2 focus:ring-pixel-primary" required></textarea>
                         </div>
-                    </div>
-                    
-                    <div class="flex items-start space-x-4">
-                        <div class="w-12 h-12 bg-pixel-purple flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-piggy-bank text-pixel-dark"></i>
-                        </div>
+                        
+                        <!-- Service Selection -->
                         <div>
-                            <h3 class="font-pixel text-lg text-pixel-purple mb-2">Smart Savings</h3>
-                            <p class="text-gray-300">Automated savings plans that help you reach your financial goals.</p>
+                            <label class="block font-pixel text-sm mb-2">Service Interested In</label>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <div class="w-4 h-4 border-2 border-pixel-primary flex items-center justify-center bg-pixel-light">
+                                        <div class="w-2 h-2 bg-pixel-primary hidden checkbox-indicator"></div>
+                                    </div>
+                                    <span class="text-sm">Character Design</span>
+                                </label>
+                                
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <div class="w-4 h-4 border-2 border-pixel-primary flex items-center justify-center bg-pixel-light">
+                                        <div class="w-2 h-2 bg-pixel-primary hidden checkbox-indicator"></div>
+                                    </div>
+                                    <span class="text-sm">Environment Art</span>
+                                </label>
+                                
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <div class="w-4 h-4 border-2 border-pixel-primary flex items-center justify-center bg-pixel-light">
+                                        <div class="w-2 h-2 bg-pixel-primary hidden checkbox-indicator"></div>
+                                    </div>
+                                    <span class="text-sm">Game Assets</span>
+                                </label>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="flex items-start space-x-4">
-                        <div class="w-12 h-12 bg-pixel-pink flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-chart-pie text-pixel-dark"></i>
+                        
+                        <!-- Submit Button -->
+                        <div class="text-center md:text-left">
+                            <button type="submit" class="pixel-button font-pixel text-sm bg-pixel-primary text-white px-8 py-3 rounded-none inline-block">
+                                Send Message
+                            </button>
                         </div>
-                        <div>
-                            <h3 class="font-pixel text-lg text-pixel-pink mb-2">Expense Tracking</h3>
-                            <p class="text-gray-300">Detailed analytics and insights into your spending habits.</p>
-                        </div>
-                    </div>
+                    </form>
                 </div>
                 
-                <div class="relative">
-                    <div class="w-full max-w-md mx-auto">
-                        <svg viewBox="0 0 400 500" class="w-full h-full">
-                            <!-- ATM Machine -->
-                            <rect x="50" y="50" width="300" height="400" fill="#1a1a2e" stroke="#00ff88" stroke-width="4"/>
-                            <!-- Screen -->
-                            <rect x="80" y="100" width="240" height="150" fill="#16213e" stroke="#0088ff" stroke-width="2"/>
-                            <!-- Screen Content -->
-                            <rect x="100" y="120" width="200" height="20" fill="#00ff88" opacity="0.8"/>
-                            <rect x="100" y="150" width="150" height="15" fill="#0088ff" opacity="0.6"/>
-                            <rect x="100" y="175" width="180" height="15" fill="#8800ff" opacity="0.6"/>
-                            <rect x="100" y="200" width="120" height="15" fill="#ff0088" opacity="0.6"/>
-                            <!-- Keypad -->
-                            <rect x="100" y="280" width="40" height="30" fill="#00ff88" opacity="0.8"/>
-                            <rect x="150" y="280" width="40" height="30" fill="#00ff88" opacity="0.8"/>
-                            <rect x="200" y="280" width="40" height="30" fill="#00ff88" opacity="0.8"/>
-                            <rect x="250" y="280" width="40" height="30" fill="#00ff88" opacity="0.8"/>
-                            <!-- Card Slot -->
-                            <rect x="150" y="350" width="100" height="10" fill="#ffff00"/>
-                            <!-- Cash Slot -->
-                            <rect x="120" y="380" width="160" height="20" fill="#00ff88"/>
-                        </svg>
+                <!-- Contact Info -->
+                <div class="lg:w-1/3 mt-12 lg:mt-0">
+                    <div class="bg-pixel-light p-1 pixel-border">
+                        <div class="bg-white p-8 text-pixel-dark h-full">
+                            <h3 class="font-pixel text-xl mb-6 text-pixel-dark">Contact Information</h3>
+                            
+                            <ul class="space-y-6">
+                                <!-- Email -->
+                                <li class="flex items-start">
+                                    <div class="w-10 h-10 bg-pixel-primary pixel-border flex items-center justify-center mr-4">
+                                        <i class="fas fa-envelope text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-pixel text-sm mb-1">Email</h4>
+                                        <a href="mailto:contact@pixelfolio.art" class="text-gray-600 hover:text-pixel-primary transition-colors duration-300">contact@pixelfolio.art</a>
+                                    </div>
+                                </li>
+                                
+                                <!-- Location -->
+                                <li class="flex items-start">
+                                    <div class="w-10 h-10 bg-pixel-secondary pixel-border flex items-center justify-center mr-4">
+                                        <i class="fas fa-map-marker-alt text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-pixel text-sm mb-1">Location</h4>
+                                        <p class="text-gray-600">Digital Nomad, Currently in Tokyo, Japan</p>
+                                    </div>
+                                </li>
+                                
+                                <!-- Working Hours -->
+                                <li class="flex items-start">
+                                    <div class="w-10 h-10 bg-pixel-accent pixel-border flex items-center justify-center mr-4">
+                                        <i class="fas fa-clock text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-pixel text-sm mb-1">Working Hours</h4>
+                                        <p class="text-gray-600">Monday - Friday: 9am - 5pm JST</p>
+                                    </div>
+                                </li>
+                            </ul>
+                            
+                            <!-- Social Media -->
+                            <div class="mt-8">
+                                <h4 class="font-pixel text-sm mb-4">Follow Me</h4>
+                                <div class="flex space-x-4">
+                                    <a href="#" class="w-10 h-10 bg-pixel-dark pixel-border flex items-center justify-center hover:bg-pixel-primary transition-colors duration-300">
+                                        <i class="fab fa-twitter text-white"></i>
+                                    </a>
+                                    <a href="#" class="w-10 h-10 bg-pixel-dark pixel-border flex items-center justify-center hover:bg-pixel-primary transition-colors duration-300">
+                                        <i class="fab fa-instagram text-white"></i>
+                                    </a>
+                                    <a href="#" class="w-10 h-10 bg-pixel-dark pixel-border flex items-center justify-center hover:bg-pixel-primary transition-colors duration-300">
+                                        <i class="fab fa-artstation text-white"></i>
+                                    </a>
+                                    <a href="#" class="w-10 h-10 bg-pixel-dark pixel-border flex items-center justify-center hover:bg-pixel-primary transition-colors duration-300">
+                                        <i class="fab fa-discord text-white"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Stats Section -->
-    <section class="py-24 bg-pixel-darker">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-                <div class="pixel-card p-8 rounded-lg">
-                    <div class="font-pixel text-3xl text-pixel-green mb-2">1M+</div>
-                    <p class="text-gray-300">Active Users</p>
-                </div>
-                <div class="pixel-card p-8 rounded-lg">
-                    <div class="font-pixel text-3xl text-pixel-blue mb-2">$50B+</div>
-                    <p class="text-gray-300">Transactions</p>
-                </div>
-                <div class="pixel-card p-8 rounded-lg">
-                    <div class="font-pixel text-3xl text-pixel-purple mb-2">99.9%</div>
-                    <p class="text-gray-300">Uptime</p>
-                </div>
-                <div class="pixel-card p-8 rounded-lg">
-                    <div class="font-pixel text-3xl text-pixel-pink mb-2">24/7</div>
-                    <p class="text-gray-300">Support</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="py-24 retro-grid">
-        <div class="container mx-auto px-6 text-center">
-            <div class="max-w-3xl mx-auto">
-                <h2 class="font-pixel text-3xl md:text-4xl text-pixel-green mb-6">
-                    Ready to Level Up Your Banking?
-                </h2>
-                <p class="text-xl text-gray-300 mb-12">
-                    Join millions of users who have already discovered the future of digital banking.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-6 justify-center">
-                    <button class="pixel-button px-8 py-4 font-pixel text-lg">
-                        Create Account
-                    </button>
-                    <button class="border-2 border-pixel-blue text-pixel-blue px-8 py-4 font-pixel text-lg hover:bg-pixel-blue hover:text-pixel-dark transition-all duration-300">
-                        Learn More
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    
     <!-- Footer -->
-    <footer class="bg-pixel-darker border-t-2 border-pixel-green py-12">
+    <footer class="bg-pixel-dark text-white py-12 border-t-4 border-pixel-primary">
         <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <!-- About Column -->
                 <div>
-                    <div class="flex items-center space-x-2 mb-4">
-                        <div class="w-8 h-8 bg-pixel-green" style="clip-path: polygon(0 0, 100% 0, 100% 75%, 75% 100%, 0 100%)"></div>
-                        <span class="font-pixel text-pixel-green text-lg">PixelPay</span>
-                    </div>
-                    <p class="text-gray-400 text-sm">
-                        The future of digital banking with a retro twist.
+                    <a href="#" class="flex items-center space-x-2 mb-6">
+                        <div class="w-8 h-8 bg-pixel-primary pixel-border"></div>
+                        <span class="font-pixel text-xl tracking-wider">PixelFolio</span>
+                    </a>
+                    <p class="text-gray-400 mb-6">
+                        Creating unique pixel art experiences for clients worldwide. Let's bring your ideas to life, one pixel at a time.
                     </p>
-                </div>
-                
-                <div>
-                    <h4 class="font-pixel text-pixel-green mb-4">Products</h4>
-                    <ul class="space-y-2 text-sm text-gray-400">
-                        <li><a href="#" class="hover:text-pixel-green transition-colors">Digital Wallet</a></li>
-                        <li><a href="#" class="hover:text-pixel-green transition-colors">Savings Account</a></li>
-                        <li><a href="#" class="hover:text-pixel-green transition-colors">Business Banking</a></li>
-                        <li><a href="#" class="hover:text-pixel-green transition-colors">Investment Tools</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="font-pixel text-pixel-green mb-4">Company</h4>
-                    <ul class="space-y-2 text-sm text-gray-400">
-                        <li><a href="#" class="hover:text-pixel-green transition-colors">About Us</a></li>
-                        <li><a href="#" class="hover:text-pixel-green transition-colors">Careers</a></li>
-                        <li><a href="#" class="hover:text-pixel-green transition-colors">Press</a></li>
-                        <li><a href="#" class="hover:text-pixel-green transition-colors">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="font-pixel text-pixel-green mb-4">Connect</h4>
                     <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 bg-pixel-green flex items-center justify-center hover:bg-pixel-blue transition-colors">
-                            <i class="fab fa-twitter text-pixel-dark"></i>
+                        <a href="#" class="text-gray-400 hover:text-pixel-primary transition-colors duration-300">
+                            <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 bg-pixel-green flex items-center justify-center hover:bg-pixel-blue transition-colors">
-                            <i class="fab fa-facebook text-pixel-dark"></i>
+                        <a href="#" class="text-gray-400 hover:text-pixel-primary transition-colors duration-300">
+                            <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 bg-pixel-green flex items-center justify-center hover:bg-pixel-blue transition-colors">
-                            <i class="fab fa-instagram text-pixel-dark"></i>
+                        <a href="#" class="text-gray-400 hover:text-pixel-primary transition-colors duration-300">
+                            <i class="fab fa-artstation"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 bg-pixel-green flex items-center justify-center hover:bg-pixel-blue transition-colors">
-                            <i class="fab fa-linkedin text-pixel-dark"></i>
+                        <a href="#" class="text-gray-400 hover:text-pixel-primary transition-colors duration-300">
+                            <i class="fab fa-discord"></i>
                         </a>
                     </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="font-pixel text-lg mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="#portfolio" class="text-gray-400 hover:text-pixel-primary transition-colors duration-300 flex items-center">
+                                <div class="w-2 h-2 bg-pixel-primary mr-2"></div>
+                                Portfolio
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#about" class="text-gray-400 hover:text-pixel-primary transition-colors duration-300 flex items-center">
+                                <div class="w-2 h-2 bg-pixel-primary mr-2"></div>
+                                About
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#services" class="text-gray-400 hover:text-pixel-primary transition-colors duration-300 flex items-center">
+                                <div class="w-2 h-2 bg-pixel-primary mr-2"></div>
+                                Services
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#contact" class="text-gray-400 hover:text-pixel-primary transition-colors duration-300 flex items-center">
+                                <div class="w-2 h-2 bg-pixel-primary mr-2"></div>
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Newsletter -->
+                <div>
+                    <h3 class="font-pixel text-lg mb-6">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">
+                        Subscribe to get updates on new projects, tutorials, and special offers.
+                    </p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 bg-gray-700 text-white border-2 border-pixel-primary focus:outline-none focus:ring-2 focus:ring-pixel-primary w-full">
+                        <button type="submit" class="pixel-button bg-pixel-primary px-4 py-2 font-pixel text-xs">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
                 </div>
             </div>
             
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
-                <p class="text-gray-400 text-sm">
-                    © 2024 PixelPay. All rights reserved. Made with <span class="text-pixel-pink">♥</span> and pixels.
+            <!-- Copyright -->
+            <div class="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                    &copy; 2025 PixelFolio. All rights reserved.
                 </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-pixel-primary transition-colors duration-300 text-sm">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-pixel-primary transition-colors duration-300 text-sm">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-pixel-primary transition-colors duration-300 text-sm">Cookie Policy</a>
+                </div>
             </div>
         </div>
     </footer>
-
-    <!-- Smooth Scrolling Script -->
+    
+    <!-- JavaScript -->
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+        // Mobile Menu Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+                
+                // Close mobile menu when clicking on a link
+                const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+                mobileMenuLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        mobileMenu.classList.add('hidden');
                     });
-                }
-            });
-        });
-        
-        // Add scroll effect to navbar
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('nav');
-            if (window.scrollY > 100) {
-                navbar.classList.add('bg-pixel-darker');
-            } else {
-                navbar.classList.remove('bg-pixel-darker');
+                });
             }
+            
+            // Portfolio Filtering
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active', 'bg-pixel-dark', 'text-white'));
+                    filterButtons.forEach(btn => btn.classList.add('bg-white', 'text-pixel-dark', 'border-2', 'border-pixel-dark'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active', 'bg-pixel-dark', 'text-white');
+                    this.classList.remove('bg-white', 'text-pixel-dark', 'border-2', 'border-pixel-dark');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    
+                    portfolioItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Custom Checkbox Functionality
+            const checkboxContainers = document.querySelectorAll('.w-4.h-4.border-2.border-pixel-primary');
+            
+            checkboxContainers.forEach(container => {
+                container.addEventListener('click', function() {
+                    const indicator = this.querySelector('.checkbox-indicator');
+                    indicator.classList.toggle('hidden');
+                });
+            });
+            
+            // Generate Pixel Art Background
+            const pixelGrid = document.querySelector('.hero-section .grid-cols-16');
+            if (pixelGrid) {
+                generatePixelBackground();
+            }
+            
+            function generatePixelBackground() {
+                const gridContainer = document.querySelector('.col-span-full.grid-cols-16');
+                if (!gridContainer) return;
+                
+                // Clear existing pixels
+                gridContainer.innerHTML = '';
+                
+                // Define colors
+                const colors = [
+                    'bg-pixel-primary bg-opacity-20',
+                    'bg-pixel-secondary bg-opacity-20',
+                    'bg-pixel-accent bg-opacity-20',
+                    'bg-white bg-opacity-10',
+                    'bg-transparent'
+                ];
+                
+                // Generate random pixels
+                for (let i = 0; i < 64; i++) {
+                    const pixel = document.createElement('div');
+                    // 80% chance of being transparent
+                    const colorIndex = Math.random() < 0.2 ? Math.floor(Math.random() * 4) : 4;
+                    pixel.className = colors[colorIndex];
+                    gridContainer.appendChild(pixel);
+                }
+            }
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100, // Offset for fixed header
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
         });
     </script>
 </body>
