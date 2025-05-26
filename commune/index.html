@@ -1,469 +1,874 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="fr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Commune D'Afagnan-2</title>
-
-    <!-- Font Awesome -->    
-    <link rel="stylesheet" href="assets/css/all.min.css">
+    <title>Commune d'Afagnan • Ensemble pour l'avenir</title>
     
-    <!-- Google Fonts -->    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Site officiel de la Commune d'Afagnan - Services municipaux, actualités et informations pour les citoyens">
+    <meta name="keywords" content="Afagnan, commune, Togo, mairie, services municipaux">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏛️</text></svg>">
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS CDN -->
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.css">
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: {
-                        primary: '#072166',
-                        secondary: '#6c63ff',
-                        accent: '#ffa800',
-                        light: '#f2f2f2',
-                        dark: '#6f6f6f'
-                    },
                     fontFamily: {
-                        sans: ['Roboto', 'sans-serif'],
-                        heading: ['Poppins', 'sans-serif'],
-                        body: ['Open Sans', 'sans-serif']
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'serif': ['Playfair Display', 'Georgia', 'serif']
+                    },
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                            950: '#082f49'
+                        },
+                        accent: {
+                            50: '#fefce8',
+                            100: '#fef9c3',
+                            200: '#fef08a',
+                            300: '#fde047',
+                            400: '#facc15',
+                            500: '#eab308',
+                            600: '#ca8a04',
+                            700: '#a16207',
+                            800: '#854d0e',
+                            900: '#713f12',
+                            950: '#422006'
+                        },
+                        neutral: {
+                            50: '#fafafa',
+                            100: '#f5f5f5',
+                            200: '#e5e5e5',
+                            300: '#d4d4d4',
+                            400: '#a3a3a3',
+                            500: '#737373',
+                            600: '#525252',
+                            700: '#404040',
+                            800: '#262626',
+                            900: '#171717',
+                            950: '#0a0a0a'
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-out',
+                        'slide-in-up': 'slideInUp 0.6s ease-out',
+                        'slide-in-down': 'slideInDown 0.6s ease-out',
+                        'scale-in': 'scaleIn 0.4s ease-out',
+                        'float': 'float 6s ease-in-out infinite'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        slideInDown: {
+                            '0%': { opacity: '0', transform: 'translateY(-30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        scaleIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.9)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        }
                     }
                 }
             }
         }
     </script>
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .text-shadow-sm {
-                text-shadow: 0.1px 0.1px 0.2px #f2f2f2;
-            }
-            .transition-standard {
-                transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-            }
+    
+    <!-- Custom Styles -->
+    <style>
+        /* Glass morphism effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        
+        .glass-dark {
+            background: rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        
+        /* Gradient backgrounds */
+        .gradient-primary {
+            background: linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%);
+        }
+        
+        .gradient-accent {
+            background: linear-gradient(135deg, #fde047 0%, #eab308 100%);
+        }
+        
+        .gradient-hero {
+            background: linear-gradient(135deg, #0c4a6e 0%, #075985 50%, #0284c7 100%);
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #0ea5e9;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0284c7;
         }
     </style>
 </head>
 
-<body class="font-sans bg-white">
-    <!-- Top banner with national emblem -->
-    <div class="w-full h-24 flex items-center justify-center py-2 bg-white">
-        <img src="assets/images/rt.svg" class="h-20 object-contain" alt="RÉPUBLIQUE TOGOLAISE">
-    </div>
-    
-    <!-- Navigation bar -->
-    <nav class="bg-primary text-light h-20 relative">
-        <div class="container mx-auto px-4 h-full flex justify-between items-center">
-            <!-- Logo and mobile menu button -->
-            <div class="flex items-center space-x-4">
-                <button id="menuToggle" class="text-light focus:outline-none lg:hidden">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
-                <a href="#" class="text-xl font-heading font-semibold tracking-wider text-light">COMMUNE D'AFAGNAN</a>
-            </div>
-            
-            <!-- Social media links -->
-            <div class="flex items-center space-x-6">
-                <a href="#" class="text-2xl hover:text-secondary transition-standard"><i class="fab fa-facebook"></i></a>
-                <a href="#" class="text-2xl hover:text-secondary transition-standard"><i class="fab fa-youtube"></i></a>
-                <a href="#" class="text-2xl hover:text-secondary transition-standard"><i class="fa fa-envelope"></i></a>
-            </div>
-        </div>
-        
-        <!-- Mobile menu (hidden by default) -->
-        <div id="mobileMenu" class="fixed inset-0 bg-white z-50 transform -translate-x-full transition-transform duration-300 ease-in-out lg:hidden">
-            <div class="h-6 bg-light"></div>
-            <div class="p-4">
-                <button id="closeMenu" class="absolute top-8 right-4 text-dark hover:text-primary">
-                    <i class="fas fa-times text-2xl"></i>
-                </button>
+<body class="font-sans bg-neutral-50 text-neutral-900 antialiased">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 gradient-primary rounded-xl flex items-center justify-center">
+                        <i data-lucide="building" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <div class="hidden sm:block">
+                        <h1 class="text-xl font-bold text-neutral-900">Afagnan</h1>
+                        <p class="text-sm text-neutral-600 leading-none">Commune</p>
+                    </div>
+                </div>
                 
-                <ul class="mt-12 space-y-1">
-                    <li class="py-3 px-4 hover:bg-primary hover:text-light transition-standard rounded">
-                        <a href="#" class="flex items-center space-x-3 text-lg">
-                            <i class="fas fa-user-friends"></i>
-                            <span>Présentation</span>
-                        </a>
-                    </li>
-                    <li class="py-3 px-4 hover:bg-primary hover:text-light transition-standard rounded">
-                        <a href="#" class="flex items-center space-x-3 text-lg">
-                            <i class="fas fa-list-ol"></i>
-                            <span>Structures Juridiques</span>
-                        </a>
-                    </li>
-                    <li class="py-3 px-4 hover:bg-primary hover:text-light transition-standard rounded">
-                        <a href="#" class="flex items-center space-x-3 text-lg">
-                            <i class="fas fa-exclamation-circle"></i>
-                            <span>Évènments &amp; Annonces</span>
-                        </a>
-                    </li>
-                    <li class="py-3 px-4 hover:bg-primary hover:text-light transition-standard rounded">
-                        <a href="#" class="flex items-center space-x-3 text-lg">
-                            <i class="fas fa-images"></i>
-                            <span>Vidéothèque &amp; Gallerie</span>
-                        </a>
-                    </li>
-                    <li class="py-3 px-4 hover:bg-primary hover:text-light transition-standard rounded">
-                        <a href="#" class="flex items-center space-x-3 text-lg">
-                            <i class="fas fa-tag"></i>
-                            <span>Infos Utiles &amp; Offres</span>
-                        </a>
-                    </li>
-                    <li class="py-3 px-4 text-primary font-semibold hover:bg-primary hover:text-light transition-standard rounded">
-                        <a href="#" class="flex items-center space-x-3 text-lg">
-                            <i class="fas fa-book"></i>
-                            <span>Blog</span>
-                        </a>
-                    </li>
-                    <li class="py-3 px-4 hover:bg-primary hover:text-light transition-standard rounded">
-                        <a href="#" class="flex items-center space-x-3 text-lg">
-                            <i class="fas fa-comments"></i>
-                            <span>Votre avis compte !</span>
-                        </a>
-                    </li>
-                </ul>
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="#accueil" class="nav-link active">Accueil</a>
+                    <a href="#services" class="nav-link">Services</a>
+                    <a href="#actualites" class="nav-link">Actualités</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                    <button class="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2.5 rounded-lg font-medium transition-colors duration-200">
+                        E-Services
+                    </button>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden p-2 rounded-lg hover:bg-neutral-100 transition-colors duration-200" id="mobile-menu-btn">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
             </div>
-            <div class="h-3 bg-primary absolute bottom-0 w-full"></div>
         </div>
         
-        <!-- Desktop menu (hidden on mobile) -->
-        <div class="hidden lg:block absolute left-0 right-0 top-full bg-white shadow-md">
-            <div class="container mx-auto">
-                <ul class="flex justify-around py-1">
-                    <li class="py-3 px-4 hover:text-primary transition-standard">
-                        <a href="#" class="flex items-center space-x-2">
-                            <i class="fas fa-user-friends"></i>
-                            <span>Présentation</span>
-                        </a>
-                    </li>
-                    <li class="py-3 px-4 hover:text-primary transition-standard">
-                        <a href="#" class="flex items-center space-x-2">
-                            <i class="fas fa-list-ol"></i>
-                            <span>Structures Juridiques</span>
-                        </a>
-                    </li>
-                    <li class="py-3 px-4 hover:text-primary transition-standard">
-                        <a href="#" class="flex items-center space-x-2">
-                            <i class="fas fa-exclamation-circle"></i>
-                            <span>Évènments &amp; Annonces</span>
-                        </a>
-                    </li>
-                    <li class="py-3 px-4 hover:text-primary transition-standard">
-                        <a href="#" class="flex items-center space-x-2">
-                            <i class="fas fa-images"></i>
-                            <span>Vidéothèque &amp; Gallerie</span>
-                        </a>
-                    </li>
-                    <li class="py-3 px-4 hover:text-primary transition-standard">
-                        <a href="#" class="flex items-center space-x-2">
-                            <i class="fas fa-tag"></i>
-                            <span>Infos Utiles &amp; Offres</span>
-                        </a>
-                    </li>
-                </ul>
+        <!-- Mobile Menu -->
+        <div class="lg:hidden hidden glass-dark border-t border-white/20" id="mobile-menu">
+            <div class="max-w-7xl mx-auto px-4 py-6 space-y-4">
+                <a href="#accueil" class="block text-white hover:text-accent-400 font-medium transition-colors duration-200">Accueil</a>
+                <a href="#services" class="block text-white hover:text-accent-400 font-medium transition-colors duration-200">Services</a>
+                <a href="#actualites" class="block text-white hover:text-accent-400 font-medium transition-colors duration-200">Actualités</a>
+                <a href="#contact" class="block text-white hover:text-accent-400 font-medium transition-colors duration-200">Contact</a>
+                <button class="w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200">
+                    E-Services
+                </button>
             </div>
         </div>
     </nav>
+    
     <!-- Hero Section -->
-    <header class="relative h-screen bg-cover bg-center" style="background-image: url('assets/images/cover.svg');">
-        <div class="absolute right-0 top-1/3 w-full md:w-1/2 px-6 md:px-16 text-light">
-            <h1 class="text-5xl md:text-6xl font-heading font-light tracking-wide mb-8">COMMUNE D'AFAGNAN</h1>
-            
-            <p class="text-xl leading-relaxed mb-10 max-w-2xl">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas similique quo ipsam ad,
-                quaerat placeat repudiandae itaque alias tempora ea beatae minus provident, nisi excepturi
-                deserunt a id, suscipit maiores!
-            </p>
-            
-            <form action="#" method="post" class="max-w-lg">
-                <div class="flex flex-col sm:flex-row">
-                    <input 
-                        type="email" 
-                        id="email" 
-                        name="email" 
-                        placeholder="Votre adresse email" 
-                        class="flex-grow py-3 px-4 bg-light text-dark focus:outline-none focus:ring-2 focus:ring-secondary"
-                        required
-                    >
-                    <button 
-                        type="submit" 
-                        class="mt-2 sm:mt-0 py-3 px-6 bg-primary hover:bg-secondary transition-standard text-light uppercase font-semibold tracking-wide flex-shrink-0"
-                    >
-                        S'inscrire
-                    </button>
-                </div>
-                <p class="text-sm mt-2 text-light">Recevez les dernières nouvelles grâce à la newsletter.</p>
-            </form>
+    <section id="accueil" class="relative min-h-screen flex items-center justify-center backdrop-blur-2xl gradient-hero overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute inset-0">
+            <div class="absolute top-20 left-10 w-32 h-32 bg-accent-400/20 rounded-full blur-xl animate-float"></div>
+            <div class="absolute bottom-20 right-10 w-48 h-48 bg-primary-400/20 rounded-full blur-xl animate-float" style="animation-delay: 2s;"></div>
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
         </div>
-    </header>
-
-
-    <main class="overflow-hidden">
-        <!-- Introduction Section -->
-        <section class="py-20 px-4 md:px-0">
-            <div class="container mx-auto">
-                <div class="flex flex-col md:flex-row items-center justify-between">
-                    <div class="w-full md:w-1/2 md:pr-12 mb-10 md:mb-0">
-                        <h2 class="text-3xl font-heading font-semibold text-primary mb-6 relative after:content-[''] after:block after:w-24 after:h-1.5 after:bg-accent after:mt-2">
-                            Présentation de la commune
-                        </h2>
-                        <p class="text-lg mb-6">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi, ipsa quos quidem quia iure
-                            aliquam optio sint ducimus vero quam praesentium?
-                        </p>
-                        <p class="text-lg mb-8">
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci doloribus fugit inventore
-                            porro necessitatibus laudantium tenetur, facilis dolores, beatae quasi molestias amet quis.
-                            Perspiciatis ducimus totam illo accusamus dolor possimus ipsum eaque!
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente autem ad voluptatum eius in
-                            voluptatem fugit quos inventore eum ea.
-                        </p>
-
-                        <a href="#" class="inline-block py-3 px-8 bg-primary hover:bg-secondary transition-standard text-light font-semibold rounded-sm">
-                            Lire la suite
-                        </a>
-                    </div>
-
-                    <div class="w-full md:w-2/5">
-                        <div class="relative">
-                            <div class="absolute -inset-4 bg-gray-100 rounded-lg -z-10 transform rotate-3"></div>
-                            <img src="assets/images/people.svg" alt="Personnes" class="w-full h-auto rounded shadow-lg">
-                        </div>
-                    </div>
+        
+        <!-- Content -->
+        <div class="relative z-10 text-center text-white px-4 py-20">
+            <div class="max-w-4xl mx-auto animate-slide-in-up">
+                <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl font-bold mb-6 leading-tight">
+                    Commune d'<span class="text-accent-400">Afagnan</span>
+                </h1>
+                <p class="text-xl sm:text-2xl md:text-3xl font-light mb-8 text-white/90 max-w-3xl mx-auto">
+                    Ensemble, construisons l'avenir de notre communauté
+                </p>
+                <p class="text-lg mb-12 text-white/80 max-w-2xl mx-auto">
+                    Découvrez les services, projets et actualités de votre commune au cœur du Togo
+                </p>
+                
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="#services" class="bg-accent-500 hover:bg-accent-600 text-neutral-900 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg">
+                        Nos Services
+                        <i data-lucide="arrow-right" class="inline w-5 h-5 ml-2"></i>
+                    </a>
+                    <a href="#actualites" class="glass text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 hover:bg-white/30">
+                        Actualités
+                        <i data-lucide="newspaper" class="inline w-5 h-5 ml-2"></i>
+                    </a>
                 </div>
             </div>
-        </section>
+        </div>
         
-        <!-- Structure Juridique Section -->
-        <section class="py-16 bg-gray-50 px-4">
-            <div class="container mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl font-heading font-semibold text-primary uppercase relative inline-block after:content-[''] after:block after:w-full after:h-1.5 after:bg-accent after:mt-2 after:mx-auto">
-                        Structure Juridique
-                    </h2>
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#services" class="text-white/70 hover:text-white transition-colors duration-200">
+                <i data-lucide="chevron-down" class="w-8 h-8"></i>
+            </a>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16 animate-slide-in-up">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-neutral-900 mb-4">
+                    Nos Services
+                </h2>
+                <p class="text-xl text-neutral-600 max-w-3xl mx-auto">
+                    Découvrez l'ensemble des services que nous mettons à votre disposition pour faciliter vos démarches et améliorer votre quotidien
+                </p>
+            </div>
+            
+            <!-- Services Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="group bg-neutral-50 hover:bg-white rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 border border-neutral-200 hover:border-primary-200 animate-slide-in-up">
+                    <div class="w-16 h-16 gradient-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="file-text" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-neutral-900 mb-4">État Civil</h3>
+                    <p class="text-neutral-600 mb-6 leading-relaxed">
+                        Obtenez vos documents d'état civil rapidement : actes de naissance, de mariage, de décès et autres certificats officiels.
+                    </p>
+                    <a href="#" class="text-primary-600 hover:text-primary-700 font-semibold inline-flex items-center transition-colors duration-200">
+                        En savoir plus
+                        <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200"></i>
+                    </a>
                 </div>
                 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Card 1 -->
-                    <div class="group bg-white rounded-lg shadow-md hover:shadow-xl transition-standard flex flex-col items-center p-6 text-center">
-                        <div class="w-20 h-20 rounded-full bg-primary text-light flex items-center justify-center mb-6 group-hover:bg-secondary transition-standard">
-                            <i class="fas fa-clipboard-list text-3xl"></i>
-                        </div>
-                        <h3 class="text-xl font-heading font-semibold uppercase mb-4">Structure 1</h3>
-                        <p class="text-gray-600">
-                            Some quick example text to build on the card title and make up the bulk
-                            of the card's content.
-                        </p>
+                <!-- Service Card 2 -->
+                <div class="group bg-neutral-50 hover:bg-white rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 border border-neutral-200 hover:border-primary-200 animate-slide-in-up" style="animation-delay: 0.1s;">
+                    <div class="w-16 h-16 gradient-accent rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="home" class="w-8 h-8 text-neutral-900"></i>
                     </div>
-                    
-                    <!-- Card 2 -->
-                    <div class="group bg-white rounded-lg shadow-md hover:shadow-xl transition-standard flex flex-col items-center p-6 text-center">
-                        <div class="w-20 h-20 rounded-full bg-primary text-light flex items-center justify-center mb-6 group-hover:bg-secondary transition-standard">
-                            <i class="fas fa-balance-scale text-3xl"></i>
-                        </div>
-                        <h3 class="text-xl font-heading font-semibold uppercase mb-4">Structure 2</h3>
-                        <p class="text-gray-600">
-                            Some quick example text to build on the card title and make up the bulk
-                            of the card's content.
-                        </p>
-                    </div>
-                    
-                    <!-- Card 3 -->
-                    <div class="group bg-white rounded-lg shadow-md hover:shadow-xl transition-standard flex flex-col items-center p-6 text-center">
-                        <div class="w-20 h-20 rounded-full bg-primary text-light flex items-center justify-center mb-6 group-hover:bg-secondary transition-standard">
-                            <i class="fas fa-gavel text-3xl"></i>
-                        </div>
-                        <h3 class="text-xl font-heading font-semibold uppercase mb-4">Structure 3</h3>
-                        <p class="text-gray-600">
-                            Some quick example text to build on the card title and make up the bulk
-                            of the card's content.
-                        </p>
-                    </div>
-                    
-                    <!-- Card 4 -->
-                    <div class="group bg-white rounded-lg shadow-md hover:shadow-xl transition-standard flex flex-col items-center p-6 text-center">
-                        <div class="w-20 h-20 rounded-full bg-primary text-light flex items-center justify-center mb-6 group-hover:bg-secondary transition-standard">
-                            <i class="fas fa-landmark text-3xl"></i>
-                        </div>
-                        <h3 class="text-xl font-heading font-semibold uppercase mb-4">Structure 4</h3>
-                        <p class="text-gray-600">
-                            Some quick example text to build on the card title and make up the bulk
-                            of the card's content.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Videotheque Section -->
-        <section class="py-20 bg-primary bg-[url('assets/images/globe.svg')] bg-center bg-cover text-light">
-            <div class="container mx-auto px-4">
-                <div class="flex flex-col md:flex-row items-center justify-between gap-12">
-                    <div class="w-full md:w-1/2 relative">
-                        <video 
-                            src="assets/media/video.mp4" 
-                            poster="assets/images/yt_cove.svg" 
-                            class="w-full shadow-xl rounded" 
-                            controls 
-                            muted
-                        ></video>
-                    </div>
-                    
-                    <div class="w-full md:w-1/2 flex flex-col items-start">
-                        <h2 class="text-4xl font-heading font-light mb-10 relative pl-4 border-l-4 border-light">
-                            Découvrez notre commune<br>en images et en vidéos
-                        </h2>
-                        
-                        <div class="flex flex-col sm:flex-row gap-4">
-                            <a href="#" class="py-3 px-6 border-2 border-light text-light hover:bg-light hover:text-primary transition-standard font-semibold tracking-wide uppercase">
-                                Vidéothèque
-                            </a>
-                            <a href="#" class="py-3 px-6 bg-light text-primary hover:bg-gray-200 transition-standard font-semibold tracking-wide uppercase">
-                                Aller à la galerie photo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Blog Articles -->
-        <section class="py-20 px-4">
-            <div class="container mx-auto">
-                <div class="flex flex-col lg:flex-row gap-12">
-                    <div class="w-full lg:w-2/3">
-                    <h2 class="title-blue">Les Derniers articles</h2>
-                    <div class="card">
-                        <div class="card-body">
-                            <h3 class="card-title">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h3>
-                            <p class="card-text">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos dolorum excepturi
-                                asperiores exercitationem qui animi ut earum nobis necessitatibus unde tempore eius,
-                                libero veritatis voluptatibus cupiditate quasi explicabo.
-                            </p>
-                            <a href="#" class="card-link">Lire tout</a>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-body">
-                            <h3 class="card-title">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h3>
-                            <p class="card-text">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos dolorum excepturi
-                                asperiores exercitationem qui animi ut earum nobis necessitatibus unde tempore eius,
-                                libero veritatis voluptatibus cupiditate quasi explicabo.
-                            </p>
-                            <a href="#" class="card-link">Lire tout</a>
-                        </div>
-                    </div>
-
-                    <a href="#" class="text-center loadmore" title="Charger plus d'articles">
-                        <i class="fas fa-caret-square-down"></i>
+                    <h3 class="text-2xl font-bold text-neutral-900 mb-4">Urbanisme</h3>
+                    <p class="text-neutral-600 mb-6 leading-relaxed">
+                        Permis de construire, certificats d'urbanisme, déclarations de travaux. Nous vous accompagnons dans vos projets.
+                    </p>
+                    <a href="#" class="text-primary-600 hover:text-primary-700 font-semibold inline-flex items-center transition-colors duration-200">
+                        En savoir plus
+                        <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200"></i>
                     </a>
-
                 </div>
-
-                <!-- Offres-->
-                <div class="col-md-4 col-xs-12 ml-auto offres">
-                    <h2 class="title-blue">Offres &amp; annonces</h2>
-
-                    <div class="card bgcolor-primary">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-2 rounded-circle bgcolor-light color-primary">
-                                    <i class="fas fa-briefcase"></i>
-                                </div>
-                                <div class="col-8 content">
-                                    <h4 class="card-title">Offres d'affaire/autres</h4>
-                                    <p class="card-text">
-                                        This is a wider card with supporting text below as a natural
-                                        lead-in...
-                                    </p>
-                                </div>
-                                <a href="#" class="col-2 rightlink">
-                                    <i class="fas fa-caret-right"></i>
-                                </a>
-                            </div>
-                        </div>
+                
+                <!-- Service Card 3 -->
+                <div class="group bg-neutral-50 hover:bg-white rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 border border-neutral-200 hover:border-primary-200 animate-slide-in-up" style="animation-delay: 0.2s;">
+                    <div class="w-16 h-16 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="users" class="w-8 h-8 text-white"></i>
                     </div>
-
-                    <div class="card bgcolor-primary">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-2 rounded-circle bgcolor-light color-primary">
-                                    <i class="fas fa-bullhorn"></i>
-                                </div>
-                                <div class="col-8 content">
-                                    <h4 class="card-title">Annonce ou évènement</h4>
-                                    <p class="card-text">
-                                        This is a wider card with supporting text below as a natural
-                                        lead-in...
-                                    </p>
-                                </div>
-                                <a href="#" class="col-2 rightlink">
-                                    <i class="fas fa-caret-right"></i>
-                                </a>
-                            </div>
-                        </div>
-
+                    <h3 class="text-2xl font-bold text-neutral-900 mb-4">Action Sociale</h3>
+                    <p class="text-neutral-600 mb-6 leading-relaxed">
+                        Aide aux familles, assistance aux personnes âgées, soutien aux plus démunis. Votre bien-être est notre priorité.
+                    </p>
+                    <a href="#" class="text-primary-600 hover:text-primary-700 font-semibold inline-flex items-center transition-colors duration-200">
+                        En savoir plus
+                        <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200"></i>
+                    </a>
+                </div>
+                
+                <!-- Service Card 4 -->
+                <div class="group bg-neutral-50 hover:bg-white rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 border border-neutral-200 hover:border-primary-200 animate-slide-in-up" style="animation-delay: 0.3s;">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="briefcase" class="w-8 h-8 text-white"></i>
                     </div>
-
-                    <div class="card bgcolor-primary">
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-2 rounded-circle bgcolor-light color-primary">
-                                    <i class="fas fa-briefcase"></i>
-                                </div>
-                                <div class="col-8 content">
-                                    <h4 class="card-title">Offres d'affaire/autres</h4>
-                                    <p class="card-text">
-                                        This is a wider card with supporting text below as a natural
-                                        lead-in...
-                                    </p>
-                                </div>
-
-                                <a href="#" class="col-2 rightlink">
-                                    <i class="fas fa-caret-right"></i>
-                                </a>
-
-                            </div>
-                        </div>
-
+                    <h3 class="text-2xl font-bold text-neutral-900 mb-4">Commerce</h3>
+                    <p class="text-neutral-600 mb-6 leading-relaxed">
+                        Licences commerciales, autorisations d'occupation, marchés publics. Développez votre activité en toute légalité.
+                    </p>
+                    <a href="#" class="text-primary-600 hover:text-primary-700 font-semibold inline-flex items-center transition-colors duration-200">
+                        En savoir plus
+                        <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200"></i>
+                    </a>
+                </div>
+                
+                <!-- Service Card 5 -->
+                <div class="group bg-neutral-50 hover:bg-white rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 border border-neutral-200 hover:border-primary-200 animate-slide-in-up" style="animation-delay: 0.4s;">
+                    <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="graduation-cap" class="w-8 h-8 text-white"></i>
                     </div>
-
-                    <div class="card bgcolor-primary">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-2 rounded-circle bgcolor-light color-primary">
-                                    <i class="fas fa-bullhorn"></i>
-                                </div>
-                                <div class="col-8 content">
-                                    <h4 class="card-title">Annonce ou évènement</h4>
-                                    <p class="card-text">
-                                        This is a wider card with supporting text below as a natural
-                                        lead-in...
-                                    </p>
-                                </div>
-                                <a href="#" class="col-2 rightlink">
-                                    <i class="fas fa-caret-right"></i>
-                                </a>
-                            </div>
-                        </div>
+                    <h3 class="text-2xl font-bold text-neutral-900 mb-4">Éducation</h3>
+                    <p class="text-neutral-600 mb-6 leading-relaxed">
+                        Inscriptions scolaires, gestion des établissements, programmes éducatifs. Investir dans l'avenir de nos enfants.
+                    </p>
+                    <a href="#" class="text-primary-600 hover:text-primary-700 font-semibold inline-flex items-center transition-colors duration-200">
+                        En savoir plus
+                        <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200"></i>
+                    </a>
+                </div>
+                
+                <!-- Service Card 6 -->
+                <div class="group bg-neutral-50 hover:bg-white rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 border border-neutral-200 hover:border-primary-200 animate-slide-in-up" style="animation-delay: 0.5s;">
+                    <div class="w-16 h-16 bg-gradient-to-br from-rose-500 to-rose-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="heart" class="w-8 h-8 text-white"></i>
                     </div>
-
-                </div> <!-- /Offres-->
+                    <h3 class="text-2xl font-bold text-neutral-900 mb-4">Santé</h3>
+                    <p class="text-neutral-600 mb-6 leading-relaxed">
+                        Centres de santé, campagnes de vaccination, hygiène publique. Votre santé, notre engagement quotidien.
+                    </p>
+                    <a href="#" class="text-primary-600 hover:text-primary-700 font-semibold inline-flex items-center transition-colors duration-200">
+                        En savoir plus
+                        <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200"></i>
+                    </a>
+                </div>
             </div>
-        </section>
-
-    </main>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/all.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
+        </div>
+    </section>
+    
+    <!-- Stats Section -->
+    <section class="py-24 gradient-primary text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="animate-scale-in">
+                    <div class="text-4xl md:text-5xl font-bold mb-2">15K+</div>
+                    <div class="text-white/80 font-medium">Habitants</div>
+                </div>
+                <div class="animate-scale-in" style="animation-delay: 0.1s;">
+                    <div class="text-4xl md:text-5xl font-bold mb-2">25</div>
+                    <div class="text-white/80 font-medium">Villages</div>
+                </div>
+                <div class="animate-scale-in" style="animation-delay: 0.2s;">
+                    <div class="text-4xl md:text-5xl font-bold mb-2">98%</div>
+                    <div class="text-white/80 font-medium">Satisfaction</div>
+                </div>
+                <div class="animate-scale-in" style="animation-delay: 0.3s;">
+                    <div class="text-4xl md:text-5xl font-bold mb-2">150+</div>
+                    <div class="text-white/80 font-medium">Projets réalisés</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- News Section -->
+    <section id="actualites" class="py-24 bg-neutral-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16 animate-slide-in-up">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-neutral-900 mb-4">
+                    Actualités
+                </h2>
+                <p class="text-xl text-neutral-600 max-w-3xl mx-auto">
+                    Restez informé des dernières nouvelles, événements et initiatives de notre commune
+                </p>
+            </div>
+            
+            <!-- News Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- News Card 1 -->
+                <article class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-slide-in-up">
+                    <div class="h-48 bg-gradient-to-br from-primary-400 to-primary-600 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black/20"></div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <span class="bg-accent-400 text-neutral-900 px-3 py-1 rounded-full text-sm font-semibold">
+                                Développement
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-sm text-neutral-500 mb-2 flex items-center">
+                            <i data-lucide="calendar" class="w-4 h-4 mr-2"></i>
+                            15 Décembre 2024
+                        </div>
+                        <h3 class="text-xl font-bold text-neutral-900 mb-3 hover:text-primary-600 transition-colors duration-200">
+                            <a href="#">Nouveau projet d'infrastructure routière</a>
+                        </h3>
+                        <p class="text-neutral-600 leading-relaxed mb-4">
+                            Lancement des travaux de réfection de la route principale reliant Afagnan aux communes voisines, améliorant ainsi la mobilité de nos concitoyens.
+                        </p>
+                        <a href="#" class="text-primary-600 hover:text-primary-700 font-semibold inline-flex items-center transition-colors duration-200">
+                            Lire la suite
+                            <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                        </a>
+                    </div>
+                </article>
+                
+                <!-- News Card 2 -->
+                <article class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-slide-in-up" style="animation-delay: 0.1s;">
+                    <div class="h-48 bg-gradient-to-br from-emerald-400 to-emerald-600 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black/20"></div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <span class="bg-accent-400 text-neutral-900 px-3 py-1 rounded-full text-sm font-semibold">
+                                Éducation
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-sm text-neutral-500 mb-2 flex items-center">
+                            <i data-lucide="calendar" class="w-4 h-4 mr-2"></i>
+                            12 Décembre 2024
+                        </div>
+                        <h3 class="text-xl font-bold text-neutral-900 mb-3 hover:text-primary-600 transition-colors duration-200">
+                            <a href="#">Inauguration de la nouvelle école primaire</a>
+                        </h3>
+                        <p class="text-neutral-600 leading-relaxed mb-4">
+                            Une nouvelle école primaire équipée de salles de classe modernes et d'une bibliothèque a été inaugurée, accueillant 200 élèves supplémentaires.
+                        </p>
+                        <a href="#" class="text-primary-600 hover:text-primary-700 font-semibold inline-flex items-center transition-colors duration-200">
+                            Lire la suite
+                            <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                        </a>
+                    </div>
+                </article>
+                
+                <!-- News Card 3 -->
+                <article class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-slide-in-up" style="animation-delay: 0.2s;">
+                    <div class="h-48 bg-gradient-to-br from-purple-400 to-purple-600 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black/20"></div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <span class="bg-accent-400 text-neutral-900 px-3 py-1 rounded-full text-sm font-semibold">
+                                Culture
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-sm text-neutral-500 mb-2 flex items-center">
+                            <i data-lucide="calendar" class="w-4 h-4 mr-2"></i>
+                            10 Décembre 2024
+                        </div>
+                        <h3 class="text-xl font-bold text-neutral-900 mb-3 hover:text-primary-600 transition-colors duration-200">
+                            <a href="#">Festival culturel annuel d'Afagnan</a>
+                        </h3>
+                        <p class="text-neutral-600 leading-relaxed mb-4">
+                            Trois jours de célébration de notre patrimoine culturel avec des danses traditionnelles, de l'artisanat local et des expositions artistiques.
+                        </p>
+                        <a href="#" class="text-primary-600 hover:text-primary-700 font-semibold inline-flex items-center transition-colors duration-200">
+                            Lire la suite
+                            <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+            
+            <!-- View All Button -->
+            <div class="text-center mt-12 animate-slide-in-up" style="animation-delay: 0.3s;">
+                <a href="#" class="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg inline-flex items-center">
+                    Voir toutes les actualités
+                    <i data-lucide="arrow-right" class="w-5 h-5 ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16 animate-slide-in-up">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-neutral-900 mb-4">
+                    Contactez-nous
+                </h2>
+                <p class="text-xl text-neutral-600 max-w-3xl mx-auto">
+                    Nous sommes à votre écoute. N'hésitez pas à nous contacter pour toute question ou demande d'information
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="animate-slide-in-up">
+                    <div class="bg-neutral-50 rounded-2xl p-8 border border-neutral-200">
+                        <h3 class="text-2xl font-bold text-neutral-900 mb-6">Envoyez-nous un message</h3>
+                        <form class="space-y-6">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="firstName" class="block text-sm font-medium text-neutral-700 mb-2">Prénom</label>
+                                    <input type="text" id="firstName" name="firstName" class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200" placeholder="Votre prénom">
+                                </div>
+                                <div>
+                                    <label for="lastName" class="block text-sm font-medium text-neutral-700 mb-2">Nom</label>
+                                    <input type="text" id="lastName" name="lastName" class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200" placeholder="Votre nom">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-neutral-700 mb-2">Email</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200" placeholder="votre@email.com">
+                            </div>
+                            <div>
+                                <label for="subject" class="block text-sm font-medium text-neutral-700 mb-2">Sujet</label>
+                                <select id="subject" name="subject" class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200">
+                                    <option value="">Choisissez un sujet</option>
+                                    <option value="etat-civil">État civil</option>
+                                    <option value="urbanisme">Urbanisme</option>
+                                    <option value="social">Action sociale</option>
+                                    <option value="commerce">Commerce</option>
+                                    <option value="autre">Autre</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-neutral-700 mb-2">Message</label>
+                                <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200" placeholder="Votre message..."></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg">
+                                Envoyer le message
+                                <i data-lucide="send" class="inline w-5 h-5 ml-2"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="animate-slide-in-up" style="animation-delay: 0.1s;">
+                    <div class="space-y-8">
+                        <!-- Contact Cards -->
+                        <div class="bg-neutral-50 rounded-2xl p-6 border border-neutral-200">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="map-pin" class="w-6 h-6 text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-neutral-900 mb-2">Adresse</h4>
+                                    <p class="text-neutral-600">
+                                        Mairie d'Afagnan<br>
+                                        BP 123, Afagnan<br>
+                                        Région Maritime, Togo
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-neutral-50 rounded-2xl p-6 border border-neutral-200">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 gradient-accent rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="phone" class="w-6 h-6 text-neutral-900"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-neutral-900 mb-2">Téléphone</h4>
+                                    <p class="text-neutral-600">
+                                        <a href="tel:+22890000000" class="hover:text-primary-600 transition-colors duration-200">
+                                            (+228) 90 00 00 00
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-neutral-50 rounded-2xl p-6 border border-neutral-200">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="mail" class="w-6 h-6 text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-neutral-900 mb-2">Email</h4>
+                                    <p class="text-neutral-600">
+                                        <a href="mailto:contact@afagnan.tg" class="hover:text-primary-600 transition-colors duration-200">
+                                            contact@afagnan.tg
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-neutral-50 rounded-2xl p-6 border border-neutral-200">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="clock" class="w-6 h-6 text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-neutral-900 mb-2">Horaires</h4>
+                                    <p class="text-neutral-600">
+                                        Lundi - Vendredi<br>
+                                        08h00 - 12h00 | 14h00 - 17h00
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-neutral-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Main Footer Content -->
+            <div class="py-16 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Brand Column -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 gradient-primary rounded-xl flex items-center justify-center">
+                            <i data-lucide="building" class="w-7 h-7 text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold">Commune d'Afagnan</h3>
+                            <p class="text-neutral-400">Ensemble pour l'avenir</p>
+                        </div>
+                    </div>
+                    <p class="text-neutral-400 leading-relaxed mb-6 max-w-md">
+                        Située au cœur de la région maritime du Togo, la Commune d'Afagnan s'engage quotidiennement pour le bien-être et le développement de ses habitants.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-neutral-800 hover:bg-primary-600 rounded-lg flex items-center justify-center transition-colors duration-200">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-neutral-800 hover:bg-primary-600 rounded-lg flex items-center justify-center transition-colors duration-200">
+                            <i data-lucide="twitter" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-neutral-800 hover:bg-primary-600 rounded-lg flex items-center justify-center transition-colors duration-200">
+                            <i data-lucide="youtube" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Liens Rapides</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#accueil" class="text-neutral-400 hover:text-white transition-colors duration-200">Accueil</a></li>
+                        <li><a href="#services" class="text-neutral-400 hover:text-white transition-colors duration-200">Services</a></li>
+                        <li><a href="#actualites" class="text-neutral-400 hover:text-white transition-colors duration-200">Actualités</a></li>
+                        <li><a href="#contact" class="text-neutral-400 hover:text-white transition-colors duration-200">Contact</a></li>
+                        <li><a href="#" class="text-neutral-400 hover:text-white transition-colors duration-200">E-Services</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Contact</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-center space-x-3">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-primary-400 flex-shrink-0"></i>
+                            <span class="text-neutral-400 text-sm">Afagnan, Région Maritime, Togo</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i data-lucide="phone" class="w-4 h-4 text-primary-400 flex-shrink-0"></i>
+                            <a href="tel:+22890000000" class="text-neutral-400 hover:text-white transition-colors duration-200 text-sm">
+                                (+228) 90 00 00 00
+                            </a>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i data-lucide="mail" class="w-4 h-4 text-primary-400 flex-shrink-0"></i>
+                            <a href="mailto:contact@afagnan.tg" class="text-neutral-400 hover:text-white transition-colors duration-200 text-sm">
+                                contact@afagnan.tg
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Footer Bottom -->
+            <div class="border-t border-neutral-800 py-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-neutral-400 text-sm mb-4 md:mb-0">
+                    &copy; <span id="currentYear"></span> Commune d'Afagnan. Tous droits réservés.
+                </p>
+                <div class="flex space-x-6 text-sm">
+                    <a href="#" class="text-neutral-400 hover:text-white transition-colors duration-200">Mentions légales</a>
+                    <a href="#" class="text-neutral-400 hover:text-white transition-colors duration-200">Politique de confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="fixed bottom-6 right-6 w-12 h-12 bg-primary-600 hover:bg-primary-700 text-white rounded-xl shadow-lg flex items-center justify-center transition-all duration-300 opacity-0 invisible hover:scale-110 z-50">
+        <i data-lucide="arrow-up" class="w-5 h-5"></i>
+    </button>
+    
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+        
+        // Set current year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Navigation functionality
+        const navbar = document.getElementById('navbar');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        
+        // Mobile menu toggle
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuBtn.querySelector('[data-lucide]');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.setAttribute('data-lucide', 'menu');
+            } else {
+                icon.setAttribute('data-lucide', 'x');
+            }
+            lucide.createIcons();
+        });
+        
+        // Scroll behavior
+        let lastScrollY = window.scrollY;
+        
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            
+            // Navbar background
+            if (currentScrollY > 50) {
+                navbar.classList.add('glass');
+                navbar.classList.add('shadow-lg');
+            } else {
+                navbar.classList.remove('glass');
+                navbar.classList.remove('shadow-lg');
+            }
+            
+            // Scroll to top button
+            if (currentScrollY > 300) {
+                scrollToTopBtn.classList.remove('opacity-0', 'invisible');
+                scrollToTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                scrollToTopBtn.classList.remove('opacity-100', 'visible');
+                scrollToTopBtn.classList.add('opacity-0', 'invisible');
+            }
+            
+            lastScrollY = currentScrollY;
+        });
+        
+        // Scroll to top functionality
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        const icon = mobileMenuBtn.querySelector('[data-lucide]');
+                        icon.setAttribute('data-lucide', 'menu');
+                        lucide.createIcons();
+                    }
+                }
+            });
+        });
+        
+        // Active navigation highlighting
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.offsetHeight;
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all animated elements
+        document.querySelectorAll('[class*="animate-"]').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Form submission (placeholder)
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Merci pour votre message ! Nous vous répondrons dans les plus brefs délais.');
+        });
+    </script>
+    
+    <style>
+        .nav-link {
+            @apply text-neutral-700 hover:text-primary-600 font-medium px-4 py-2 rounded-lg transition-all duration-200 relative;
+        }
+        
+        .nav-link.active {
+            @apply text-primary-600 bg-primary-50;
+        }
+        
+        .nav-link::after {
+            content: '';
+            @apply absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-primary-600 transition-all duration-300;
+        }
+        
+        .nav-link.active::after {
+            @apply w-3/4;
+        }
+        
+        /* Animation initial states */
+        [class*="animate-slide-in-up"] {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        [class*="animate-slide-in-down"] {
+            opacity: 0;
+            transform: translateY(-30px);
+        }
+        
+        [class*="animate-scale-in"] {
+            opacity: 0;
+            transform: scale(0.9);
+        }
+    </style>
 </body>
-
 </html>
